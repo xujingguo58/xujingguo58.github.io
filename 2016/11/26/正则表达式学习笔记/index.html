@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="#正则表达式学习笔记#
+##正则表达式基本语法##
+###1.1字符集和单词
+
+.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
+###1.2字符类|类|匹配字符||">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2016/11/26/正则表达式学习笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#正则表达式学习笔记#
+##正则表达式基本语法##
+###1.1字符集和单词
+
+.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
+###1.2字符类|类|匹配字符||">
+<meta property="og:updated_time" content="2016-10-18T14:58:09.694Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="#正则表达式学习笔记#
+##正则表达式基本语法##
+###1.1字符集和单词
+
+.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
+###1.2字符类|类|匹配字符||">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-正则表达式学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/26/正则表达式学习笔记/" class="article-date">
+  <time datetime="2016-11-26T08:17:21.183Z" itemprop="datePublished">2016-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#正则表达式学习笔记#</p>
+<p>##正则表达式基本语法##</p>
+<p>###1.1字符集和单词</p>
+<blockquote>
+<p>.用于匹配除换行符之外的任意的一个字符<br>方括号[]用于指定一个字符集，只能匹配其中的一个字符<br>连字符-用于描述一个范围<br>为了严格匹配一个单词，需要加上\&lt;和&gt;\<br><em>ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符</em></p>
+<p>###1.2字符类<br>|类|匹配字符|<br>|——-|—|<br>|[[:alnum:]]|文字、数字字符|<br>|[[:alpha:]]|字母字符|<br>|[[:lower:]]|小写字母|<br>|[[“upper”]]|大写字母|<br>|[[:digit:]]|小数|<br>|[[:xdigit:]]|十六进制数字|<br>|[[:punct:]]|标点符号|<br>|[[blank]]|制表符和空格|<br>|[[:space:]]|空格|<br>|[[:cntrl:]]|所有控制符|<br>|[[:print:]]|所有可打印的字符|<br>|[[:graph:]]|除空格外所有可打印的字符|</p>
+<p>###1.3位置匹配<br>^和$分别用于匹配行首和行尾。</p>
+<p>###1.4转义字符<br>\表示转义</p>
+<p>###1.5重复<br>|元字符|描述|<br>|—|—|<br>|*|重复0次或更多次|<br>|+|重复一次或更多次|<br>|？|重复0次或一次|<br>|{n}|重复n次|<br>|{n,}|重复n次或更多次|<br>|{n,m}|重复不少于n次，不多于m次|</p>
+<p>###1.6反义<br>[^y]表示除了字母y的任何字符<br><em>注意：^放在行首和反义时的区别</em><br>^[^y]    ##匹配所有不以字母y开头的行</p>
+<p>###1.7分支<br>|表示分支</p>
+<p>###1.8逆向引用<br>  在子表达式中捕获的内容可以在正则表达式中的其他地方再次使用，用户可以使用反斜杠”\”加上子表达式的编号来指代该分组分配到的内容。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/26/正则表达式学习笔记/" data-id="civyy23l20003vcu5qn8qreil" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/26/Cascading Style Sheets for Web Design/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/26/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/26/linux学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/26/Cascading Style Sheets for Web Design/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/26/正则表达式学习笔记/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/26/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

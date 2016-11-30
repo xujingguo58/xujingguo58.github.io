@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="blog 博客 github hexo next," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,22 +84,52 @@
 
 
 
-<meta name="description" content="参考教程:Hexo系列教程之一：hexo+github搭建独立博客
-在参考了上述教程后顺利的搭建起了自己的博客，但在搭建图中遇到了几个问题，在此记录下来供大家借鉴：
-1. 配置文件的修改​       在通过ssh成功连接到github自己的repository后，要想将提交代码到github，就必须修改自己的配置文件，位置在./hexo/_config.yml，用notepad或 sublime">
+<meta name="description" content="正则表达式基本语法1.1字符集和单词
+.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
+1.2字符类
+
+
+类
+匹配字符
+
+
+
+
+[[:alnum:]]
+文字、数字字符">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用hexo+github搭建个人博客踩过的坑">
-<meta property="og:url" content="http://yoursite.com/2016/11/26/利用hexo-github-page搭建个人博客/index.html">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://yoursite.com/2016/11/30/正则表达式/index.html">
 <meta property="og:site_name" content="xujingguo's blog">
-<meta property="og:description" content="参考教程:Hexo系列教程之一：hexo+github搭建独立博客
-在参考了上述教程后顺利的搭建起了自己的博客，但在搭建图中遇到了几个问题，在此记录下来供大家借鉴：
-1. 配置文件的修改​       在通过ssh成功连接到github自己的repository后，要想将提交代码到github，就必须修改自己的配置文件，位置在./hexo/_config.yml，用notepad或 sublime">
-<meta property="og:updated_time" content="2016-11-26T14:28:22.852Z">
+<meta property="og:description" content="正则表达式基本语法1.1字符集和单词
+.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
+1.2字符类
+
+
+类
+匹配字符
+
+
+
+
+[[:alnum:]]
+文字、数字字符">
+<meta property="og:updated_time" content="2016-11-30T14:13:47.757Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用hexo+github搭建个人博客踩过的坑">
-<meta name="twitter:description" content="参考教程:Hexo系列教程之一：hexo+github搭建独立博客
-在参考了上述教程后顺利的搭建起了自己的博客，但在搭建图中遇到了几个问题，在此记录下来供大家借鉴：
-1. 配置文件的修改​       在通过ssh成功连接到github自己的repository后，要想将提交代码到github，就必须修改自己的配置文件，位置在./hexo/_config.yml，用notepad或 sublime">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="正则表达式基本语法1.1字符集和单词
+.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
+1.2字符类
+
+
+类
+匹配字符
+
+
+
+
+[[:alnum:]]
+文字、数字字符">
 
 
 
@@ -127,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/26/利用hexo-github-page搭建个人博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/30/正则表达式/"/>
 
 
 
 
 
-  <title> 利用hexo+github搭建个人博客踩过的坑 | xujingguo's blog </title>
+  <title> 正则表达式 | xujingguo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -244,7 +274,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/26/利用hexo-github-page搭建个人博客/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/正则表达式/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -268,7 +298,7 @@
             
             
               
-                利用hexo+github搭建个人博客踩过的坑
+                正则表达式
               
             
           </h1>
@@ -281,8 +311,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-26T21:52:19+08:00">
-                2016-11-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T22:12:34+08:00">
+                2016-11-30
               </time>
             
 
@@ -301,7 +331,7 @@
 
           
           
-             <span id="/2016/11/26/利用hexo-github-page搭建个人博客/" class="leancloud_visitors" data-flag-title="利用hexo+github搭建个人博客踩过的坑">
+             <span id="/2016/11/30/正则表达式/" class="leancloud_visitors" data-flag-title="正则表达式">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -326,16 +356,106 @@
       
 
       
-        <p>参考教程:<a href="http://www.jianshu.com/p/0b33006a48e6" target="_blank" rel="external">Hexo系列教程之一：hexo+github搭建独立博客</a></p>
-<p>在参考了上述教程后顺利的搭建起了自己的博客，但在搭建图中遇到了几个问题，在此记录下来供大家借鉴：</p>
-<h3 id="1-配置文件的修改"><a href="#1-配置文件的修改" class="headerlink" title="1. 配置文件的修改"></a>1. 配置文件的修改</h3><p>​       在通过ssh成功连接到github自己的repository后，要想将提交代码到github，就必须修改自己的配置文件，位置在<code>./hexo/_config.yml</code>，用notepad或 sublime打开后修改文件末尾的 deploy如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https:<span class="comment">//github.com/xujingguo58/xujingguo58.github.io.git</span></div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>​    <em>注意：所有的配置文件在“：”之后都必须加空格</em></p>
-<h2 id="2-hexo-deployer-git插件的安装"><a href="#2-hexo-deployer-git插件的安装" class="headerlink" title="2. hexo-deployer-git插件的安装"></a>2. hexo-deployer-git插件的安装</h2><p>​    如果未安装该插件，则<code>hexo d</code>不会有任何提示，通过</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>命令安装。</p>
-<h2 id="3-主题的修改"><a href="#3-主题的修改" class="headerlink" title="3.主题的修改"></a>3.主题的修改</h2><p>​    搭建完成后默认主题为landscape，如果不满意可以自行修改为自己喜欢的主题，在<code>./hexo/</code>下右键菜单选择<code>$ git bash here</code>在出现的终端中运行<code>$ git clone https://github.com/iissnan/hexo-theme-next themes/next</code> 克隆 next 主题，next具体配置可以参阅<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next使用文档</a></p>
-<p>最后奉上我的博客地址：<a href="https://xujingguo58.github.io/" target="_blank" rel="external">xujingguo’s blog</a></p>
+        <h2 id="正则表达式基本语法"><a href="#正则表达式基本语法" class="headerlink" title="正则表达式基本语法"></a>正则表达式基本语法</h2><h3 id="1-1字符集和单词"><a href="#1-1字符集和单词" class="headerlink" title="1.1字符集和单词"></a>1.1字符集和单词</h3><blockquote>
+<p>.用于匹配除换行符之外的任意的一个字符<br>方括号[]用于指定一个字符集，只能匹配其中的一个字符<br>连字符-用于描述一个范围<br>为了严格匹配一个单词，需要加上\&lt;和&gt;\<br><em>ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符</em></p>
+<h3 id="1-2字符类"><a href="#1-2字符类" class="headerlink" title="1.2字符类"></a>1.2字符类</h3><table>
+<thead>
+<tr>
+<th>类</th>
+<th>匹配字符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[[:alnum:]]</td>
+<td>文字、数字字符</td>
+</tr>
+<tr>
+<td>[[:alpha:]]</td>
+<td>字母字符</td>
+</tr>
+<tr>
+<td>[[:lower:]]</td>
+<td>小写字母</td>
+</tr>
+<tr>
+<td>[[“upper”]]</td>
+<td>大写字母</td>
+</tr>
+<tr>
+<td>[[:digit:]]</td>
+<td>小数</td>
+</tr>
+<tr>
+<td>[[:xdigit:]]</td>
+<td>十六进制数字</td>
+</tr>
+<tr>
+<td>[[:punct:]]</td>
+<td>标点符号</td>
+</tr>
+<tr>
+<td>[[blank]]</td>
+<td>制表符和空格</td>
+</tr>
+<tr>
+<td>[[:space:]]</td>
+<td>空格</td>
+</tr>
+<tr>
+<td>[[:cntrl:]]</td>
+<td>所有控制符</td>
+</tr>
+<tr>
+<td>[[:print:]]</td>
+<td>所有可打印的字符</td>
+</tr>
+<tr>
+<td>[[:graph:]]</td>
+<td>除空格外所有可打印的字符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3位置匹配"><a href="#1-3位置匹配" class="headerlink" title="1.3位置匹配"></a>1.3位置匹配</h3><p>^和$分别用于匹配行首和行尾。</p>
+<h3 id="1-4转义字符"><a href="#1-4转义字符" class="headerlink" title="1.4转义字符"></a>1.4转义字符</h3><p>\表示转义</p>
+<h3 id="1-5重复"><a href="#1-5重复" class="headerlink" title="1.5重复"></a>1.5重复</h3><table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>重复0次或更多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复一次或更多次</td>
+</tr>
+<tr>
+<td>？</td>
+<td>重复0次或一次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复不少于n次，不多于m次</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-6反义"><a href="#1-6反义" class="headerlink" title="1.6反义"></a>1.6反义</h3><p>[^y]表示除了字母y的任何字符<br><em>注意：^放在行首和反义时的区别</em><br>^[^y]    ##匹配所有不以字母y开头的行</p>
+<h3 id="1-7分支"><a href="#1-7分支" class="headerlink" title="1.7分支"></a>1.7分支</h3><p>|表示分支</p>
+<h3 id="1-8逆向引用"><a href="#1-8逆向引用" class="headerlink" title="1.8逆向引用"></a>1.8逆向引用</h3><p>  在子表达式中捕获的内容可以在正则表达式中的其他地方再次使用，用户可以使用反斜杠”\”加上子表达式的编号来指代该分组分配到的内容。</p>
+</blockquote>
 
       
     </div>
@@ -357,26 +477,20 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/blog-博客-github-hexo-next/" rel="tag"># blog 博客 github hexo next</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/28/自动获取可用的ipv6临时地址/" rel="next" title="自动获取可用的ipv6临时地址">
+                <i class="fa fa-chevron-left"></i> 自动获取可用的ipv6临时地址
+              </a>
             
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/28/Cascading Style Sheets for Web Design/" rel="prev" title="Cascading Style Sheets for Web Design">
-                Cascading Style Sheets for Web Design <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -489,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置文件的修改"><span class="nav-number">1.</span> <span class="nav-text">1. 配置文件的修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-hexo-deployer-git插件的安装"><span class="nav-number"></span> <span class="nav-text">2. hexo-deployer-git插件的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-主题的修改"><span class="nav-number"></span> <span class="nav-text">3.主题的修改</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式基本语法"><span class="nav-number">1.</span> <span class="nav-text">正则表达式基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1字符集和单词"><span class="nav-number">1.1.</span> <span class="nav-text">1.1字符集和单词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2字符类"><span class="nav-number">1.2.</span> <span class="nav-text">1.2字符类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3位置匹配"><span class="nav-number">1.3.</span> <span class="nav-text">1.3位置匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4转义字符"><span class="nav-number">1.4.</span> <span class="nav-text">1.4转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5重复"><span class="nav-number">1.5.</span> <span class="nav-text">1.5重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6反义"><span class="nav-number">1.6.</span> <span class="nav-text">1.6反义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7分支"><span class="nav-number">1.7.</span> <span class="nav-text">1.7分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8逆向引用"><span class="nav-number">1.8.</span> <span class="nav-text">1.8逆向引用</span></a></li></ol></li></ol></div>
             
 
           </div>

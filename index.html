@@ -239,7 +239,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/JavaScript对象/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/JavaScript对象（一）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -264,7 +264,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/08/JavaScript对象/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/08/JavaScript对象（一）/" itemprop="url">
                   JavaScript对象（一）
                 </a>
               
@@ -299,7 +299,7 @@
 
           
           
-             <span id="/2016/12/08/JavaScript对象/" class="leancloud_visitors" data-flag-title="JavaScript对象（一）">
+             <span id="/2016/12/08/JavaScript对象（一）/" class="leancloud_visitors" data-flag-title="JavaScript对象（一）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -326,8 +326,7 @@
       
         
           
-            <p>[TOC]</p>
-<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><h4 id="object是JavaScript所有对象的基类"><a href="#object是JavaScript所有对象的基类" class="headerlink" title="object是JavaScript所有对象的基类"></a>object是JavaScript所有对象的基类</h4><h4 id="1-创建object对象"><a href="#1-创建object对象" class="headerlink" title="1.创建object对象"></a>1.创建object对象</h4><p><code>obj = new Object([value])</code></p>
+            <h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><h4 id="object是JavaScript所有对象的基类"><a href="#object是JavaScript所有对象的基类" class="headerlink" title="object是JavaScript所有对象的基类"></a>object是JavaScript所有对象的基类</h4><h4 id="1-创建object对象"><a href="#1-创建object对象" class="headerlink" title="1.创建object对象"></a>1.创建object对象</h4><p><code>obj = new Object([value])</code></p>
 <h4 id="2-Object对象的属性"><a href="#2-Object对象的属性" class="headerlink" title="2.Object对象的属性"></a>2.Object对象的属性</h4><h5 id="1-prototype属性"><a href="#1-prototype属性" class="headerlink" title="(1) prototype属性"></a>(1) prototype属性</h5><p>该属性返回对象类型原型的引用</p>
 <p><code>objectName.prototype</code></p>
 <p>用prototype属性可以提供对象的类的一组基本功能。</p>
@@ -339,13 +338,16 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="number">1</span>);</div><div class="line">alert(i.constructor)</div></pre></td></tr></table></figure>
 <p>result:</p>
 <p><code>function Boolean(){ [native code] }</code></p>
-<h4 id="3）object对象的方法"><a href="#3）object对象的方法" class="headerlink" title="(3）object对象的方法"></a>(3）object对象的方法</h4><h5 id="1-toString方法"><a href="#1-toString方法" class="headerlink" title="(1)toString方法"></a>(1)toString方法</h5><p>返回对象的字符串表示</p>
+<h4 id="3-object对象的方法"><a href="#3-object对象的方法" class="headerlink" title="3.object对象的方法"></a>3.object对象的方法</h4><h5 id="1-toString方法"><a href="#1-toString方法" class="headerlink" title="(1)toString方法"></a>(1)toString方法</h5><p>返回对象的字符串表示</p>
 <p><code>objName.toString()</code></p>
 <h5 id="2-valueOf方法"><a href="#2-valueOf方法" class="headerlink" title="(2)valueOf方法"></a>(2)valueOf方法</h5><p>返回对象的初始值</p>
 <h2 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h2><p>String对象是动态对象，需要创建对象实例后才能引用该对象的属性和方法，该对象主要用于处理或格式化文本字符串已经确定和定位字符串中的子字符串。</p>
-<h4 id="1-创建String对象"><a href="#1-创建String对象" class="headerlink" title="(1)创建String对象"></a>(1)创建String对象</h4><p><code>var str= new String([String Text])</code></p>
-<h4 id="2-String对象的属性"><a href="#2-String对象的属性" class="headerlink" title="(2)String对象的属性"></a>(2)String对象的属性</h4><p>String对象有三个属性 length属性， constructor属性，prototype属性</p>
-<h4 id="3-String对象的方法"><a href="#3-String对象的方法" class="headerlink" title="(3)String对象的方法"></a>(3)String对象的方法</h4><table>
+<h4 id="1-创建String对象"><a href="#1-创建String对象" class="headerlink" title="1.创建String对象"></a>1.创建String对象</h4><p><code>var str= new String([String Text])</code></p>
+<h4 id="2-String对象的属性"><a href="#2-String对象的属性" class="headerlink" title="2.String对象的属性"></a>2.String对象的属性</h4><p>String对象有三个属性 length属性， constructor属性，prototype属性</p>
+<p><code>length</code>属性返回数组长度。</p>
+<p><code>constructor</code>属性表示创建对象的函数</p>
+<p><code>protype</code>返回对象原型的引用</p>
+<h4 id="3-String对象的方法"><a href="#3-String对象的方法" class="headerlink" title="3.String对象的方法"></a>3.String对象的方法</h4><table>
 <thead>
 <tr>
 <th>方法</th>
@@ -491,8 +493,221 @@
 </tr>
 </tbody>
 </table>
-<p>在上述函数中，比较常用的是split函数：</p>
-<h2 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h2>
+<blockquote>
+<p>表格来自w3school，可点击函数名在线体验各个方法的功能</p>
+</blockquote>
+<p>​     在上述函数中，比较常用的是split函数：</p>
+<p><code>split()     //将字符串分割为数组</code> </p>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">document</span>.write(<span class="string">"hello world!"</span>.split(<span class="string">""</span>));</div><div class="line"><span class="comment">//result:h,e,l,l,o, ,w,o,r,l,d,!</span></div><div class="line"><span class="built_in">document</span>.write(<span class="string">"2:5:4:6:1"</span>.split(<span class="string">":"</span>))	</div><div class="line"><span class="comment">//result:2,5,4,6,1</span></div><div class="line"><span class="built_in">document</span>.write(<span class="string">"hello world!"</span>.split(<span class="string">" "</span>))</div><div class="line"><span class="comment">//result:hello,world!</span></div><div class="line"><span class="built_in">document</span>.write(<span class="string">"hello world!"</span>.split(<span class="string">""</span>, <span class="number">7</span>))</div><div class="line"><span class="comment">//result:h,e,l,l,o, ,w</span></div></pre></td></tr></table></figure>
+<h2 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h2><p>Date对象实现日期和时间的操作</p>
+<h4 id="1-Date对象的创建"><a href="#1-Date对象的创建" class="headerlink" title="1.Date对象的创建"></a>1.Date对象的创建</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dateObj = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">dateObj = <span class="keyword">new</span> <span class="built_in">Date</span>(dateval);</div><div class="line">dateObj = <span class="keyword">new</span> <span class="built_in">Date</span>(year,month,date[,hours[,minutes[,seconds[,ms]]]])</div></pre></td></tr></table></figure>
+<h4 id="2-Date对象的属性"><a href="#2-Date对象的属性" class="headerlink" title="2.Date对象的属性"></a>2.Date对象的属性</h4><p>Date对象有两个属性，<code>prototype</code>属性和<code>constructor</code>属性,使用方法同以上对象。</p>
+<h4 id="3-Date对象的方法"><a href="#3-Date对象的方法" class="headerlink" title="3.Date对象的方法"></a>3.Date对象的方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_Date.asp" target="_blank" rel="external">Date()</a></td>
+<td>返回当日的日期和时间。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getDate.asp" target="_blank" rel="external">getDate()</a></td>
+<td>从 Date 对象返回一个月中的某一天 (1 ~ 31)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getDay.asp" target="_blank" rel="external">getDay()</a></td>
+<td>从 Date 对象返回一周中的某一天 (0 ~ 6)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getMonth.asp" target="_blank" rel="external">getMonth()</a></td>
+<td>从 Date 对象返回月份 (0 ~ 11)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getFullYear.asp" target="_blank" rel="external">getFullYear()</a></td>
+<td>从 Date 对象以四位数字返回年份。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getYear.asp" target="_blank" rel="external">getYear()</a></td>
+<td>请使用 getFullYear() 方法代替。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getHours.asp" target="_blank" rel="external">getHours()</a></td>
+<td>返回 Date 对象的小时 (0 ~ 23)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getMinutes.asp" target="_blank" rel="external">getMinutes()</a></td>
+<td>返回 Date 对象的分钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getSeconds.asp" target="_blank" rel="external">getSeconds()</a></td>
+<td>返回 Date 对象的秒数 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getMilliseconds.asp" target="_blank" rel="external">getMilliseconds()</a></td>
+<td>返回 Date 对象的毫秒(0 ~ 999)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getTime.asp" target="_blank" rel="external">getTime()</a></td>
+<td>返回 1970 年 1 月 1 日至今的毫秒数。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getTimezoneOffset.asp" target="_blank" rel="external">getTimezoneOffset()</a></td>
+<td>返回本地时间与格林威治标准时间 (GMT) 的分钟差。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCDate.asp" target="_blank" rel="external">getUTCDate()</a></td>
+<td>根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCDay.asp" target="_blank" rel="external">getUTCDay()</a></td>
+<td>根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCMonth.asp" target="_blank" rel="external">getUTCMonth()</a></td>
+<td>根据世界时从 Date 对象返回月份 (0 ~ 11)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCFullYear.asp" target="_blank" rel="external">getUTCFullYear()</a></td>
+<td>根据世界时从 Date 对象返回四位数的年份。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCHours.asp" target="_blank" rel="external">getUTCHours()</a></td>
+<td>根据世界时返回 Date 对象的小时 (0 ~ 23)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCMinutes.asp" target="_blank" rel="external">getUTCMinutes()</a></td>
+<td>根据世界时返回 Date 对象的分钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCSeconds.asp" target="_blank" rel="external">getUTCSeconds()</a></td>
+<td>根据世界时返回 Date 对象的秒钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCMilliseconds.asp" target="_blank" rel="external">getUTCMilliseconds()</a></td>
+<td>根据世界时返回 Date 对象的毫秒(0 ~ 999)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_parse.asp" target="_blank" rel="external">parse()</a></td>
+<td>返回1970年1月1日午夜到指定日期（字符串）的毫秒数。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setDate.asp" target="_blank" rel="external">setDate()</a></td>
+<td>设置 Date 对象中月的某一天 (1 ~ 31)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setMonth.asp" target="_blank" rel="external">setMonth()</a></td>
+<td>设置 Date 对象中月份 (0 ~ 11)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setFullYear.asp" target="_blank" rel="external">setFullYear()</a></td>
+<td>设置 Date 对象中的年份（四位数字）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setYear.asp" target="_blank" rel="external">setYear()</a></td>
+<td>请使用 setFullYear() 方法代替。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setHours.asp" target="_blank" rel="external">setHours()</a></td>
+<td>设置 Date 对象中的小时 (0 ~ 23)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setMinutes.asp" target="_blank" rel="external">setMinutes()</a></td>
+<td>设置 Date 对象中的分钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setSeconds.asp" target="_blank" rel="external">setSeconds()</a></td>
+<td>设置 Date 对象中的秒钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setMilliseconds.asp" target="_blank" rel="external">setMilliseconds()</a></td>
+<td>设置 Date 对象中的毫秒 (0 ~ 999)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setTime.asp" target="_blank" rel="external">setTime()</a></td>
+<td>以毫秒设置 Date 对象。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCDate.asp" target="_blank" rel="external">setUTCDate()</a></td>
+<td>根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCMonth.asp" target="_blank" rel="external">setUTCMonth()</a></td>
+<td>根据世界时设置 Date 对象中的月份 (0 ~ 11)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCFullYear.asp" target="_blank" rel="external">setUTCFullYear()</a></td>
+<td>根据世界时设置 Date 对象中的年份（四位数字）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setutchours.asp" target="_blank" rel="external">setUTCHours()</a></td>
+<td>根据世界时设置 Date 对象中的小时 (0 ~ 23)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCMinutes.asp" target="_blank" rel="external">setUTCMinutes()</a></td>
+<td>根据世界时设置 Date 对象中的分钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCSeconds.asp" target="_blank" rel="external">setUTCSeconds()</a></td>
+<td>根据世界时设置 Date 对象中的秒钟 (0 ~ 59)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCMilliseconds.asp" target="_blank" rel="external">setUTCMilliseconds()</a></td>
+<td>根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_tosource_boolean.asp" target="_blank" rel="external">toSource()</a></td>
+<td>返回该对象的源代码。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toString_date.asp" target="_blank" rel="external">toString()</a></td>
+<td>把 Date 对象转换为字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toTimeString.asp" target="_blank" rel="external">toTimeString()</a></td>
+<td>把 Date 对象的时间部分转换为字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toDateString.asp" target="_blank" rel="external">toDateString()</a></td>
+<td>把 Date 对象的日期部分转换为字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toGMTString.asp" target="_blank" rel="external">toGMTString()</a></td>
+<td>请使用 toUTCString() 方法代替。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toUTCString.asp" target="_blank" rel="external">toUTCString()</a></td>
+<td>根据世界时，把 Date 对象转换为字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleString.asp" target="_blank" rel="external">toLocaleString()</a></td>
+<td>根据本地时间格式，把 Date 对象转换为字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleTimeString.asp" target="_blank" rel="external">toLocaleTimeString()</a></td>
+<td>根据本地时间格式，把 Date 对象的时间部分转换为字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleDateString.asp" target="_blank" rel="external">toLocaleDateString()</a></td>
+<td>根据本地时间格式，把 Date 对象的日期部分转换为字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_utc.asp" target="_blank" rel="external">UTC()</a></td>
+<td>根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_valueOf_date.asp" target="_blank" rel="external">valueOf()</a></td>
+<td>返回 Date 对象的原始值。</td>
+</tr>
+</tbody>
+</table>
+<p>方法举例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="built_in">document</span>.write(<span class="built_in">Date</span>());</div><div class="line"><span class="built_in">document</span>.write(<span class="built_in">Date</span>.UTC(<span class="number">2016</span>,<span class="number">12</span>,<span class="number">9</span>,<span class="number">22</span>,<span class="number">2</span>,<span class="number">10</span>)+<span class="string">"&lt;br&gt;"</span>)</div><div class="line"><span class="comment">//result:1483999330000</span></div><div class="line"><span class="built_in">document</span>.write(date.getDay());</div><div class="line"><span class="comment">//result:5</span></div><div class="line"><span class="built_in">document</span>.write(date.toString())</div><div class="line"><span class="comment">//result:Fri Dec 09 2016 22:07:53 GMT+0800 (中国标准时间)</span></div><div class="line">date.setFullYear(<span class="number">1999</span>);</div><div class="line"><span class="built_in">document</span>.write(date);</div><div class="line"><span class="comment">//result:Thu Dec 09 1999 22:10:34 GMT+0800 (中国标准时间)</span></div></pre></td></tr></table></figure>
+
           
         
       

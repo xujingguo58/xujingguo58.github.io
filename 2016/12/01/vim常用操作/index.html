@@ -84,52 +84,133 @@
 
 
 
-<meta name="description" content="正则表达式基本语法1.1字符集和单词
-.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
-1.2字符类
+<meta name="description" content="模式切换|命令|模式|    a在光标后插入    i在光标位置插入    o在光标下一行插入    ESC进入命令模式    :进入行命令模式    vvisual模式
+光标移动
 
 
-类
-匹配字符
+命令
+操作
 
 
 
 
-[[:alnum:]]
-文字、数字字符">
+h
+光标向左移动一格
+
+
+l
+光标向右移动一格
+
+
+j
+光标向下移动一格
+
+
+k
+光标向上移动一格
+
+
+^
+移动光标到行首
+
+
+$
+移动光标到行尾
+
+
+G
+移动光标到文件头
+
+
+Gg
+移动光标到">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="http://yoursite.com/2016/11/30/正则表达式/index.html">
+<meta property="og:title" content="vim常用操作">
+<meta property="og:url" content="http://yoursite.com/2016/12/01/vim常用操作/index.html">
 <meta property="og:site_name" content="xujingguo's blog">
-<meta property="og:description" content="正则表达式基本语法1.1字符集和单词
-.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
-1.2字符类
+<meta property="og:description" content="模式切换|命令|模式|    a在光标后插入    i在光标位置插入    o在光标下一行插入    ESC进入命令模式    :进入行命令模式    vvisual模式
+光标移动
 
 
-类
-匹配字符
+命令
+操作
 
 
 
 
-[[:alnum:]]
-文字、数字字符">
-<meta property="og:updated_time" content="2016-11-30T14:13:47.757Z">
+h
+光标向左移动一格
+
+
+l
+光标向右移动一格
+
+
+j
+光标向下移动一格
+
+
+k
+光标向上移动一格
+
+
+^
+移动光标到行首
+
+
+$
+移动光标到行尾
+
+
+G
+移动光标到文件头
+
+
+Gg
+移动光标到">
+<meta property="og:updated_time" content="2016-12-01T12:42:48.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="正则表达式基本语法1.1字符集和单词
-.用于匹配除换行符之外的任意的一个字符方括号[]用于指定一个字符集，只能匹配其中的一个字符连字符-用于描述一个范围为了严格匹配一个单词，需要加上\&amp;lt;和&amp;gt;\ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符
-1.2字符类
+<meta name="twitter:title" content="vim常用操作">
+<meta name="twitter:description" content="模式切换|命令|模式|    a在光标后插入    i在光标位置插入    o在光标下一行插入    ESC进入命令模式    :进入行命令模式    vvisual模式
+光标移动
 
 
-类
-匹配字符
+命令
+操作
 
 
 
 
-[[:alnum:]]
-文字、数字字符">
+h
+光标向左移动一格
+
+
+l
+光标向右移动一格
+
+
+j
+光标向下移动一格
+
+
+k
+光标向上移动一格
+
+
+^
+移动光标到行首
+
+
+$
+移动光标到行尾
+
+
+G
+移动光标到文件头
+
+
+Gg
+移动光标到">
 
 
 
@@ -157,13 +238,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/30/正则表达式/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/01/vim常用操作/"/>
 
 
 
 
 
-  <title> 正则表达式 | xujingguo's blog </title>
+  <title> vim常用操作 | xujingguo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +355,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/正则表达式/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/01/vim常用操作/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -298,7 +379,7 @@
             
             
               
-                正则表达式
+                vim常用操作
               
             
           </h1>
@@ -311,8 +392,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T22:12:34+08:00">
-                2016-11-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T20:34:43+08:00">
+                2016-12-01
               </time>
             
 
@@ -331,7 +412,7 @@
 
           
           
-             <span id="/2016/11/30/正则表达式/" class="leancloud_visitors" data-flag-title="正则表达式">
+             <span id="/2016/12/01/vim常用操作/" class="leancloud_visitors" data-flag-title="vim常用操作">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,106 +437,170 @@
       
 
       
-        <h2 id="正则表达式基本语法"><a href="#正则表达式基本语法" class="headerlink" title="正则表达式基本语法"></a>正则表达式基本语法</h2><h3 id="1-1字符集和单词"><a href="#1-1字符集和单词" class="headerlink" title="1.1字符集和单词"></a>1.1字符集和单词</h3><blockquote>
-<p>.用于匹配除换行符之外的任意的一个字符<br>方括号[]用于指定一个字符集，只能匹配其中的一个字符<br>连字符-用于描述一个范围<br>为了严格匹配一个单词，需要加上\&lt;和&gt;\<br><em>ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符</em></p>
-<h3 id="1-2字符类"><a href="#1-2字符类" class="headerlink" title="1.2字符类"></a>1.2字符类</h3><table>
+        <h3 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h3><p><table><br>|命令|模式|<br>    <tr><td>a</td><td>在光标后插入</td></tr><br>    <tr><td>i</td><td>在光标位置插入</td></tr><br>    <tr><td>o</td><td>在光标下一行插入</td></tr><br>    <tr><td>ESC</td><td>进入命令模式</td></tr><br>    <tr><td>:</td><td>进入行命令模式</td></tr><br>    <tr><td>v</td><td>visual模式</td></tr><br></table></p>
+<h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><table>
 <thead>
 <tr>
-<th>类</th>
-<th>匹配字符</th>
+<th>命令</th>
+<th>操作</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>[[:alnum:]]</td>
-<td>文字、数字字符</td>
+<td>h</td>
+<td>光标向左移动一格</td>
 </tr>
 <tr>
-<td>[[:alpha:]]</td>
-<td>字母字符</td>
+<td>l</td>
+<td>光标向右移动一格</td>
 </tr>
 <tr>
-<td>[[:lower:]]</td>
-<td>小写字母</td>
+<td>j</td>
+<td>光标向下移动一格</td>
 </tr>
 <tr>
-<td>[[“upper”]]</td>
-<td>大写字母</td>
+<td>k</td>
+<td>光标向上移动一格</td>
 </tr>
 <tr>
-<td>[[:digit:]]</td>
-<td>小数</td>
+<td>^</td>
+<td>移动光标到行首</td>
 </tr>
 <tr>
-<td>[[:xdigit:]]</td>
-<td>十六进制数字</td>
+<td>$</td>
+<td>移动光标到行尾</td>
 </tr>
 <tr>
-<td>[[:punct:]]</td>
-<td>标点符号</td>
+<td>G</td>
+<td>移动光标到文件头</td>
 </tr>
 <tr>
-<td>[[blank]]</td>
-<td>制表符和空格</td>
+<td>Gg</td>
+<td>移动光标到文件头</td>
 </tr>
 <tr>
-<td>[[:space:]]</td>
-<td>空格</td>
+<td>W</td>
+<td>移动光标到下一个单词</td>
 </tr>
 <tr>
-<td>[[:cntrl:]]</td>
-<td>所有控制符</td>
+<td>B</td>
+<td>移动光标到前一个单词</td>
 </tr>
 <tr>
-<td>[[:print:]]</td>
-<td>所有可打印的字符</td>
+<td>Ctrl+f</td>
+<td>向前（朝向文件尾）翻动一页</td>
 </tr>
 <tr>
-<td>[[:graph:]]</td>
-<td>除空格外所有可打印的字符</td>
+<td>Ctrl+b</td>
+<td>向后（ 朝向文件头） 翻动一页</td>
 </tr>
 </tbody>
 </table>
-<h3 id="1-3位置匹配"><a href="#1-3位置匹配" class="headerlink" title="1.3位置匹配"></a>1.3位置匹配</h3><p>^和$分别用于匹配行首和行尾。</p>
-<h3 id="1-4转义字符"><a href="#1-4转义字符" class="headerlink" title="1.4转义字符"></a>1.4转义字符</h3><p>\表示转义</p>
-<h3 id="1-5重复"><a href="#1-5重复" class="headerlink" title="1.5重复"></a>1.5重复</h3><table>
+<p><em>提示：移动光标的时候可以在命令前面加数字表示重复多少次移动</em></p>
+<h3 id="删除、复制和粘贴"><a href="#删除、复制和粘贴" class="headerlink" title="删除、复制和粘贴"></a>删除、复制和粘贴</h3><table>
 <thead>
 <tr>
-<th>元字符</th>
-<th>描述</th>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">操作</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>*</td>
-<td>重复0次或更多次</td>
+<td style="text-align:center">x</td>
+<td style="text-align:left">删除光标所在位置的字符</td>
 </tr>
 <tr>
-<td>+</td>
-<td>重复一次或更多次</td>
+<td style="text-align:center">dd</td>
+<td style="text-align:left">删除光标所在的行</td>
 </tr>
 <tr>
-<td>？</td>
-<td>重复0次或一次</td>
+<td style="text-align:center">D</td>
+<td style="text-align:left">删除光标所在位置到行尾的所有字符</td>
 </tr>
 <tr>
-<td>{n}</td>
-<td>重复n次</td>
+<td style="text-align:center">d</td>
+<td style="text-align:left">与移动命令配合使用，如dw删除光标所在位置到下一个单词词头之间的所有字符</td>
 </tr>
 <tr>
-<td>{n,}</td>
-<td>重复n次或更多次</td>
+<td style="text-align:center">yy</td>
+<td style="text-align:left">复制光标所在的行</td>
 </tr>
 <tr>
-<td>{n,m}</td>
-<td>重复不少于n次，不多于m次</td>
+<td style="text-align:center">y</td>
+<td style="text-align:left">与移动命令配合使用，如yw删除光标所在位置到下一个单词词头之间的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">P</td>
+<td style="text-align:left">在光标位置粘贴最近复制/删除的内容</td>
 </tr>
 </tbody>
 </table>
-<h3 id="1-6反义"><a href="#1-6反义" class="headerlink" title="1.6反义"></a>1.6反义</h3><p>[^y]表示除了字母y的任何字符<br><em>注意：^放在行首和反义时的区别</em><br>^[^y]    ##匹配所有不以字母y开头的行</p>
-<h3 id="1-7分支"><a href="#1-7分支" class="headerlink" title="1.7分支"></a>1.7分支</h3><p>|表示分支</p>
-<h3 id="1-8逆向引用"><a href="#1-8逆向引用" class="headerlink" title="1.8逆向引用"></a>1.8逆向引用</h3><p>  在子表达式中捕获的内容可以在正则表达式中的其他地方再次使用，用户可以使用反斜杠”\”加上子表达式的编号来指代该分组分配到的内容。</p>
-</blockquote>
+<h3 id="撤销和重做"><a href="#撤销和重做" class="headerlink" title="撤销和重做"></a>撤销和重做</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th style="text-align:left">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td style="text-align:left">撤销一次操作</td>
+</tr>
+<tr>
+<td>Ctrl+R</td>
+<td style="text-align:left">重做被撤销的命令</td>
+</tr>
+</tbody>
+</table>
+<h3 id="搜索和替换"><a href="#搜索和替换" class="headerlink" title="搜索和替换"></a>搜索和替换</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:/string</td>
+<td>向文件尾搜索字符串</td>
+</tr>
+<tr>
+<td>:?string</td>
+<td>向文件头搜索字符串</td>
+</tr>
+<tr>
+<td>:s/pattern/string</td>
+<td>将pattern所代表的字符串替换为string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="保存和退出"><a href="#保存和退出" class="headerlink" title="保存和退出"></a>保存和退出</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w</td>
+<td>保存文件</td>
+</tr>
+<tr>
+<td>:w filename</td>
+<td>另存为filename</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出vim</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>退出vim，不保存修改</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -482,8 +627,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/28/自动获取可用的ipv6临时地址/" rel="next" title="自动获取可用的ipv6临时地址">
-                <i class="fa fa-chevron-left"></i> 自动获取可用的ipv6临时地址
+              <a href="/2016/11/30/正则表达式/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
               </a>
             
           </div>
@@ -492,8 +637,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/01/vim常用操作/" rel="prev" title="vim常用操作">
-                vim常用操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/12/08/JavaScript对象/" rel="prev" title="JavaScript对象（一）">
+                JavaScript对象（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -607,7 +752,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式基本语法"><span class="nav-number">1.</span> <span class="nav-text">正则表达式基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1字符集和单词"><span class="nav-number">1.1.</span> <span class="nav-text">1.1字符集和单词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2字符类"><span class="nav-number">1.2.</span> <span class="nav-text">1.2字符类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3位置匹配"><span class="nav-number">1.3.</span> <span class="nav-text">1.3位置匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4转义字符"><span class="nav-number">1.4.</span> <span class="nav-text">1.4转义字符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5重复"><span class="nav-number">1.5.</span> <span class="nav-text">1.5重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6反义"><span class="nav-number">1.6.</span> <span class="nav-text">1.6反义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7分支"><span class="nav-number">1.7.</span> <span class="nav-text">1.7分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8逆向引用"><span class="nav-number">1.8.</span> <span class="nav-text">1.8逆向引用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式切换"><span class="nav-number">1.</span> <span class="nav-text">模式切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#光标移动"><span class="nav-number">2.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除、复制和粘贴"><span class="nav-number">3.</span> <span class="nav-text">删除、复制和粘贴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销和重做"><span class="nav-number">4.</span> <span class="nav-text">撤销和重做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索和替换"><span class="nav-number">5.</span> <span class="nav-text">搜索和替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存和退出"><span class="nav-number">6.</span> <span class="nav-text">保存和退出</span></a></li></ol></div>
             
 
           </div>

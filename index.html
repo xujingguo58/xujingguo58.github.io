@@ -239,6 +239,586 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/JavaScript对象/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/08/JavaScript对象/" itemprop="url">
+                  JavaScript对象（一）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T22:01:39+08:00">
+                2016-12-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/08/JavaScript对象/" class="leancloud_visitors" data-flag-title="JavaScript对象（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>[TOC]</p>
+<h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><h4 id="object是JavaScript所有对象的基类"><a href="#object是JavaScript所有对象的基类" class="headerlink" title="object是JavaScript所有对象的基类"></a>object是JavaScript所有对象的基类</h4><h4 id="1-创建object对象"><a href="#1-创建object对象" class="headerlink" title="1.创建object对象"></a>1.创建object对象</h4><p><code>obj = new Object([value])</code></p>
+<h4 id="2-Object对象的属性"><a href="#2-Object对象的属性" class="headerlink" title="2.Object对象的属性"></a>2.Object对象的属性</h4><h5 id="1-prototype属性"><a href="#1-prototype属性" class="headerlink" title="(1) prototype属性"></a>(1) prototype属性</h5><p>该属性返回对象类型原型的引用</p>
+<p><code>objectName.prototype</code></p>
+<p>用prototype属性可以提供对象的类的一组基本功能。</p>
+<p>为Array对象添加一个返回求最大值方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">array_max</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">//var i;</span></div><div class="line">			<span class="keyword">var</span> max=<span class="keyword">this</span>[<span class="number">0</span>]</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</div><div class="line">				<span class="keyword">if</span> (<span class="keyword">this</span>[i]&gt;max) &#123;</div><div class="line">					max=<span class="keyword">this</span>[i];</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> max;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">Array</span>.prototype.max=array_max;</div><div class="line">		<span class="keyword">var</span> x=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">10</span>);</div><div class="line">		<span class="keyword">var</span> y=x.max();</div><div class="line">		alert(y);</div></pre></td></tr></table></figure>
+<h5 id="2-constructor属性"><a href="#2-constructor属性" class="headerlink" title="(2)constructor属性"></a>(2)constructor属性</h5><p>该属性表示创建该对象的函数</p>
+<p><code>objectName.constructor</code></p>
+<p>eg：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="number">1</span>);</div><div class="line">alert(i.constructor)</div></pre></td></tr></table></figure>
+<p>result:</p>
+<p><code>function Boolean(){ [native code] }</code></p>
+<h4 id="3）object对象的方法"><a href="#3）object对象的方法" class="headerlink" title="(3）object对象的方法"></a>(3）object对象的方法</h4><h5 id="1-toString方法"><a href="#1-toString方法" class="headerlink" title="(1)toString方法"></a>(1)toString方法</h5><p>返回对象的字符串表示</p>
+<p><code>objName.toString()</code></p>
+<h5 id="2-valueOf方法"><a href="#2-valueOf方法" class="headerlink" title="(2)valueOf方法"></a>(2)valueOf方法</h5><p>返回对象的初始值</p>
+<h2 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h2><p>String对象是动态对象，需要创建对象实例后才能引用该对象的属性和方法，该对象主要用于处理或格式化文本字符串已经确定和定位字符串中的子字符串。</p>
+<h4 id="1-创建String对象"><a href="#1-创建String对象" class="headerlink" title="(1)创建String对象"></a>(1)创建String对象</h4><p><code>var str= new String([String Text])</code></p>
+<h4 id="2-String对象的属性"><a href="#2-String对象的属性" class="headerlink" title="(2)String对象的属性"></a>(2)String对象的属性</h4><p>String对象有三个属性 length属性， constructor属性，prototype属性</p>
+<h4 id="3-String对象的方法"><a href="#3-String对象的方法" class="headerlink" title="(3)String对象的方法"></a>(3)String对象的方法</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_anchor.asp" target="_blank" rel="external">anchor()</a></td>
+<td>创建 HTML 锚。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_big.asp" target="_blank" rel="external">big()</a></td>
+<td>用大号字体显示字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_blink.asp" target="_blank" rel="external">blink()</a></td>
+<td>显示闪动字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_bold.asp" target="_blank" rel="external">bold()</a></td>
+<td>使用粗体显示字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_charAt.asp" target="_blank" rel="external">charAt()</a></td>
+<td>返回在指定位置的字符。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_charCodeAt.asp" target="_blank" rel="external">charCodeAt()</a></td>
+<td>返回在指定的位置的字符的 Unicode 编码。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_concat_string.asp" target="_blank" rel="external">concat()</a></td>
+<td>连接字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_fixed.asp" target="_blank" rel="external">fixed()</a></td>
+<td>以打字机文本显示字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_fontcolor.asp" target="_blank" rel="external">fontcolor()</a></td>
+<td>使用指定的颜色来显示字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_fontsize.asp" target="_blank" rel="external">fontsize()</a></td>
+<td>使用指定的尺寸来显示字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_fromCharCode.asp" target="_blank" rel="external">fromCharCode()</a></td>
+<td>从字符编码创建一个字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_indexOf.asp" target="_blank" rel="external">indexOf()</a></td>
+<td>检索字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_italics.asp" target="_blank" rel="external">italics()</a></td>
+<td>使用斜体显示字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_lastIndexOf.asp" target="_blank" rel="external">lastIndexOf()</a></td>
+<td>从后向前搜索字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_link.asp" target="_blank" rel="external">link()</a></td>
+<td>将字符串显示为链接。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_localeCompare.asp" target="_blank" rel="external">localeCompare()</a></td>
+<td>用本地特定的顺序来比较两个字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_match.asp" target="_blank" rel="external">match()</a></td>
+<td>找到一个或多个正则表达式的匹配。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_replace.asp" target="_blank" rel="external">replace()</a></td>
+<td>替换与正则表达式匹配的子串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_search.asp" target="_blank" rel="external">search()</a></td>
+<td>检索与正则表达式相匹配的值。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_slice_string.asp" target="_blank" rel="external">slice()</a></td>
+<td>提取字符串的片断，并在新的字符串中返回被提取的部分。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_small.asp" target="_blank" rel="external">small()</a></td>
+<td>使用小字号来显示字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_split.asp" target="_blank" rel="external">split()</a></td>
+<td>把字符串分割为字符串数组。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_strike.asp" target="_blank" rel="external">strike()</a></td>
+<td>使用删除线来显示字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_sub.asp" target="_blank" rel="external">sub()</a></td>
+<td>把字符串显示为下标。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_substr.asp" target="_blank" rel="external">substr()</a></td>
+<td>从起始索引号提取字符串中指定数目的字符。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_substring.asp" target="_blank" rel="external">substring()</a></td>
+<td>提取字符串中两个指定的索引号之间的字符。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_sup.asp" target="_blank" rel="external">sup()</a></td>
+<td>把字符串显示为上标。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleLowerCase.asp" target="_blank" rel="external">toLocaleLowerCase()</a></td>
+<td>把字符串转换为小写。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleUpperCase.asp" target="_blank" rel="external">toLocaleUpperCase()</a></td>
+<td>把字符串转换为大写。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toLowerCase.asp" target="_blank" rel="external">toLowerCase()</a></td>
+<td>把字符串转换为小写。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toUpperCase.asp" target="_blank" rel="external">toUpperCase()</a></td>
+<td>把字符串转换为大写。</td>
+</tr>
+<tr>
+<td>toSource()</td>
+<td>代表对象的源代码。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_toString_string.asp" target="_blank" rel="external">toString()</a></td>
+<td>返回字符串。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_valueOf_string.asp" target="_blank" rel="external">valueOf()</a></td>
+<td>返回某个字符串对象的原始值。</td>
+</tr>
+</tbody>
+</table>
+<p>在上述函数中，比较常用的是split函数：</p>
+<h2 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/01/vim常用操作/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/01/vim常用操作/" itemprop="url">
+                  vim常用操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-01T20:34:43+08:00">
+                2016-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/01/vim常用操作/" class="leancloud_visitors" data-flag-title="vim常用操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="模式切换"><a href="#模式切换" class="headerlink" title="模式切换"></a>模式切换</h3><p><table><br>|命令|模式|<br>    <tr><td>a</td><td>在光标后插入</td></tr><br>    <tr><td>i</td><td>在光标位置插入</td></tr><br>    <tr><td>o</td><td>在光标下一行插入</td></tr><br>    <tr><td>ESC</td><td>进入命令模式</td></tr><br>    <tr><td>:</td><td>进入行命令模式</td></tr><br>    <tr><td>v</td><td>visual模式</td></tr><br></table></p>
+<h3 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>光标向左移动一格</td>
+</tr>
+<tr>
+<td>l</td>
+<td>光标向右移动一格</td>
+</tr>
+<tr>
+<td>j</td>
+<td>光标向下移动一格</td>
+</tr>
+<tr>
+<td>k</td>
+<td>光标向上移动一格</td>
+</tr>
+<tr>
+<td>^</td>
+<td>移动光标到行首</td>
+</tr>
+<tr>
+<td>$</td>
+<td>移动光标到行尾</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动光标到文件头</td>
+</tr>
+<tr>
+<td>Gg</td>
+<td>移动光标到文件头</td>
+</tr>
+<tr>
+<td>W</td>
+<td>移动光标到下一个单词</td>
+</tr>
+<tr>
+<td>B</td>
+<td>移动光标到前一个单词</td>
+</tr>
+<tr>
+<td>Ctrl+f</td>
+<td>向前（朝向文件尾）翻动一页</td>
+</tr>
+<tr>
+<td>Ctrl+b</td>
+<td>向后（ 朝向文件头） 翻动一页</td>
+</tr>
+</tbody>
+</table>
+<p><em>提示：移动光标的时候可以在命令前面加数字表示重复多少次移动</em></p>
+<h3 id="删除、复制和粘贴"><a href="#删除、复制和粘贴" class="headerlink" title="删除、复制和粘贴"></a>删除、复制和粘贴</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:left">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">x</td>
+<td style="text-align:left">删除光标所在位置的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">dd</td>
+<td style="text-align:left">删除光标所在的行</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:left">删除光标所在位置到行尾的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">d</td>
+<td style="text-align:left">与移动命令配合使用，如dw删除光标所在位置到下一个单词词头之间的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">yy</td>
+<td style="text-align:left">复制光标所在的行</td>
+</tr>
+<tr>
+<td style="text-align:center">y</td>
+<td style="text-align:left">与移动命令配合使用，如yw删除光标所在位置到下一个单词词头之间的所有字符</td>
+</tr>
+<tr>
+<td style="text-align:center">P</td>
+<td style="text-align:left">在光标位置粘贴最近复制/删除的内容</td>
+</tr>
+</tbody>
+</table>
+<h3 id="撤销和重做"><a href="#撤销和重做" class="headerlink" title="撤销和重做"></a>撤销和重做</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th style="text-align:left">操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>u</td>
+<td style="text-align:left">撤销一次操作</td>
+</tr>
+<tr>
+<td>Ctrl+R</td>
+<td style="text-align:left">重做被撤销的命令</td>
+</tr>
+</tbody>
+</table>
+<h3 id="搜索和替换"><a href="#搜索和替换" class="headerlink" title="搜索和替换"></a>搜索和替换</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:/string</td>
+<td>向文件尾搜索字符串</td>
+</tr>
+<tr>
+<td>:?string</td>
+<td>向文件头搜索字符串</td>
+</tr>
+<tr>
+<td>:s/pattern/string</td>
+<td>将pattern所代表的字符串替换为string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="保存和退出"><a href="#保存和退出" class="headerlink" title="保存和退出"></a>保存和退出</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:w</td>
+<td>保存文件</td>
+</tr>
+<tr>
+<td>:w filename</td>
+<td>另存为filename</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出vim</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>退出vim，不保存修改</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/正则表达式/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -912,7 +1492,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

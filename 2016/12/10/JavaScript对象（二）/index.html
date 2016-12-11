@@ -100,7 +100,7 @@ Array对象Array对象的创建123arrayObj = new Array();arrayObj = new Array([s
 
 arrayObj：必选项，对象的变量名。
 size: 可选项，设置数组的大小，若指定大小，">
-<meta property="og:updated_time" content="2016-12-11T10:00:02.219Z">
+<meta property="og:updated_time" content="2016-12-11T13:07:47.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript对象（二）">
 <meta name="twitter:description" content="[TOC]
@@ -355,7 +355,7 @@ size: 可选项，设置数组的大小，若指定大小，">
 <h5 id="3-利用for语句"><a href="#3-利用for语句" class="headerlink" title="(3)利用for语句"></a>(3)利用for语句</h5><h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><h5 id="1-元素下标"><a href="#1-元素下标" class="headerlink" title="(1) 元素下标"></a>(1) 元素下标</h5><h5 id="2-for"><a href="#2-for" class="headerlink" title="(2) for"></a>(2) for</h5><h5 id="3-document-write-arrayObj"><a href="#3-document-write-arrayObj" class="headerlink" title="(3)document.write(arrayObj)"></a>(3)document.write(arrayObj)</h5><h3 id="Array对象的属性"><a href="#Array对象的属性" class="headerlink" title="Array对象的属性"></a>Array对象的属性</h3><h4 id="1-length"><a href="#1-length" class="headerlink" title="1.length"></a>1.length</h4><p>返回Array对象的长度</p>
 <p>eg：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arrayObj= <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</div><div class="line"><span class="built_in">document</span>.write(arrayObj.length)</div><div class="line"><span class="comment">//result : 3</span></div></pre></td></tr></table></figure>
-<h4 id="2-prototype"><a href="#2-prototype" class="headerlink" title="2.prototype"></a>2.prototype</h4><h3 id="Array对象的方法"><a href="#Array对象的方法" class="headerlink" title="Array对象的方法"></a>Array对象的方法</h3><table>
+<h4 id="2-prototype"><a href="#2-prototype" class="headerlink" title="2.prototype"></a>2.prototype</h4><h3 id="Array对象的方法"><a href="#Array对象的方法" class="headerlink" title="Array对象的方法"></a>Array对象的方法</h3><h4 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h4><table>
 <thead>
 <tr>
 <th>方法</th>
@@ -422,12 +422,146 @@ size: 可选项，设置数组的大小，若指定大小，">
 </tbody>
 </table>
 <h4 id="方法的具体使用："><a href="#方法的具体使用：" class="headerlink" title="方法的具体使用："></a>方法的具体使用：</h4><h4 id="concat-方法："><a href="#concat-方法：" class="headerlink" title="concat()方法："></a>concat()方法：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"hello"</span>)</div><div class="line">arr2=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"world"</span>)</div><div class="line"><span class="built_in">document</span>.write(arr1.concat(arr2))</div><div class="line"><span class="comment">//result:hello,world</span></div></pre></td></tr></table></figure>
-<h4 id="join"><a href="#join" class="headerlink" title="join():"></a>join():</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h4 id="join"><a href="#join" class="headerlink" title="join():"></a>join():</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"h"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>)</div><div class="line"><span class="built_in">document</span>.write(arr1.join(<span class="string">""</span>))</div><div class="line"><span class="comment">//result: hello</span></div></pre></td></tr></table></figure>
 <h4 id="pop-方法："><a href="#pop-方法：" class="headerlink" title="pop()方法："></a>pop()方法：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"h"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>)</div><div class="line">arr1.pop();</div><div class="line"><span class="built_in">document</span>.write(arr1+arr1.length);</div><div class="line"><span class="comment">//result : h,e,l,l ; length:4</span></div></pre></td></tr></table></figure>
 <h4 id="push"><a href="#push" class="headerlink" title="push():"></a>push():</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"h"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>)</div><div class="line">arr1.push(<span class="string">"!"</span>);</div><div class="line"><span class="built_in">document</span>.write(arr1+arr1.length);</div><div class="line"><span class="comment">//result : h,e,l,l,o,! length:6</span></div></pre></td></tr></table></figure>
 <h4 id="shift"><a href="#shift" class="headerlink" title="shift():"></a>shift():</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"h"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>)</div><div class="line"><span class="built_in">document</span>.write(arr1.shift())	<span class="comment">//result:h</span></div><div class="line"><span class="built_in">document</span>.write(arr1)		<span class="comment">//result : e,l,l,o</span></div></pre></td></tr></table></figure>
 <h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse():"></a>reverse():</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"h"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>)</div><div class="line"><span class="built_in">document</span>.write(arr1.reverse())</div><div class="line"><span class="comment">//result:o,l,l,e,h</span></div></pre></td></tr></table></figure>
 <h4 id="sort"><a href="#sort" class="headerlink" title="sort():"></a>sort():</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"h"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"o"</span>)</div><div class="line"><span class="built_in">document</span>.write(arr1.sort())</div><div class="line"><span class="comment">//result: e,h,l,l,o 不提供排序函数，默认为按字母顺序排序</span></div><div class="line"><span class="comment">//如果提供了一个排序函数</span></div><div class="line">arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"3"</span>,<span class="string">"10"</span>,<span class="string">"100"</span>,<span class="string">"6"</span>)</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">array_sort</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> b-a;</div><div class="line">&#125;</div><div class="line"><span class="built_in">document</span>.write(arr1.sort(array_sort))</div><div class="line"><span class="comment">//result : 100,10,6,3,1</span></div></pre></td></tr></table></figure>
+<h2 id="Math对象"><a href="#Math对象" class="headerlink" title="Math对象"></a>Math对象</h2><h3 id="Math对象属性"><a href="#Math对象属性" class="headerlink" title="Math对象属性"></a>Math对象属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_e.asp" target="_blank" rel="external">E</a></td>
+<td>返回算术常量 e，即自然对数的底数（约等于2.718）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_ln2.asp" target="_blank" rel="external">LN2</a></td>
+<td>$ln_2$,返回 2 的自然对数（约等于0.693）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_ln10.asp" target="_blank" rel="external">LN10</a></td>
+<td>$ln_{10}$,返回 10 的自然对数（约等于2.302）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_log2e.asp" target="_blank" rel="external">LOG2E</a></td>
+<td>$log_2^e$返回以 2 为底的 e 的对数（约等于 1.414）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_log10e.asp" target="_blank" rel="external">LOG10E</a></td>
+<td>$long_10^e$返回以 10 为底的 e 的对数（约等于0.434）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_pi.asp" target="_blank" rel="external">PI</a></td>
+<td>$\pi$,返回圆周率（约等于3.14159）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_sqrt1_2.asp" target="_blank" rel="external">SQRT1_2</a></td>
+<td>$\frac{1}{\sqrt2}$返回 2 的平方根的倒数（约等于 0.707）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_sqrt2.asp" target="_blank" rel="external">SQRT2</a></td>
+<td>$\sqrt2$返回 2 的平方根（约等于 1.414）。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Math-对象方法"><a href="#Math-对象方法" class="headerlink" title="Math 对象方法"></a>Math 对象方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_abs.asp" target="_blank" rel="external">abs(x)</a></td>
+<td>返回数的绝对值。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_acos.asp" target="_blank" rel="external">acos(x)</a></td>
+<td>返回数的反余弦值。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_asin.asp" target="_blank" rel="external">asin(x)</a></td>
+<td>返回数的反正弦值。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_atan.asp" target="_blank" rel="external">atan(x)</a></td>
+<td>以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_atan2.asp" target="_blank" rel="external">atan2(y,x)</a></td>
+<td>返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_ceil.asp" target="_blank" rel="external">ceil(x)</a></td>
+<td>对数进行上舍入。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_cos.asp" target="_blank" rel="external">cos(x)</a></td>
+<td>返回数的余弦。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_exp.asp" target="_blank" rel="external">exp(x)</a></td>
+<td>返回 e 的指数。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_floor.asp" target="_blank" rel="external">floor(x)</a></td>
+<td>对数进行下舍入。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_log.asp" target="_blank" rel="external">log(x)</a></td>
+<td>返回数的自然对数（底为e）。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_max.asp" target="_blank" rel="external">max(x,y)</a></td>
+<td>返回 x 和 y 中的最高值。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_min.asp" target="_blank" rel="external">min(x,y)</a></td>
+<td>返回 x 和 y 中的最低值。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_pow.asp" target="_blank" rel="external">pow(x,y)</a></td>
+<td>返回 x 的 y 次幂。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_random.asp" target="_blank" rel="external">random()</a></td>
+<td>返回 0 ~ 1 之间的随机数。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_round.asp" target="_blank" rel="external">round(x)</a></td>
+<td>把数四舍五入为最接近的整数。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_sin.asp" target="_blank" rel="external">sin(x)</a></td>
+<td>返回数的正弦。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_sqrt.asp" target="_blank" rel="external">sqrt(x)</a></td>
+<td>返回数的平方根。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_tan.asp" target="_blank" rel="external">tan(x)</a></td>
+<td>返回角的正切。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_tosource_math.asp" target="_blank" rel="external">toSource()</a></td>
+<td>返回该对象的源代码。</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jsref/jsref_valueof_math.asp" target="_blank" rel="external">valueOf()</a></td>
+<td>返回 Math 对象的原始值。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="eg-利用Math的random方法产生随机数"><a href="#eg-利用Math的random方法产生随机数" class="headerlink" title="eg:利用Math的random方法产生随机数"></a>eg:利用Math的random方法产生随机数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;验证码&lt;/title&gt;</div><div class="line">    &lt;script type="text/javascript"&gt;</div><div class="line">        function createCode()&#123;</div><div class="line">            var code="";  //定义一个字符串类型存储验证码</div><div class="line">            var codeLength=6;   //验证码长度为6</div><div class="line">            for(var i=0;i&lt;codeLength;i++)&#123;</div><div class="line">                code+=parseInt((Math.random()*10)).toString(); </div><div class="line">            &#125;</div><div class="line">            var codeButton=document.getElementById("code")</div><div class="line">            codeButton.value=code; //将生成的验证码在button显示出来</div><div class="line">        &#125;</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body onload="createCode()"&gt;</div><div class="line">    &lt;input type="button" id="code" onclick="createCode()"&gt;&lt;/input&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p><em>random()方法产生的随机数是一个小数点后十几位的小数，所以要用parseInt转换为整数，并且不能直接相加，要转换成字符串后再相加，否则结果会是一个由六个整数相加得到的是整数，而不是我们想要的字符串</em></p>
 
       
     </div>
@@ -585,7 +719,7 @@ size: 可选项，设置数组的大小，若指定大小，">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array对象"><span class="nav-number">1.</span> <span class="nav-text">Array对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array对象的创建"><span class="nav-number">1.1.</span> <span class="nav-text">Array对象的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array对象的输入和输出"><span class="nav-number">1.2.</span> <span class="nav-text">Array对象的输入和输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建数组时"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">(1) 创建数组时</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-利用数组下标输入"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">(2)利用数组下标输入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-利用for语句"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">(3)利用for语句</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出"><span class="nav-number">1.2.2.</span> <span class="nav-text">输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-元素下标"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">(1) 元素下标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-for"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">(2) for</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-document-write-arrayObj"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">(3)document.write(arrayObj)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array对象的属性"><span class="nav-number">1.3.</span> <span class="nav-text">Array对象的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-length"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.length</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-prototype"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.prototype</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array对象的方法"><span class="nav-number">1.4.</span> <span class="nav-text">Array对象的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法的具体使用："><span class="nav-number">1.4.1.</span> <span class="nav-text">方法的具体使用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concat-方法："><span class="nav-number">1.4.2.</span> <span class="nav-text">concat()方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join"><span class="nav-number">1.4.3.</span> <span class="nav-text">join():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pop-方法："><span class="nav-number">1.4.4.</span> <span class="nav-text">pop()方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#push"><span class="nav-number">1.4.5.</span> <span class="nav-text">push():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shift"><span class="nav-number">1.4.6.</span> <span class="nav-text">shift():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse"><span class="nav-number">1.4.7.</span> <span class="nav-text">reverse():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-number">1.4.8.</span> <span class="nav-text">sort():</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Array对象"><span class="nav-number">1.</span> <span class="nav-text">Array对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Array对象的创建"><span class="nav-number">1.1.</span> <span class="nav-text">Array对象的创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array对象的输入和输出"><span class="nav-number">1.2.</span> <span class="nav-text">Array对象的输入和输出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入"><span class="nav-number">1.2.1.</span> <span class="nav-text">输入</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建数组时"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">(1) 创建数组时</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-利用数组下标输入"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">(2)利用数组下标输入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-利用for语句"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">(3)利用for语句</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出"><span class="nav-number">1.2.2.</span> <span class="nav-text">输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-元素下标"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">(1) 元素下标</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-for"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">(2) for</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-document-write-arrayObj"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">(3)document.write(arrayObj)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array对象的属性"><span class="nav-number">1.3.</span> <span class="nav-text">Array对象的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-length"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.length</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-prototype"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.prototype</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Array对象的方法"><span class="nav-number">1.4.</span> <span class="nav-text">Array对象的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法："><span class="nav-number">1.4.1.</span> <span class="nav-text">方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法的具体使用："><span class="nav-number">1.4.2.</span> <span class="nav-text">方法的具体使用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concat-方法："><span class="nav-number">1.4.3.</span> <span class="nav-text">concat()方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#join"><span class="nav-number">1.4.4.</span> <span class="nav-text">join():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pop-方法："><span class="nav-number">1.4.5.</span> <span class="nav-text">pop()方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#push"><span class="nav-number">1.4.6.</span> <span class="nav-text">push():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shift"><span class="nav-number">1.4.7.</span> <span class="nav-text">shift():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse"><span class="nav-number">1.4.8.</span> <span class="nav-text">reverse():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-number">1.4.9.</span> <span class="nav-text">sort():</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math对象"><span class="nav-number">2.</span> <span class="nav-text">Math对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Math对象属性"><span class="nav-number">2.1.</span> <span class="nav-text">Math对象属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-对象方法"><span class="nav-number">3.</span> <span class="nav-text">Math 对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#eg-利用Math的random方法产生随机数"><span class="nav-number">3.0.1.</span> <span class="nav-text">eg:利用Math的random方法产生随机数</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

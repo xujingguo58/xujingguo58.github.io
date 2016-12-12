@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ipv6," />
+  <meta name="keywords" content="前端," />
 
 
 
@@ -84,22 +84,19 @@
 
 
 
-<meta name="description" content="0.前言​    自从搬到新校区之后，发现校园网对ipv6的支持并不好，丢包率在90%以上，后来偶然发现通过禁用再启用有线网卡可以解决这个问题。
-​    原来每次禁用再启用有线网卡都会发现临时ipv6地址会发生变化，而ipv4和ipv6地址都没有改变，猜测应该是新校区的网络机房没有完善。但是每次手动操作费时费力，于是就有了这个自动禁用启用有线网卡的小程序。
-1.代码123456789101112">
+<meta name="description" content="[TOC]
+1.创建节点1234var $p_node = $(&quot;&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt;&quot;)    //创建节点var $p_node = $(&quot;&amp;lt;p&amp;gt;helloworld&amp;lt;/&amp;gt;&quot;)  //创建带有文本的节点var $div_node = $(&quot;&amp;lt;div id=&apos;div1&apos;&amp;gt;&amp;lt;/div&amp;gt;&quot;)    //创建带有属性的节点$(&quot;#p1&quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自动获取可用的ipv6临时地址">
-<meta property="og:url" content="http://yoursite.com/2016/11/29/自动获取可用的ipv6临时地址/index.html">
+<meta property="og:title" content="JQuery之DOM操作">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/JQuery之DOM操作/index.html">
 <meta property="og:site_name" content="xujingguo's blog">
-<meta property="og:description" content="0.前言​    自从搬到新校区之后，发现校园网对ipv6的支持并不好，丢包率在90%以上，后来偶然发现通过禁用再启用有线网卡可以解决这个问题。
-​    原来每次禁用再启用有线网卡都会发现临时ipv6地址会发生变化，而ipv4和ipv6地址都没有改变，猜测应该是新校区的网络机房没有完善。但是每次手动操作费时费力，于是就有了这个自动禁用启用有线网卡的小程序。
-1.代码123456789101112">
-<meta property="og:updated_time" content="2016-11-28T13:45:09.129Z">
+<meta property="og:description" content="[TOC]
+1.创建节点1234var $p_node = $(&quot;&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt;&quot;)    //创建节点var $p_node = $(&quot;&amp;lt;p&amp;gt;helloworld&amp;lt;/&amp;gt;&quot;)  //创建带有文本的节点var $div_node = $(&quot;&amp;lt;div id=&apos;div1&apos;&amp;gt;&amp;lt;/div&amp;gt;&quot;)    //创建带有属性的节点$(&quot;#p1&quot;">
+<meta property="og:updated_time" content="2016-12-12T15:03:16.729Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自动获取可用的ipv6临时地址">
-<meta name="twitter:description" content="0.前言​    自从搬到新校区之后，发现校园网对ipv6的支持并不好，丢包率在90%以上，后来偶然发现通过禁用再启用有线网卡可以解决这个问题。
-​    原来每次禁用再启用有线网卡都会发现临时ipv6地址会发生变化，而ipv4和ipv6地址都没有改变，猜测应该是新校区的网络机房没有完善。但是每次手动操作费时费力，于是就有了这个自动禁用启用有线网卡的小程序。
-1.代码123456789101112">
+<meta name="twitter:title" content="JQuery之DOM操作">
+<meta name="twitter:description" content="[TOC]
+1.创建节点1234var $p_node = $(&quot;&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt;&quot;)    //创建节点var $p_node = $(&quot;&amp;lt;p&amp;gt;helloworld&amp;lt;/&amp;gt;&quot;)  //创建带有文本的节点var $div_node = $(&quot;&amp;lt;div id=&apos;div1&apos;&amp;gt;&amp;lt;/div&amp;gt;&quot;)    //创建带有属性的节点$(&quot;#p1&quot;">
 
 
 
@@ -127,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/29/自动获取可用的ipv6临时地址/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/13/JQuery之DOM操作/"/>
 
 
 
 
 
-  <title> 自动获取可用的ipv6临时地址 | xujingguo's blog </title>
+  <title> JQuery之DOM操作 | xujingguo's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -244,7 +241,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/自动获取可用的ipv6临时地址/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/13/JQuery之DOM操作/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -268,7 +265,7 @@
             
             
               
-                自动获取可用的ipv6临时地址
+                JQuery之DOM操作
               
             
           </h1>
@@ -281,8 +278,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-29T05:23:08+08:00">
-                2016-11-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-12T17:07:12Z">
+                2016-12-12
               </time>
             
 
@@ -297,8 +294,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/29/自动获取可用的ipv6临时地址/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/自动获取可用的ipv6临时地址/" itemprop="commentCount"></span>
+                <a href="/2016/12/13/JQuery之DOM操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/13/JQuery之DOM操作/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -308,7 +305,7 @@
 
           
           
-             <span id="/2016/11/29/自动获取可用的ipv6临时地址/" class="leancloud_visitors" data-flag-title="自动获取可用的ipv6临时地址">
+             <span id="/2016/12/13/JQuery之DOM操作/" class="leancloud_visitors" data-flag-title="JQuery之DOM操作">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -333,12 +330,108 @@
       
 
       
-        <h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>​    自从搬到新校区之后，发现校园网对ipv6的支持并不好，丢包率在90%以上，后来偶然发现通过禁用再启用有线网卡可以解决这个问题。</p>
-<p>​    原来每次禁用再启用有线网卡都会发现临时ipv6地址会发生变化，而ipv4和ipv6地址都没有改变，猜测应该是新校区的网络机房没有完善。但是每次手动操作费时费力，于是就有了这个自动禁用启用有线网卡的小程序。</p>
-<h3 id="1-代码"><a href="#1-代码" class="headerlink" title="1.代码"></a>1.代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">set ip=bt.neu.edu.cn -n 2</div><div class="line">rem 需要ping的ip</div><div class="line">:Start</div><div class="line">echo.&quot;正在ping&quot;</div><div class="line">netsh interface set interface &quot;以太网&quot; enabled</div><div class="line">ping 127.0.0.1 -n 8 &gt; nul   </div><div class="line">ping %ip%|findstr &quot;时间&lt;1ms&quot;&amp;&amp;exit||goto No</div><div class="line">rem ping 127.0.1如果找到&quot;&lt;1ms&quot;则退出，没有找到则跳转到:No</div><div class="line"></div><div class="line">:No</div><div class="line">echo.error</div><div class="line">netsh interface set interface &quot;以太网&quot; disabled</div><div class="line"></div><div class="line">goto Start</div></pre></td></tr></table></figure>
-<h3 id="2用法"><a href="#2用法" class="headerlink" title="2用法"></a>2用法</h3><p>​    新建文本文件，修改后缀为<code>.bat</code>,右键编辑，粘贴上述代码，保存。</p>
-<p>右键管理员运行，当获取到有效的临时ipv6地址，程序会自动退出。</p>
-<p><em>ps:应该只有浑南校区会用到吧</em></p>
+        <p>[TOC]</p>
+<h3 id="1-创建节点"><a href="#1-创建节点" class="headerlink" title="1.创建节点"></a>1.创建节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $p_node = $(<span class="string">"&lt;p&gt;&lt;/p&gt;"</span>)    <span class="comment">//创建节点</span></div><div class="line"><span class="keyword">var</span> $p_node = $(<span class="string">"&lt;p&gt;helloworld&lt;/&gt;"</span>)  <span class="comment">//创建带有文本的节点</span></div><div class="line"><span class="keyword">var</span> $div_node = $(<span class="string">"&lt;div id='div1'&gt;&lt;/div&gt;"</span>)    <span class="comment">//创建带有属性的节点</span></div><div class="line">$(<span class="string">"#p1"</span>).append($p_node)    <span class="comment">//用append方法添加节点</span></div></pre></td></tr></table></figure>
+<h3 id="2-插入内容"><a href="#2-插入内容" class="headerlink" title="2.插入内容"></a>2.插入内容</h3><h4 id="2-1内部插入"><a href="#2-1内部插入" class="headerlink" title="2.1内部插入"></a>2.1内部插入</h4><p>内部插入，顾名思义，就是指向目标元素的内部插入节点，插入的内容在元素内部，类似于一种父子关系；与之向对应的是外部插入，外部插入指的是在元素外部插入，插入后的内容在元素外部，更像是一种兄弟关系。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>append()</td>
+<td>向匹配元素<strong>内部</strong>追加内容</td>
+</tr>
+<tr>
+<td>appendTo()</td>
+<td>颠倒的append用法，将匹配的元素追加到指定元素中</td>
+</tr>
+<tr>
+<td>prepend()</td>
+<td>向匹配元素<strong>内部添加前置内容</strong></td>
+</tr>
+<tr>
+<td>prependTo()</td>
+<td>颠倒的prepend用法</td>
+</tr>
+</tbody>
+</table>
+<p>append方法和appendTo方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#div1"</span>).append($p_node)  <span class="comment">//以下结果是相同的</span></div><div class="line">$($p_node).appendTo(<span class="string">"#div1"</span>)</div></pre></td></tr></table></figure>
+<p>prepend和prepend方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#div1"</span>).prepend($p_node)  <span class="comment">//一线结果也是一样的</span></div><div class="line">$($p_node).prependTo(<span class="string">"#div1"</span>)  <span class="comment">//不过与append不同，元素插入的是，目标元素内部的前部分</span></div></pre></td></tr></table></figure>
+<h4 id="2-2外部插入"><a href="#2-2外部插入" class="headerlink" title="2.2外部插入"></a>2.2外部插入</h4><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>after()</td>
+<td>在匹配的元素之后插入</td>
+</tr>
+<tr>
+<td>before()</td>
+<td>在匹配的元素之前插入</td>
+</tr>
+<tr>
+<td>insertAfter()</td>
+<td>将所有匹配的元素插入到另一个指定的元素集合的后面</td>
+</tr>
+<tr>
+<td>insertBefore()</td>
+<td>将所有匹配的元素插入到另一个指定的元素集合的前面</td>
+</tr>
+</tbody>
+</table>
+<p>after方法和insertAfter方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#div1"</span>).after(<span class="string">"&lt;p&gt;helloworld&lt;/p&gt;"</span>)    <span class="comment">//以下效果是一样的</span></div><div class="line">$(<span class="string">"&lt;p&gt;helloworld&lt;/p&gt;"</span>).insertAfter(<span class="string">"#div1"</span>)</div></pre></td></tr></table></figure>
+<p>before()和insertBofore()方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#div1"</span>).before(<span class="string">"&lt;p&gt;helloworld&lt;/p&gt;"</span>)   <span class="comment">//以下效果是一样的</span></div><div class="line">$(<span class="string">"&lt;p&gt;helloworld&lt;/p&gt;"</span>).insertBefore(<span class="string">"#div1"</span>)</div></pre></td></tr></table></figure>
+<h3 id="3删除内容"><a href="#3删除内容" class="headerlink" title="3删除内容"></a>3删除内容</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>remove()</td>
+<td>从DOM移除所有匹配的元素</td>
+</tr>
+<tr>
+<td>empty()</td>
+<td>删除所有匹配的元素中所有子节点</td>
+</tr>
+<tr>
+<td>detach()</td>
+<td>从DOM删除所有匹配的元素</td>
+</tr>
+</tbody>
+</table>
+<p>remove方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//remove</span></div><div class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//点击button移除div2</span></div><div class="line">	$(<span class="string">"#div2"</span>).remove();</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>empty方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//empty</span></div><div class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//清空div2的内部包含的内容</span></div><div class="line">	$(<span class="string">"#div2"</span>).empty()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>​    <em>remove和empty的不同：通过上边的两个例子，remove移除的是匹配到的元素的所以内容（包括该元素自身），而empty移除的仅是匹配元素的内部元素，而它本身被保留了下来</em></p>
+<p>detach方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">p.on&#123;     <span class="comment">//定义p的一个状态</span></div><div class="line">	background-color: red;     </div><div class="line">&#125;</div><div class="line">$(<span class="string">"p"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;     <span class="comment">//对p绑定一个事件</span></div><div class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="string">"on"</span>)  <span class="comment">//切换状态</span></div><div class="line">&#125;)</div><div class="line"><span class="keyword">var</span> state</div><div class="line">$(<span class="string">"#detach_button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(state)&#123;</div><div class="line">		state.appendTo(<span class="string">"body"</span>)   <span class="comment">//将state暂存的内容添加到body中</span></div><div class="line">		state=<span class="literal">null</span></div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		state=$(<span class="string">"p"</span>).detach();  <span class="comment">//对p使用detach方法，返回值暂存state中</span></div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>​    <em>在上面的程序中，我们对p标签添加了一个点击事件，效果是切换p的背景，当我们对p使用detach方法时，将detach分离出的内容暂存在state中，当再次将state添加到body后，发现p的click事件仍然存在，这就是detach与remove的不同之处</em></p>
+<h3 id="4-克隆内容"><a href="#4-克隆内容" class="headerlink" title="4.克隆内容"></a>4.克隆内容</h3><p><code>clone([withDataAndEvents],[deepWithDataAndEnents])</code></p>
+<p>参数说明：</p>
+<ul>
+<li>withDataAndEvents  是否保留事件处理函数和数据，默认为false</li>
+<li>deepWithDataAndEvents 是否设置是否对子元素也保留处理函数和数据，默认值与第一个参数匹配</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#para1"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="string">"on"</span>)</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"#clone"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"#para1"</span>).clone(<span class="literal">false</span>).insertAfter(<span class="string">"#clone"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p><em>当withDataAndEvents值为false时，点击button会添加一个p标签，但是点击p并没有反映，而当值为true时，clone方法会复制处理函数，所以此时点击p标签时就会出现样式的变换</em></p>
+<p>5.替换内容</p>
 
       
     </div>
@@ -362,7 +455,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ipv6/" rel="tag"># ipv6</a>
+            <a href="/tags/前端/" rel="tag"># 前端</a>
           
         </div>
       
@@ -371,8 +464,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/28/Cascading Style Sheets for Web Design/" rel="next" title="Cascading Style Sheets for Web Design">
-                <i class="fa fa-chevron-left"></i> Cascading Style Sheets for Web Design
+              <a href="/2016/12/12/JQuery之选择器/" rel="next" title="JQuery之选择器">
+                <i class="fa fa-chevron-left"></i> JQuery之选择器
               </a>
             
           </div>
@@ -380,10 +473,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/01/正则表达式/" rel="prev" title="正则表达式">
-                正则表达式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -409,8 +498,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/29/自动获取可用的ipv6临时地址/"
-           data-title="自动获取可用的ipv6临时地址" data-url="http://yoursite.com/2016/11/29/自动获取可用的ipv6临时地址/">
+      <div class="ds-thread" data-thread-key="2016/12/13/JQuery之DOM操作/"
+           data-title="JQuery之DOM操作" data-url="http://yoursite.com/2016/12/13/JQuery之DOM操作/">
       </div>
     
   </div>
@@ -500,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-前言"><span class="nav-number">1.</span> <span class="nav-text">0.前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-代码"><span class="nav-number">2.</span> <span class="nav-text">1.代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2用法"><span class="nav-number">3.</span> <span class="nav-text">2用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建节点"><span class="nav-number">1.</span> <span class="nav-text">1.创建节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-插入内容"><span class="nav-number">2.</span> <span class="nav-text">2.插入内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1内部插入"><span class="nav-number">2.1.</span> <span class="nav-text">2.1内部插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2外部插入"><span class="nav-number">2.2.</span> <span class="nav-text">2.2外部插入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3删除内容"><span class="nav-number">3.</span> <span class="nav-text">3删除内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-克隆内容"><span class="nav-number">4.</span> <span class="nav-text">4.克隆内容</span></a></li></ol></div>
             
 
           </div>

@@ -333,8 +333,7 @@
       
         
           
-            <p>[TOC]</p>
-<h3 id="1-创建节点"><a href="#1-创建节点" class="headerlink" title="1.创建节点"></a>1.创建节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $p_node = $(<span class="string">"&lt;p&gt;&lt;/p&gt;"</span>)    <span class="comment">//创建节点</span></div><div class="line"><span class="keyword">var</span> $p_node = $(<span class="string">"&lt;p&gt;helloworld&lt;/&gt;"</span>)  <span class="comment">//创建带有文本的节点</span></div><div class="line"><span class="keyword">var</span> $div_node = $(<span class="string">"&lt;div id='div1'&gt;&lt;/div&gt;"</span>)    <span class="comment">//创建带有属性的节点</span></div><div class="line">$(<span class="string">"#p1"</span>).append($p_node)    <span class="comment">//用append方法添加节点</span></div></pre></td></tr></table></figure>
+            <h3 id="1-创建节点"><a href="#1-创建节点" class="headerlink" title="1.创建节点"></a>1.创建节点</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $p_node = $(<span class="string">"&lt;p&gt;&lt;/p&gt;"</span>)    <span class="comment">//创建节点</span></div><div class="line"><span class="keyword">var</span> $p_node = $(<span class="string">"&lt;p&gt;helloworld&lt;/&gt;"</span>)  <span class="comment">//创建带有文本的节点</span></div><div class="line"><span class="keyword">var</span> $div_node = $(<span class="string">"&lt;div id='div1'&gt;&lt;/div&gt;"</span>)    <span class="comment">//创建带有属性的节点</span></div><div class="line">$(<span class="string">"#p1"</span>).append($p_node)    <span class="comment">//用append方法添加节点</span></div></pre></td></tr></table></figure>
 <h3 id="2-插入内容"><a href="#2-插入内容" class="headerlink" title="2.插入内容"></a>2.插入内容</h3><h4 id="2-1内部插入"><a href="#2-1内部插入" class="headerlink" title="2.1内部插入"></a>2.1内部插入</h4><p>内部插入，顾名思义，就是指向目标元素的内部插入节点，插入的内容在元素内部，类似于一种父子关系；与之向对应的是外部插入，外部插入指的是在元素外部插入，插入后的内容在元素外部，更像是一种兄弟关系。</p>
 <table>
 <thead>
@@ -434,8 +433,26 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#para1"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).toggleClass(<span class="string">"on"</span>)</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"#clone"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"#para1"</span>).clone(<span class="literal">false</span>).insertAfter(<span class="string">"#clone"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p><em>当withDataAndEvents值为false时，点击button会添加一个p标签，但是点击p并没有反映，而当值为true时，clone方法会复制处理函数，所以此时点击p标签时就会出现样式的变换</em></p>
-<p>5.替换内容</p>
-
+<h3 id="5-替换内容"><a href="#5-替换内容" class="headerlink" title="5.替换内容"></a>5.替换内容</h3><p>replaceWith方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#replace"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).replaceWith(<span class="string">"&lt;div&gt;"</span>+$(<span class="keyword">this</span>).text()+<span class="string">"&lt;/div&gt;"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>​    <em>replaceWIth方法是将选中的元素替换为目标元素，此操作是移动，不是复制。</em></p>
+<p>replaceAll方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#replaceAll"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"&lt;div&gt;"</span>+$(<span class="keyword">this</span>).text()+<span class="string">"&lt;/div&gt;"</span>).replaceAll(<span class="keyword">this</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>​    <em>两个方法实际上是一对相反的操作，上面两个程序结果相同</em></p>
+<h3 id="6-包裹内容"><a href="#6-包裹内容" class="headerlink" title="6.包裹内容"></a>6.包裹内容</h3><h4 id="6-1外包"><a href="#6-1外包" class="headerlink" title="6.1外包"></a>6.1外包</h4><p>wrap方法：</p>
+<p><code>$(&quot;p&quot;).wrap(&quot;&lt;li&gt;&lt;/li&gt;&quot;)</code>为p标签外包裹li标签</p>
+<h4 id="6-2内包"><a href="#6-2内包" class="headerlink" title="6.2内包"></a>6.2内包</h4><p>wrapInner方法：</p>
+<p><code>$(&quot;div&quot;).wrapInner(&quot;&lt;li&gt;&lt;/li&gt;&quot;)</code>为div内包裹一个li标签</p>
+<h4 id="6-3总包"><a href="#6-3总包" class="headerlink" title="6.3总包"></a>6.3总包</h4><p>wrapAll</p>
+<p>其效果在所有元素外包一层结构。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div"</span>).wrapAll(<span class="string">"&lt;li&gt;&lt;/li&gt;"</span>)</div></pre></td></tr></table></figure>
+<h4 id="6-4卸包"><a href="#6-4卸包" class="headerlink" title="6.4卸包"></a>6.4卸包</h4><p><code>$(&quot;div&quot;).unwrap();</code></p>
+<p>删除父级元素</p>
+<h3 id="7-属性操作"><a href="#7-属性操作" class="headerlink" title="7.属性操作"></a>7.属性操作</h3><p>prop方法：</p>
+<p>attr方法：</p>
+<p>removeProp方法：</p>
+<p>removeAttr方法：</p>
+<h3 id="8-类操作"><a href="#8-类操作" class="headerlink" title="8.类操作"></a>8.类操作</h3><h3 id="9-读写文本和值"><a href="#9-读写文本和值" class="headerlink" title="9.读写文本和值"></a>9.读写文本和值</h3><h3 id="10样式表操作"><a href="#10样式表操作" class="headerlink" title="10样式表操作"></a>10样式表操作</h3><h3 id="11-访问文档树"><a href="#11-访问文档树" class="headerlink" title="11.访问文档树"></a>11.访问文档树</h3>
           
         
       

@@ -448,11 +448,65 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div"</span>).wrapAll(<span class="string">"&lt;li&gt;&lt;/li&gt;"</span>)</div></pre></td></tr></table></figure>
 <h4 id="6-4卸包"><a href="#6-4卸包" class="headerlink" title="6.4卸包"></a>6.4卸包</h4><p><code>$(&quot;div&quot;).unwrap();</code></p>
 <p>删除父级元素</p>
-<h3 id="7-属性操作"><a href="#7-属性操作" class="headerlink" title="7.属性操作"></a>7.属性操作</h3><p>prop方法：</p>
-<p>attr方法：</p>
+<h3 id="7-属性操作"><a href="#7-属性操作" class="headerlink" title="7.属性操作"></a>7.属性操作</h3><p>使用prop方法来设置属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input[checked='checked']"</span>).prop(&#123;</div><div class="line">	<span class="attr">disabled</span>:<span class="literal">true</span></div><div class="line">&#125;)               <span class="comment">//设置被选中的checkbox为不可用状态</span></div></pre></td></tr></table></figure>
+<p>当prop只有一个参数时，此时表示读取元素的属性，该方法返回的是元素的属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log($(<span class="string">"input[checked='checked']"</span>).prop(<span class="string">"disabled"</span>))</div><div class="line"><span class="comment">//result : true</span></div></pre></td></tr></table></figure>
+<p>使用attr方法来设置属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#link"</span>).attr(<span class="string">"href"</span>,<span class="string">"https://www.baidu.com"</span>)</div><div class="line"><span class="comment">//使用attr方法改变a标签的href</span></div></pre></td></tr></table></figure>
+<p>同理，当函数参数只有一个时，返回的同样是元素的属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log($(<span class="string">"#link"</span>).attr(<span class="string">"href"</span>))</div><div class="line"><span class="comment">//result : https://www.baidu.com</span></div></pre></td></tr></table></figure>
+<p>​    <em>attr方法和prop方法的不同：使用prop的原则，1.只添加属性名，而不添加属性值就会生效。2.只要属性为true/false</em></p>
 <p>removeProp方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"a"</span>).prop(<span class="string">"size"</span>,<span class="string">"10"</span>);  <span class="comment">//给a设置一个自定义属性size</span></div><div class="line"><span class="built_in">console</span>.log($(<span class="string">"a"</span>).prop(<span class="string">"size"</span>))  <span class="comment">//10</span></div><div class="line">$(<span class="string">"a"</span>).removeProp(<span class="string">"size"</span>)   <span class="comment">//使用removeProp方法删除属性</span></div><div class="line"><span class="built_in">console</span>.log($(<span class="string">"a"</span>).prop(<span class="string">"size"</span>))  <span class="comment">//undefined</span></div></pre></td></tr></table></figure>
 <p>removeAttr方法：</p>
-<h3 id="8-类操作"><a href="#8-类操作" class="headerlink" title="8.类操作"></a>8.类操作</h3><h3 id="9-读写文本和值"><a href="#9-读写文本和值" class="headerlink" title="9.读写文本和值"></a>9.读写文本和值</h3><h3 id="10样式表操作"><a href="#10样式表操作" class="headerlink" title="10样式表操作"></a>10样式表操作</h3><h3 id="11-访问文档树"><a href="#11-访问文档树" class="headerlink" title="11.访问文档树"></a>11.访问文档树</h3>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"input"</span>).removeAttr(<span class="string">"disabled"</span>)</div></pre></td></tr></table></figure>
+<h3 id="8-类操作"><a href="#8-类操作" class="headerlink" title="8.类操作"></a>8.类操作</h3><p>addClass: 添加类</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"p"</span>).addClass(<span class="string">"blue size"</span>)   <span class="comment">//为p标签添加两个类</span></div><div class="line">p.blue&#123;</div><div class="line">	background-color: blue;</div><div class="line">&#125;</div><div class="line">p.size&#123;</div><div class="line">	font-size: <span class="number">30</span>px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>removeClass: 移除类</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//removeClass</span></div><div class="line">$(<span class="string">"#removeClass"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//点击removeClass按钮删除p标签的两个类</span></div><div class="line">	$(<span class="string">"p"</span>).removeClass(<span class="string">"blue size"</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>toggleClass: 切换类</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//toggleClass</span></div><div class="line">$(<span class="string">"#toggleClass"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;    <span class="comment">//点击toggleClass按钮 </span></div><div class="line">	$(<span class="string">"p"</span>).toggleClass(<span class="string">"red smallSize"</span>,<span class="literal">true</span>)  <span class="comment">//第二个参数为true,原先的类被移除</span></div><div class="line">	$(<span class="string">"p"</span>).toggleClass(<span class="string">"blue size"</span>,<span class="literal">false</span>)  <span class="comment">//第二个参数为false，添加新类</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>hasClass:判断是否存在该类</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//hasClass</span></div><div class="line"><span class="built_in">console</span>.log($(<span class="string">"p"</span>).hasClass(<span class="string">"blue"</span>))</div><div class="line"><span class="comment">//result: true</span></div></pre></td></tr></table></figure>
+<h3 id="9-读写文本和值"><a href="#9-读写文本和值" class="headerlink" title="9.读写文本和值"></a>9.读写文本和值</h3><p>1.使用html方法读写HTML</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//html</span></div><div class="line"><span class="keyword">var</span> d=$(<span class="string">"#div1"</span>).html()</div><div class="line">$(<span class="string">"#div2"</span>).html(d)</div></pre></td></tr></table></figure>
+<p>2.用text方法读写文本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//text</span></div><div class="line"><span class="built_in">console</span>.log($(<span class="string">"p"</span>).text());  <span class="comment">//读取p标签的文本</span></div></pre></td></tr></table></figure>
+<p>3.用val方法读写值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#getVal"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">//点击getVal按钮使用val方法获取文本框的值</span></div><div class="line">	<span class="built_in">console</span>.log($(<span class="string">"input[type='text']"</span>).val())</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="10样式表操作"><a href="#10样式表操作" class="headerlink" title="10样式表操作"></a>10样式表操作</h3><p>css方法操作样式表</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"p"</span>).css(&#123;   <span class="comment">//为p标签设置CSS属性</span></div><div class="line">	<span class="string">"font-size"</span>:<span class="string">"20px"</span>,</div><div class="line">	<span class="string">"background-color"</span>:<span class="string">"gray"</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>使用height和width方法设置元素大小</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#div1"</span>).height(<span class="number">100</span>)</div><div class="line">$(<span class="string">"#div1"</span>).width(<span class="string">"80%"</span>)</div></pre></td></tr></table></figure>
+<h3 id="11-访问文档树"><a href="#11-访问文档树" class="headerlink" title="11.访问文档树"></a>11.访问文档树</h3><p>jQuery定义了children(),next(),prev(),parent()四种基本方法来遍历元素</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>children()</td>
+<td>获取当前元素子元素</td>
+</tr>
+<tr>
+<td>next()</td>
+<td>获取当前元素下一个同级元素</td>
+</tr>
+<tr>
+<td>prev()</td>
+<td>获取当前元素上一个同级元素</td>
+</tr>
+<tr>
+<td>parent()</td>
+<td>获取当前元素的父元素</td>
+</tr>
+</tbody>
+</table>
+
           
         
       
@@ -2355,7 +2409,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-28T21:23:08Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-29T05:23:08+08:00">
                 2016-11-28
               </time>
             
@@ -2493,7 +2547,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T16:42:18Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-28T00:42:18+08:00">
                 2016-11-27
               </time>
             
@@ -2650,7 +2704,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-26T21:52:19Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T05:52:19+08:00">
                 2016-11-26
               </time>
             

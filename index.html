@@ -401,11 +401,11 @@
 <p>示例：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> drawing = <span class="built_in">document</span>.getElementById(<span class="string">"drawing"</span>)</div><div class="line">		<span class="keyword">if</span>(drawing.getContext)&#123;</div><div class="line">			<span class="built_in">console</span>.log(<span class="string">"support canvas"</span>)</div><div class="line">			<span class="keyword">var</span> context = drawing.getContext(<span class="string">"2d"</span>)</div><div class="line">			<span class="keyword">var</span> image = <span class="built_in">document</span>.images[<span class="number">0</span>];</div><div class="line">			context.drawImage(image,<span class="number">0</span>,<span class="number">0</span>)</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
 <p>结果(左侧为img元素，右侧为canvas)：</p>
-<p> <img src="G:\hexo\source\images\12.18\drawImage1.png" alt="drawImage1"></p>
+<p> <img src="https://github.com/xujingguo58/xujingguo58.github.io/blob/master/images/12.18/drawImage1.png?raw=true" alt="drawImage1"></p>
 <p>修改 drawImage函数的参数后：</p>
 <p><code>context.drawImage(image,0,0,150,200)</code></p>
 <p>结果：</p>
-<p> <img src="G:\hexo\source\images\12.18\drawImage2.png" alt="drawImage2"></p>
+<p> <img src="https://github.com/xujingguo58/xujingguo58.github.io/blob/master/images/12.18/drawImage2.png?raw=true" alt="drawImage2"></p>
 <p>可以看出已经正常显示了。</p>
 <h3 id="8-阴影"><a href="#8-阴影" class="headerlink" title="8.阴影"></a>8.阴影</h3><table>
 <thead>
@@ -443,7 +443,7 @@
 <h3 id="10-模式"><a href="#10-模式" class="headerlink" title="10.模式"></a>10.模式</h3><p>利用createPattern函数可以绘制重复的图像</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> context = drawing.getContext(<span class="string">"2d"</span>)</div><div class="line"><span class="keyword">var</span> image = <span class="built_in">document</span>.images[<span class="number">0</span>];</div><div class="line">pattern = context.createPattern(image,<span class="string">"repeat"</span>)</div><div class="line">context.fillStyle=pattern</div><div class="line">context.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">200</span>)</div></pre></td></tr></table></figure>
 <p>结果：</p>
-<p> <img src="G:\hexo\source\images\12.18\createPattern.png" alt="createPattern"></p>
+<p> <img src="https://github.com/xujingguo58/xujingguo58.github.io/blob/master/images/12.18/createPattern.png?raw=true" alt="createPattern"></p>
 <h3 id="11-合成"><a href="#11-合成" class="headerlink" title="11.合成"></a>11.合成</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">globalAlpha     <span class="comment">//介于0到1之间的值，全局透明度</span></div><div class="line">globalCompositionOperation  <span class="comment">//后绘制的图形怎样与先绘制的图形结合</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p>参考书《JavaScript高级程序设计》</p>

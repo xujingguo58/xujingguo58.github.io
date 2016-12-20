@@ -353,7 +353,7 @@
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">arcTo</span>(<span class="selector-tag">x1</span>,<span class="selector-tag">y1</span>,<span class="selector-tag">x2</span>,<span class="selector-tag">y2</span>,<span class="selector-tag">radius</span>): 从(<span class="selector-tag">x1</span>,<span class="selector-tag">y1</span>)开始绘制一条弧线到(<span class="selector-tag">x2</span>,<span class="selector-tag">y2</span>)为止。</div><div class="line"></div><div class="line"><span class="selector-tag">bezierCurveTo</span>(<span class="selector-tag">c1x</span>,<span class="selector-tag">c1y</span>,<span class="selector-tag">c2x</span>,<span class="selector-tag">c2y</span>,<span class="selector-tag">x</span>,<span class="selector-tag">y</span>): 从上一点开始绘制一条曲线，到(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>)为止，并以(<span class="selector-tag">c1x</span>,<span class="selector-tag">c1y</span>)(<span class="selector-tag">c2x</span>,<span class="selector-tag">c2y</span>)位控制点</div><div class="line"></div><div class="line"><span class="selector-tag">lineTo</span>(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>): 从上一点开始绘制一条直线，到(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>)为止。</div><div class="line"></div><div class="line"><span class="selector-tag">moveTo</span>(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>): 将绘图游标移动到(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>),不画线</div><div class="line"></div><div class="line"><span class="selector-tag">quadraticCurveTo</span>(<span class="selector-tag">cx</span>,<span class="selector-tag">cy</span>,<span class="selector-tag">x</span>,<span class="selector-tag">y</span>): 从上一点绘制一条二次曲线，到(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>)为止，并以(<span class="selector-tag">cx</span>,<span class="selector-tag">cy</span>)做控制点</div><div class="line"></div><div class="line"><span class="selector-tag">rect</span>(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>,<span class="selector-tag">width</span>,<span class="selector-tag">height</span>): 从点(<span class="selector-tag">x</span>,<span class="selector-tag">y</span>)开始绘制一个矩形，宽度和高度由<span class="selector-tag">width</span>和<span class="selector-tag">height</span>指定</div></pre></td></tr></table></figure>
 <p>绘制完路径后，可以使用fill()填充当前路径。clip()方法在画布上创建一个剪切区域。closePath()连接到路径起点。stroke()对路径进行描边</p>
-<h3 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h3><p>主要使用fillText()和strokeText()方法，都以下的3个属性作为基础</p>
+<h3 id="5-绘制文本"><a href="#5-绘制文本" class="headerlink" title="5.绘制文本"></a>5.绘制文本</h3><p>主要使用fillText()和strokeText()方法，都以下的3个属性作为基础</p>
 <ul>
 <li>font:文本样式、大小及字体</li>
 <li>textAlign: 文本对齐方式</li>
@@ -361,10 +361,94 @@
 </ul>
 <p>示例：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">context.font = <span class="string">"bold 20px Arial"</span></div><div class="line">context.textAlign = <span class="string">"center"</span></div><div class="line">context.textBaseline = <span class="string">"middle"</span></div><div class="line">context.fillText(<span class="string">"hello"</span>,<span class="number">100</span>,<span class="number">100</span>)</div></pre></td></tr></table></figure>
-<p>结果： <img src="https://github.com/xujingguo58/xujingguo58.github.io/blob/master/images/12.18/text_center.png" alt="text_center"></p>
+<p>结果： <img src="https://github.com/xujingguo58/xujingguo58.github.io/blob/master/images/12.18/text_center.png?raw=true" alt="text_center"></p>
 <p>修改 textAlign属性为end后，</p>
-<p> <img src="https://github.com/xujingguo58/xujingguo58.github.io/blob/master/images/12.18/text_end.png" alt="text_end"></p>
-<h3 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h3>
+<p>结果： <img src="https://github.com/xujingguo58/xujingguo58.github.io/blob/master/images/12.18/text_end.png?raw=true" alt="text_end"></p>
+<p>由此可见，textAlign控制文本在x坐标的右边中间还是左边。</p>
+<p>同理，textBaseLine属性可以调整垂直对齐方式。</p>
+<h3 id="6-变换"><a href="#6-变换" class="headerlink" title="6.变换"></a>6.变换</h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rotate(angle)</td>
+<td>围绕原点旋转图像angle弧度</td>
+</tr>
+<tr>
+<td>scale(scaleX,scaleY)</td>
+<td>缩放图像，x,y分别乘以scaleX，scaleY，默认为1.0</td>
+</tr>
+<tr>
+<td>translate(x,y)</td>
+<td>将坐标原点移动到(x,y)</td>
+</tr>
+<tr>
+<td>transform(m1_1,m1_2,m2_1,m2_2,dx,dy)</td>
+<td>修改变换矩阵</td>
+</tr>
+<tr>
+<td>setTransfrom(m1_1,m1_2,m2_1,m2_2,dx,dy)</td>
+<td>将变换矩阵重置为默认状态，再调用transform</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-绘制图像"><a href="#7-绘制图像" class="headerlink" title="7.绘制图像"></a>7.绘制图像</h3><p>使用drawImage()方法绘制图像，根据传入参数的不同，可以绘制出不同的效果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> image = <span class="built_in">document</span>.images[<span class="number">0</span>]</div><div class="line">context.draw(image,x,y)    <span class="comment">//图像，起点</span></div><div class="line">context.draw(image,x,y,width,height) <span class="comment">//在上个函数的基础上加上目标图像的宽度和高度</span></div><div class="line">context.draw(image,x,y,width,height,x,y,width,height)</div><div class="line"><span class="comment">//在上个函数基础上加上了源图像的地点和宽度、高度</span></div></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> drawing = <span class="built_in">document</span>.getElementById(<span class="string">"drawing"</span>)</div><div class="line">		<span class="keyword">if</span>(drawing.getContext)&#123;</div><div class="line">			<span class="built_in">console</span>.log(<span class="string">"support canvas"</span>)</div><div class="line">			<span class="keyword">var</span> context = drawing.getContext(<span class="string">"2d"</span>)</div><div class="line">			<span class="keyword">var</span> image = <span class="built_in">document</span>.images[<span class="number">0</span>];</div><div class="line">			context.drawImage(image,<span class="number">0</span>,<span class="number">0</span>)</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>结果(左侧为img元素，右侧为canvas)：</p>
+<p> <img src="G:\hexo\source\images\12.18\drawImage1.png" alt="drawImage1"></p>
+<p>修改 drawImage函数的参数后：</p>
+<p><code>context.drawImage(image,0,0,150,200)</code></p>
+<p>结果：</p>
+<p> <img src="G:\hexo\source\images\12.18\drawImage2.png" alt="drawImage2"></p>
+<p>可以看出已经正常显示了。</p>
+<h3 id="8-阴影"><a href="#8-阴影" class="headerlink" title="8.阴影"></a>8.阴影</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>shadowColor</td>
+<td>阴影颜色，默认为黑色</td>
+</tr>
+<tr>
+<td>shadowOffsetX</td>
+<td>x轴方向的偏移</td>
+</tr>
+<tr>
+<td>shadowOffsetY</td>
+<td>y轴方向的偏移</td>
+</tr>
+<tr>
+<td>shadowBlur</td>
+<td>模糊的像素数，默认为0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="9-渐变"><a href="#9-渐变" class="headerlink" title="9.渐变"></a>9.渐变</h3><blockquote>
+<p> 渐变可以填充在矩形, 圆形, 线条, 文本等等, 各种形状可以自己定义不同的颜色。<br> 以下有两种不同的方式来设置Canvas渐变：</p>
+<ul>
+<li>createLinearGradient(<em>x,y,x1,y1</em>) - 创建线条渐变</li>
+<li>createRadialGradient(<em>x,y,r,x1,y1,r1</em>) - 创建一个径向/圆渐变<br>当我们使用渐变对象，必须使用两种或两种以上的停止颜色。<br>addColorStop()方法指定颜色停止，参数使用坐标来描述，可以是0至1.<br>使用渐变，设置fillStyle或strokeStyle的值为 渐变，然后绘制形状，如矩形，文本，或一条线。     ——菜鸟教程</li>
+</ul>
+</blockquote>
+<h3 id="10-模式"><a href="#10-模式" class="headerlink" title="10.模式"></a>10.模式</h3><p>利用createPattern函数可以绘制重复的图像</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> context = drawing.getContext(<span class="string">"2d"</span>)</div><div class="line"><span class="keyword">var</span> image = <span class="built_in">document</span>.images[<span class="number">0</span>];</div><div class="line">pattern = context.createPattern(image,<span class="string">"repeat"</span>)</div><div class="line">context.fillStyle=pattern</div><div class="line">context.fillRect(<span class="number">0</span>,<span class="number">0</span>,<span class="number">200</span>,<span class="number">200</span>)</div></pre></td></tr></table></figure>
+<p>结果：</p>
+<p> <img src="G:\hexo\source\images\12.18\createPattern.png" alt="createPattern"></p>
+<h3 id="11-合成"><a href="#11-合成" class="headerlink" title="11.合成"></a>11.合成</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">globalAlpha     <span class="comment">//介于0到1之间的值，全局透明度</span></div><div class="line">globalCompositionOperation  <span class="comment">//后绘制的图形怎样与先绘制的图形结合</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考书《JavaScript高级程序设计》</p>
+</blockquote>
+
           
         
       

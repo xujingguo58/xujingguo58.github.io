@@ -1,0 +1,825 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="显隐动画show方法和hide方法：
+$(selector).show(speed,callback)
+
+speed,显示的速度，可选值为毫秒、”slow”、”normal”、 “fast”
+callback，函数执行完后，要执行的函数 
+
+12345678910for(var i=0;i&amp;lt;5;i++)&amp;#123;	$(&quot;body&quot;).append(&quot;&amp;lt;div&amp;gt;&amp;lt;div&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery之动画操作">
+<meta property="og:url" content="http://yoursite.com/2016/12/14/jQuery之动画操作/index.html">
+<meta property="og:site_name" content="xujingguo's blog">
+<meta property="og:description" content="显隐动画show方法和hide方法：
+$(selector).show(speed,callback)
+
+speed,显示的速度，可选值为毫秒、”slow”、”normal”、 “fast”
+callback，函数执行完后，要执行的函数 
+
+12345678910for(var i=0;i&amp;lt;5;i++)&amp;#123;	$(&quot;body&quot;).append(&quot;&amp;lt;div&amp;gt;&amp;lt;div&amp;g">
+<meta property="og:updated_time" content="2016-12-14T15:55:04.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery之动画操作">
+<meta name="twitter:description" content="显隐动画show方法和hide方法：
+$(selector).show(speed,callback)
+
+speed,显示的速度，可选值为毫秒、”slow”、”normal”、 “fast”
+callback，函数执行完后，要执行的函数 
+
+12345678910for(var i=0;i&amp;lt;5;i++)&amp;#123;	$(&quot;body&quot;).append(&quot;&amp;lt;div&amp;gt;&amp;lt;div&amp;g">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/14/jQuery之动画操作/"/>
+
+
+
+
+
+  <title> jQuery之动画操作 | xujingguo's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xujingguo's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/jQuery之动画操作/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery之动画操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-14T20:14:02Z">
+                2016-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/14/jQuery之动画操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/14/jQuery之动画操作/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/14/jQuery之动画操作/" class="leancloud_visitors" data-flag-title="jQuery之动画操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="显隐动画"><a href="#显隐动画" class="headerlink" title="显隐动画"></a>显隐动画</h3><p>show方法和hide方法：</p>
+<p><code>$(selector).show(speed,callback)</code></p>
+<ul>
+<li>speed,显示的速度，可选值为毫秒、”slow”、”normal”、 “fast”</li>
+<li>callback，函数执行完后，要执行的函数 </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</div><div class="line">	$(<span class="string">"body"</span>).append(<span class="string">"&lt;div&gt;&lt;div&gt;"</span>)</div><div class="line">&#125;</div><div class="line">$(<span class="string">"div"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).hide()</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"body"</span>).append(<span class="string">"&lt;button&gt;show&lt;/button&gt;"</span>)</div><div class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"div"</span>).show()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="显隐切换"><a href="#显隐切换" class="headerlink" title="显隐切换"></a>显隐切换</h3><p><del>在jQuery1.9之后，删除了toggle函数</del>，但是我们可以用一种间接的方法实现同样的效果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> state=<span class="number">1</span></div><div class="line">$(<span class="string">"#button1"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	state=!state</div><div class="line">	<span class="keyword">if</span>(state)&#123;</div><div class="line">		$(<span class="string">"p"</span>).show()</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		$(<span class="string">"p"</span>).hide()</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="滑动效果"><a href="#滑动效果" class="headerlink" title="滑动效果"></a>滑动效果</h3><p>slideDown和slideUp方法：</p>
+<p><code>slideDown([speed],[callback])</code> 缓慢舒展</p>
+<p><code>slideUp([speed],[callback])</code>缓慢收缩</p>
+<p>参数说明：</p>
+<ul>
+<li>speed，速度</li>
+<li>执行完后要执行的函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> slideState=<span class="number">1</span></div><div class="line">$(<span class="string">"#slide"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	slideState=!slideState</div><div class="line">	<span class="keyword">if</span>(slideState)&#123;</div><div class="line">		$(<span class="string">"img"</span>).slideUp(<span class="number">2000</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		$(<span class="string">"img"</span>).slideDown(<span class="number">2000</span>)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>使用callback：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).slideUp(<span class="number">2000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).remove()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="渐变效果"><a href="#渐变效果" class="headerlink" title="渐变效果"></a>渐变效果</h3><p>fadeIn和fadeOut方法：</p>
+<p><code>fadeIn([speed],[callback])</code></p>
+<p><code>fadeOut([speed],[callback])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//fadeIn</span></div><div class="line"><span class="keyword">var</span> fadeState=<span class="number">1</span></div><div class="line">$(<span class="string">"#fadeIn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	fadeState=!fadeState</div><div class="line">	<span class="keyword">if</span> (fadeState) &#123;</div><div class="line">		$(<span class="string">"img"</span>).fadeIn(<span class="number">2000</span>)</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		$(<span class="string">"img"</span>).fadeOut(<span class="number">2000</span>)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>淡出的透明效果fadeTo：</p>
+<p><code>fadeTo([speed],opacity,[callback])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).fadeTo(<span class="number">1000</span>,<span class="number">0.5</span>)</div></pre></td></tr></table></figure>
+<p>渐变切换fadeToggle方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).fadeToggle(<span class="number">2000</span>)</div></pre></td></tr></table></figure>
+<h3 id="复杂动画"><a href="#复杂动画" class="headerlink" title="复杂动画"></a>复杂动画</h3><p>animate方法：</p>
+<p><code>animate(style,[speed],[eading],[callback])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#animate"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">width</span>:<span class="string">"100px"</span>,</div><div class="line">		<span class="attr">height</span>:<span class="string">"200px"</span>,</div><div class="line">	&#125;,<span class="number">3000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">width</span>:<span class="string">"300px"</span>,</div><div class="line">		<span class="attr">height</span>:<span class="string">"400px"</span></div><div class="line">	&#125;,<span class="number">3000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">"#animate"</span>).click()</div><div class="line">	&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>用animate实现定位：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#position"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">			<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">			<span class="attr">top</span>:<span class="number">0</span></div><div class="line">		&#125;,<span class="number">2000</span>)</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">			<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">			<span class="attr">top</span>:<span class="number">300</span></div><div class="line">		&#125;,<span class="number">2000</span>)</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">			<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">			<span class="attr">top</span>:<span class="number">300</span></div><div class="line">		&#125;,<span class="number">2000</span>)</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">			<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">			<span class="attr">top</span>:<span class="number">0</span></div><div class="line">		&#125;,<span class="number">2000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			$(<span class="string">"#position"</span>).click()</div><div class="line">		&#125;)</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
+<p>stop停止动画，off关闭动画</p>
+<h3 id="动画队列"><a href="#动画队列" class="headerlink" title="动画队列"></a>动画队列</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).queue(<span class="string">"fa"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">0</span></div><div class="line">	&#125;,<span class="number">2000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">300</span></div><div class="line">	&#125;,<span class="number">2000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">300</span></div><div class="line">	&#125;,<span class="number">2000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">0</span></div><div class="line">	&#125;,<span class="number">2000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="comment">//$("#queue").click()</span></div><div class="line">		$(<span class="string">"#updateQueue"</span>).click()</div><div class="line">	&#125;)</div><div class="line">	</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"#queue"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">300</span></div><div class="line">	&#125;,<span class="number">2000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">0</span></div><div class="line">		&#125;,<span class="number">2000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			$(<span class="string">"#queue"</span>).click()</div><div class="line">		&#125;)</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">$(<span class="string">"#updateQueue"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//将默认的队列fx替换为自定义的fa</span></div><div class="line">	<span class="keyword">var</span> fa=$(<span class="string">"img"</span>).queue(<span class="string">"fa"</span>)</div><div class="line">	$(<span class="string">"img"</span>).queue(<span class="string">"fx"</span>,fa)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>使用dequeue()方法删除队列的最顶部的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#dequeue"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"img"</span>).dequeue()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/13/jQuery事件处理/" rel="next" title="jQuery事件处理">
+                <i class="fa fa-chevron-left"></i> jQuery事件处理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/15/Cascading Style Sheets for Web Design/" rel="prev" title="Cascading Style Sheets for Web Design">
+                Cascading Style Sheets for Web Design <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/14/jQuery之动画操作/"
+           data-title="jQuery之动画操作" data-url="http://yoursite.com/2016/12/14/jQuery之动画操作/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="xujingguo" />
+          <p class="site-author-name" itemprop="name">xujingguo</p>
+          <p class="site-description motion-element" itemprop="description">编程</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#显隐动画"><span class="nav-number">1.</span> <span class="nav-text">显隐动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显隐切换"><span class="nav-number">2.</span> <span class="nav-text">显隐切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#滑动效果"><span class="nav-number">3.</span> <span class="nav-text">滑动效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渐变效果"><span class="nav-number">4.</span> <span class="nav-text">渐变效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂动画"><span class="nav-number">5.</span> <span class="nav-text">复杂动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动画队列"><span class="nav-number">6.</span> <span class="nav-text">动画队列</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xujingguo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xujingguo58"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("aUk6k1vdr9PzABi2oUp9dRCj-gzGzoHsz", "bQkSDK44XTdUEf139hebJH6t");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

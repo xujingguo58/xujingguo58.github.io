@@ -239,7 +239,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/jQuery事件处理/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/16/jQuery功能扩展/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -264,7 +264,656 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/14/jQuery事件处理/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/16/jQuery功能扩展/" itemprop="url">
+                  jQuery功能扩展
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-16T20:32:09Z">
+                2016-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/16/jQuery功能扩展/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/jQuery功能扩展/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/16/jQuery功能扩展/" class="leancloud_visitors" data-flag-title="jQuery功能扩展">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="extend函数"><a href="#extend函数" class="headerlink" title="extend函数"></a>extend函数</h3><p><code>$.extend(target,[object1],[onjectN])</code></p>
+<p><code>$.extend([deep],target,object1,[objectN])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1=&#123;</div><div class="line">	<span class="attr">height</span>:<span class="number">100</span>,</div><div class="line">	<span class="attr">width</span>:<span class="number">100</span>,</div><div class="line">	<span class="attr">length</span>:<span class="number">100</span>,</div><div class="line">	<span class="attr">div</span>:&#123;<span class="attr">x</span>:<span class="number">100</span>,<span class="attr">y</span>:<span class="number">100</span>&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj2=&#123;</div><div class="line">	<span class="attr">height</span>:<span class="number">200</span>,</div><div class="line">	<span class="attr">width</span>:<span class="number">200</span>,</div><div class="line">	<span class="attr">div</span>:&#123;<span class="attr">x</span>:<span class="number">200</span>&#125;</div><div class="line">&#125;</div><div class="line">$.extend(obj1,obj2)</div><div class="line"><span class="built_in">console</span>.log(obj1.height)</div><div class="line"><span class="built_in">console</span>.log(obj1.div.y)</div><div class="line"><span class="comment">//result:200,undefined</span></div></pre></td></tr></table></figure>
+<p>当使用true参数时，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj1=&#123;</div><div class="line">	<span class="attr">height</span>:<span class="number">100</span>,</div><div class="line">	<span class="attr">width</span>:<span class="number">100</span>,</div><div class="line">	<span class="attr">length</span>:<span class="number">100</span>,</div><div class="line">	<span class="attr">div</span>:&#123;<span class="attr">x</span>:<span class="number">100</span>,<span class="attr">y</span>:<span class="number">100</span>&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj2=&#123;</div><div class="line">	<span class="attr">height</span>:<span class="number">200</span>,</div><div class="line">	<span class="attr">width</span>:<span class="number">200</span>,</div><div class="line">	<span class="attr">div</span>:&#123;<span class="attr">x</span>:<span class="number">200</span>&#125;</div><div class="line">&#125;</div><div class="line">$.extend(<span class="literal">true</span>,obj1,obj2)</div><div class="line"><span class="built_in">console</span>.log(obj1.height)</div><div class="line"><span class="built_in">console</span>.log(obj1.div.y)</div><div class="line">         <span class="comment">//result:200,100</span></div></pre></td></tr></table></figure>
+<p>拓展jQuery的公共函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;</div><div class="line">	<span class="attr">minValue</span>:<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> a&gt;b?a:b</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line"><span class="keyword">var</span> a = prompt(<span class="string">"input a"</span>)</div><div class="line"><span class="keyword">var</span> b = prompt(<span class="string">"input b"</span>)</div><div class="line"><span class="built_in">console</span>.log($.minValue(a,b))</div></pre></td></tr></table></figure>
+<p>$.fn.extend()方法可以创建jQuery对象方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$.fn.extend(&#123;</div><div class="line">	<span class="attr">test</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="string">"click "</span>+$(<span class="keyword">this</span>).html()+<span class="string">" this is test function"</span>)</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"#fnExtend"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).test()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="自定义jQuery函数"><a href="#自定义jQuery函数" class="headerlink" title="自定义jQuery函数"></a>自定义jQuery函数</h3><p>添加新的全局函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.clickDiv=<span class="function"><span class="keyword">function</span>(<span class="params">node</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(node.text()+<span class="string">" click"</span>)</div><div class="line">&#125;</div><div class="line">$(<span class="string">"div"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$.clickDiv($(<span class="keyword">this</span>))  </div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>通过extend函数添加全局函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;</div><div class="line">	<span class="attr">foo</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="string">"this is a new function 'foo()'"</span>)</div><div class="line">	&#125;</div><div class="line">&#125;)</div><div class="line">$.foo()</div></pre></td></tr></table></figure>
+<p>使用命名空间</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$.myPluin=&#123;</div><div class="line">	<span class="attr">ale</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="string">"function from myPluin"</span>)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">$.nextPluin = &#123;</div><div class="line">	<span class="attr">ale</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		alert(<span class="string">"function from nextPluin"</span>)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">$.myPluin.ale()</div><div class="line">$.nextPluin.ale()</div></pre></td></tr></table></figure>
+<h3 id="自定义选择器"><a href="#自定义选择器" class="headerlink" title="自定义选择器"></a>自定义选择器</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">index=<span class="number">-1</span>  <span class="comment">//定义全局变量index</span></div><div class="line">jQuery.expr[<span class="string">":"</span>].le=<span class="function"><span class="keyword">function</span>(<span class="params">elem,i,match</span>)</span>&#123;</div><div class="line">	<span class="comment">//return i&gt;match[3]-0||i==match[3]</span></div><div class="line">	<span class="built_in">console</span>.log(index)</div><div class="line">	index++</div><div class="line">	<span class="keyword">return</span> index&gt;match[<span class="number">3</span>]<span class="number">-0</span>  <span class="comment">//返回索引大于3的元素</span></div><div class="line">	</div><div class="line">&#125;</div><div class="line">$(<span class="string">"p:le(2)"</span>).css(<span class="string">"color"</span>,<span class="string">"red"</span>)</div><div class="line">         <span class="comment">//返回元素索引值大于等于2的元素</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/15/jQuery之工具函数/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/15/jQuery之工具函数/" itemprop="url">
+                  jQuery之工具函数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-15T20:53:46Z">
+                2016-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/15/jQuery之工具函数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/15/jQuery之工具函数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/15/jQuery之工具函数/" class="leancloud_visitors" data-flag-title="jQuery之工具函数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="检测浏览器类型"><a href="#检测浏览器类型" class="headerlink" title="检测浏览器类型"></a>检测浏览器类型</h3><p><del>由于jQuery1.9版本取消了对$.browser的支持</del>,采用$.support来判断浏览器类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigator.userAgent</div></pre></td></tr></table></figure>
+<h3 id="对象和集合操作"><a href="#对象和集合操作" class="headerlink" title="对象和集合操作"></a>对象和集合操作</h3><h4 id="1-处理字符串"><a href="#1-处理字符串" class="headerlink" title="1.处理字符串"></a>1.处理字符串</h4><p><code>$.trim(str)</code>清理字符串前后的空白</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">" hello world! "</span></div><div class="line">str = $.trim(str)</div><div class="line"><span class="built_in">console</span>.log(str)   <span class="comment">//result:hello world!</span></div><div class="line"><span class="built_in">console</span>.log(str.length)   <span class="comment">//result:12</span></div></pre></td></tr></table></figure>
+<h4 id="2-把对象转换为字符串"><a href="#2-把对象转换为字符串" class="headerlink" title="2.把对象转换为字符串"></a>2.把对象转换为字符串</h4><p><code>$.param</code>将字符串创建为一个序列化的数组或对象。该方法特别适用于一个URL地址查询字符串或ajax请求。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> option=&#123;</div><div class="line">	<span class="attr">user</span>:<span class="string">"demo"</span>,</div><div class="line">	<span class="attr">passwd</span>:<span class="string">"12345678"</span></div><div class="line">&#125;</div><div class="line">optionStr=$.param(option)</div><div class="line"><span class="built_in">console</span>.log(optionStr)  <span class="comment">//result:user=demo&amp;passwd=12345678</span></div><div class="line"><span class="built_in">console</span>.log(optionStr.length)	<span class="comment">//result:25</span></div></pre></td></tr></table></figure>
+<h4 id="3-判断数组类型"><a href="#3-判断数组类型" class="headerlink" title="3.判断数组类型"></a>3.判断数组类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>()</div><div class="line"><span class="built_in">console</span>.log($.isArray(array))</div><div class="line"><span class="comment">//result: true</span></div></pre></td></tr></table></figure>
+<h4 id="4-判断函数类型"><a href="#4-判断函数类型" class="headerlink" title="4.判断函数类型"></a>4.判断函数类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//is function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isFun</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log($.isFunction(isFun))</div><div class="line">         <span class="comment">//result:true</span></div></pre></td></tr></table></figure>
+<h4 id="5-判断特殊对象"><a href="#5-判断特殊对象" class="headerlink" title="5.判断特殊对象"></a>5.判断特殊对象</h4><h5 id="5-1检测空对象"><a href="#5-1检测空对象" class="headerlink" title="5.1检测空对象"></a>5.1检测空对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>()</div><div class="line"><span class="built_in">console</span>.log($.isEmptyObject(array))</div><div class="line"><span class="comment">//result:true</span></div></pre></td></tr></table></figure>
+<h5 id="5-2检测纯对象"><a href="#5-2检测纯对象" class="headerlink" title="5.2检测纯对象"></a>5.2检测纯对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> plainObject = <span class="keyword">new</span> <span class="built_in">Object</span>()</div><div class="line"><span class="built_in">console</span>.log($.isPlainObject(plainObject))</div><div class="line"><span class="comment">//result:true</span></div></pre></td></tr></table></figure>
+<h5 id="5-3检测window对象"><a href="#5-3检测window对象" class="headerlink" title="5.3检测window对象"></a>5.3检测window对象</h5><p><code>$.isWindow(obj)</code>检测一个对象是否为Window对象</p>
+<h5 id="5-4检测XML文档"><a href="#5-4检测XML文档" class="headerlink" title="5.4检测XML文档"></a>5.4检测XML文档</h5><p><code>$.isXMLDoc(node)</code>检测一个DOM节点是否在XML文档中</p>
+<h4 id="6-对数组和集合进行迭代"><a href="#6-对数组和集合进行迭代" class="headerlink" title="6.对数组和集合进行迭代"></a>6.对数组和集合进行迭代</h4><p><code>$.each(collection,callback(indexArray,valueOfElement))</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arrayEach = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"h"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>)</div><div class="line">$.each(arrayEach,<span class="function"><span class="keyword">function</span>(<span class="params">name,value</span>)</span>&#123;</div><div class="line">	alert(name+<span class="string">"="</span>+value)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="7-生成数组"><a href="#7-生成数组" class="headerlink" title="7.生成数组"></a>7.生成数组</h4><p><code>$.makeArray(obj)</code>将类数组结构装换为真正的数组结构</p>
+<p>如，通过<code>$(&quot;li&quot;)</code>or<code>getEmementByTagName(&quot;li&quot;)</code>获得的是一个类数组结构，但是通过makeArray函数转换后就是数组对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">objLi = $(&quot;li&quot;)</div><div class="line">			console.log($.isArray(objLi))</div><div class="line">			arrLi = $.makeArray(objLi)</div><div class="line">			console.log($.isArray(arrLi))</div></pre></td></tr></table></figure>
+<h4 id="8-对数组进行筛选"><a href="#8-对数组进行筛选" class="headerlink" title="8.对数组进行筛选"></a>8.对数组进行筛选</h4><p><code>$.grep(array,function(elementOfArray,IndexInArray),[invert])</code></p>
+<ul>
+<li>function用来处理每个项目的对比，与each不同，第一个参数是元素，第二个参数时索引</li>
+<li>invert为true，对callback返回true，如果为false，对callback返回false</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>)</div><div class="line">arrayGt=$.grep(array,<span class="function"><span class="keyword">function</span>(<span class="params">value,index</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> value&gt;=<span class="number">5</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(arrayGt)  <span class="comment">//result:5,6,7,8</span></div><div class="line">arrayLt=$.grep(array,<span class="function"><span class="keyword">function</span>(<span class="params">value,index</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> value&gt;=<span class="number">5</span></div><div class="line">&#125;,<span class="literal">true</span>)</div><div class="line"><span class="built_in">console</span>.log(arrayLt)  <span class="comment">//result:1,2,3,4</span></div></pre></td></tr></table></figure>
+<h4 id="9-对数组进行转换"><a href="#9-对数组进行转换" class="headerlink" title="9.对数组进行转换"></a>9.对数组进行转换</h4><p><code>$.map(array,[callback(element,vale)])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>)</div><div class="line"><span class="built_in">console</span>.log($.map(array,<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> value*<span class="number">2</span></div><div class="line">&#125;))</div><div class="line">         <span class="comment">//result:2, 4, 6, 8, 10, 12, 14, 16</span></div></pre></td></tr></table></figure>
+<h4 id="10-把多个数组结合在一起"><a href="#10-把多个数组结合在一起" class="headerlink" title="10.把多个数组结合在一起"></a>10.把多个数组结合在一起</h4><p><code>$.merge(first,second)</code></p>
+<h4 id="11-删除数组中重复元素"><a href="#11-删除数组中重复元素" class="headerlink" title="11.删除数组中重复元素"></a>11.删除数组中重复元素</h4><p><code>$.unique(array)</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>,<span class="string">"8"</span>)</div><div class="line"><span class="built_in">console</span>.log($.unique(array))</div><div class="line"><span class="comment">//result: 2, 4, 6, 8, 10, 12, 14, 16</span></div></pre></td></tr></table></figure>
+<h4 id="12-在数组中查找指定值"><a href="#12-在数组中查找指定值" class="headerlink" title="12.在数组中查找指定值"></a>12.在数组中查找指定值</h4><p><code>$.inArray(value,array)</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>)</div><div class="line">alert($.inArray(<span class="string">"8"</span>,array))</div><div class="line"><span class="comment">//result:7</span></div></pre></td></tr></table></figure>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>数据缓存的作用就是在一个元素上存取元素而避免循环引用的风险，jQuery通过data函数实现数据缓存的机制</p>
+<p><code>$.data(element,key,value)</code></p>
+<ul>
+<li>element表示要关联数据的DOM对象</li>
+<li>key表示存储的数据名</li>
+<li>value表示新数据值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> liObj = $(<span class="string">"li"</span>)</div><div class="line">$.each(liObj,<span class="function"><span class="keyword">function</span>(<span class="params">name,index</span>)</span>&#123;</div><div class="line">	liObj.eq(name).data(<span class="string">"indexLi"</span>,name) <span class="comment">//给每一个li创建数据名indexLi,并用索													//引给其赋值</span></div><div class="line">&#125;)</div><div class="line">$.each(liObj,<span class="function"><span class="keyword">function</span>(<span class="params">name,index</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(liObj.eq(name).data(<span class="string">"indexLi"</span>))   <span class="comment">//读取indexLi的内容</span></div><div class="line">&#125;)</div><div class="line">         <span class="comment">//result: 0,1,2,3</span></div></pre></td></tr></table></figure>
+<p><code>$.removeData(element,[name])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> liObj = $(<span class="string">"li"</span>)</div><div class="line">$.each(liObj,<span class="function"><span class="keyword">function</span>(<span class="params">name,index</span>)</span>&#123;</div><div class="line"></div><div class="line">	liObj.eq(name).data(<span class="string">"indexLi"</span>,name)</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"li"</span>).removeData(<span class="string">"indexLi"</span>)  <span class="comment">//删除名称为indexLi的缓存</span></div><div class="line">$.each(liObj,<span class="function"><span class="keyword">function</span>(<span class="params">name,index</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(liObj.eq(name).data(<span class="string">"indexLi"</span>))</div><div class="line">&#125;)</div><div class="line"><span class="comment">//result:undefined</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/15/Cascading Style Sheets for Web Design/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/15/Cascading Style Sheets for Web Design/" itemprop="url">
+                  Cascading Style Sheets for Web Design
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-15T12:50:22Z">
+                2016-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/15/Cascading Style Sheets for Web Design/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/15/Cascading Style Sheets for Web Design/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/15/Cascading Style Sheets for Web Design/" class="leancloud_visitors" data-flag-title="Cascading Style Sheets for Web Design">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="类和ID选择器"><a href="#类和ID选择器" class="headerlink" title="类和ID选择器"></a>类和ID选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#main</span>&#123;&#125;</div><div class="line"><span class="selector-class">.main</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="通用选择器"><a href="#通用选择器" class="headerlink" title="通用选择器"></a>通用选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123; <span class="attribute">font</span>: red; &#125;</div></pre></td></tr></table></figure>
+<h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#body</span> <span class="selector-tag">p</span></div></pre></td></tr></table></figure>
+<h3 id="直接子选择器"><a href="#直接子选择器" class="headerlink" title="直接子选择器"></a>直接子选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#body</span> &gt; <span class="selector-tag">p</span></div></pre></td></tr></table></figure>
+<h3 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#heading</span>+<span class="selector-tag">div</span><span class="selector-id">#body</span></div></pre></td></tr></table></figure>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">input[type]  //基于属性类型选择</div><div class="line">input[type="submit"]  //基于属性值选择</div><div class="line">a[href^="http://"] //基于以字符串开始的属性值选择</div><div class="line">a[href*=".php"]  //基于以字符串结尾的属性值选择</div></pre></td></tr></table></figure>
+<h3 id="伪元素：first-letter-first-line"><a href="#伪元素：first-letter-first-line" class="headerlink" title="伪元素：first-letter,first-line"></a>伪元素：first-letter,first-line</h3><p>伪元素first-letter和first-line分别代表文本元素的首字母和首行<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p:first-letter  //首字母</div><div class="line">p:first-line    //首行</div></pre></td></tr></table></figure></p>
+<p>###伪类<br>伪类是对目标元素出现某种特殊的状态应用样式</p>
+<ul>
+<li>link: </li>
+<li>visited:</li>
+<li>hover: 表示鼠标指针当前停留在该元素上</li>
+<li>active: 表示用户正在单机该元素</li>
+<li>first-child: 用于一个元素是另一个元素的第一个子元素<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:bover</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="层叠和继承"><a href="#层叠和继承" class="headerlink" title="层叠和继承"></a>层叠和继承</h2><h3 id="选择器的优先性"><a href="#选择器的优先性" class="headerlink" title="选择器的优先性"></a>选择器的优先性</h3><p>针对性越高的选择器起作用<br>可以使用！important获得优先级</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>当一个属性被应用到一个元素后，该元素的后代们也将应用该属性。</p>
+<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">letter-spacing   //单词间隔</div><div class="line">word-spacing     //句子中单词间隔</div><div class="line">text-indent      //段落中文本缩进</div><div class="line">text-decoration  //文本下划线上划线删除线</div><div class="line">text-transform   //控制文本大小写及大小写转换</div><div class="line">white-space      //控制文本流及格式</div></pre></td></tr></table></figure>
+<h3 id="列表属性"><a href="#列表属性" class="headerlink" title="列表属性"></a>列表属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">list-style-type    //改变项目列表和编号列表的表现</div><div class="line">list-style-image   //改变列表项的符号 url()</div><div class="line">list-style-position //控制列表项符号是出现在内部还是外不</div><div class="line">list-style          //简写属性 &lt;list-style-type&gt;||&lt;list-style-position&gt;||&lt;list-style-image&gt;</div></pre></td></tr></table></figure>
+<h2 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">background-color     //背景颜色</div><div class="line">backgrounf-image     //参数：url() 选择背景图片</div><div class="line">backgroung-repeat    //重复</div><div class="line">background-position  //控制背景定位</div><div class="line">background-attachment//scroll|fixed图像是否随着页面其他部分滚动</div><div class="line">background 			 //简写属性 &lt;'background-color'&gt;|&lt;'background-image'&gt;|&lt;'background-repeat'&gt;						 //&lt;'background-attchment'&gt;|&lt;'background-position'&gt;</div></pre></td></tr></table></figure>
+<h2 id="定位属性"><a href="#定位属性" class="headerlink" title="定位属性"></a>定位属性</h2><h4 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h4><p>绝对定位可以在文档中将元素放在精确的位置</p>
+<h3 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位 relative"></a>相对定位 relative</h3><p>类似于绝对定位，但应用相对定位的元素不脱离文档流。</p>
+<h3 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 fixed"></a>固定定位 fixed</h3><p>固定定位将元素保持在同一固定位置，即使滚动文档也是如此</p>
+<h3 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h3><p>z轴可以看做是垂直于电脑屏幕的一条轴</p>
+<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">caption-side        //top|bottom 控制表头位置</div><div class="line">col					//控制表格列，比如宽度</div><div class="line">table-layout		//auto|fixed 控制表格宽度 </div><div class="line">border-collapse		//collapse|separate 删除单元格间距</div><div class="line">border-spacing		//单元格间距 如果提供第二个值，则为垂直方向</div></pre></td></tr></table></figure>
+<h3 id="鼠标指针"><a href="#鼠标指针" class="headerlink" title="鼠标指针"></a>鼠标指针</h3><p>cursor</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/14/jQuery之动画操作/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/14/jQuery之动画操作/" itemprop="url">
+                  jQuery之动画操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-14T20:14:02Z">
+                2016-12-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/14/jQuery之动画操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/14/jQuery之动画操作/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/14/jQuery之动画操作/" class="leancloud_visitors" data-flag-title="jQuery之动画操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="显隐动画"><a href="#显隐动画" class="headerlink" title="显隐动画"></a>显隐动画</h3><p>show方法和hide方法：</p>
+<p><code>$(selector).show(speed,callback)</code></p>
+<ul>
+<li>speed,显示的速度，可选值为毫秒、”slow”、”normal”、 “fast”</li>
+<li>callback，函数执行完后，要执行的函数 </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</div><div class="line">	$(<span class="string">"body"</span>).append(<span class="string">"&lt;div&gt;&lt;div&gt;"</span>)</div><div class="line">&#125;</div><div class="line">$(<span class="string">"div"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).hide()</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"body"</span>).append(<span class="string">"&lt;button&gt;show&lt;/button&gt;"</span>)</div><div class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"div"</span>).show()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="显隐切换"><a href="#显隐切换" class="headerlink" title="显隐切换"></a>显隐切换</h3><p><del>在jQuery1.9之后，删除了toggle函数</del>，但是我们可以用一种间接的方法实现同样的效果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> state=<span class="number">1</span></div><div class="line">$(<span class="string">"#button1"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	state=!state</div><div class="line">	<span class="keyword">if</span>(state)&#123;</div><div class="line">		$(<span class="string">"p"</span>).show()</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		$(<span class="string">"p"</span>).hide()</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="滑动效果"><a href="#滑动效果" class="headerlink" title="滑动效果"></a>滑动效果</h3><p>slideDown和slideUp方法：</p>
+<p><code>slideDown([speed],[callback])</code> 缓慢舒展</p>
+<p><code>slideUp([speed],[callback])</code>缓慢收缩</p>
+<p>参数说明：</p>
+<ul>
+<li>speed，速度</li>
+<li>执行完后要执行的函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> slideState=<span class="number">1</span></div><div class="line">$(<span class="string">"#slide"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	slideState=!slideState</div><div class="line">	<span class="keyword">if</span>(slideState)&#123;</div><div class="line">		$(<span class="string">"img"</span>).slideUp(<span class="number">2000</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		$(<span class="string">"img"</span>).slideDown(<span class="number">2000</span>)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>使用callback：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).slideUp(<span class="number">2000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="keyword">this</span>).remove()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h3 id="渐变效果"><a href="#渐变效果" class="headerlink" title="渐变效果"></a>渐变效果</h3><p>fadeIn和fadeOut方法：</p>
+<p><code>fadeIn([speed],[callback])</code></p>
+<p><code>fadeOut([speed],[callback])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//fadeIn</span></div><div class="line"><span class="keyword">var</span> fadeState=<span class="number">1</span></div><div class="line">$(<span class="string">"#fadeIn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	fadeState=!fadeState</div><div class="line">	<span class="keyword">if</span> (fadeState) &#123;</div><div class="line">		$(<span class="string">"img"</span>).fadeIn(<span class="number">2000</span>)</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		$(<span class="string">"img"</span>).fadeOut(<span class="number">2000</span>)</div><div class="line">	&#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>淡出的透明效果fadeTo：</p>
+<p><code>fadeTo([speed],opacity,[callback])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).fadeTo(<span class="number">1000</span>,<span class="number">0.5</span>)</div></pre></td></tr></table></figure>
+<p>渐变切换fadeToggle方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).fadeToggle(<span class="number">2000</span>)</div></pre></td></tr></table></figure>
+<h3 id="复杂动画"><a href="#复杂动画" class="headerlink" title="复杂动画"></a>复杂动画</h3><p>animate方法：</p>
+<p><code>animate(style,[speed],[eading],[callback])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#animate"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">width</span>:<span class="string">"100px"</span>,</div><div class="line">		<span class="attr">height</span>:<span class="string">"200px"</span>,</div><div class="line">	&#125;,<span class="number">3000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">width</span>:<span class="string">"300px"</span>,</div><div class="line">		<span class="attr">height</span>:<span class="string">"400px"</span></div><div class="line">	&#125;,<span class="number">3000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">"#animate"</span>).click()</div><div class="line">	&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>用animate实现定位：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#position"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">			<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">			<span class="attr">top</span>:<span class="number">0</span></div><div class="line">		&#125;,<span class="number">2000</span>)</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">			<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">			<span class="attr">top</span>:<span class="number">300</span></div><div class="line">		&#125;,<span class="number">2000</span>)</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">			<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">			<span class="attr">top</span>:<span class="number">300</span></div><div class="line">		&#125;,<span class="number">2000</span>)</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">			<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">			<span class="attr">top</span>:<span class="number">0</span></div><div class="line">		&#125;,<span class="number">2000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			$(<span class="string">"#position"</span>).click()</div><div class="line">		&#125;)</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
+<p>stop停止动画，off关闭动画</p>
+<h3 id="动画队列"><a href="#动画队列" class="headerlink" title="动画队列"></a>动画队列</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"img"</span>).queue(<span class="string">"fa"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">0</span></div><div class="line">	&#125;,<span class="number">2000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">300</span></div><div class="line">	&#125;,<span class="number">2000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">300</span></div><div class="line">	&#125;,<span class="number">2000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">0</span></div><div class="line">	&#125;,<span class="number">2000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="comment">//$("#queue").click()</span></div><div class="line">		$(<span class="string">"#updateQueue"</span>).click()</div><div class="line">	&#125;)</div><div class="line">	</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"#queue"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">300</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">300</span></div><div class="line">	&#125;,<span class="number">2000</span>)</div><div class="line">	$(<span class="string">"img"</span>).animate(&#123;</div><div class="line">		<span class="attr">left</span>:<span class="number">0</span>,</div><div class="line">		<span class="attr">top</span>:<span class="number">0</span></div><div class="line">		&#125;,<span class="number">2000</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			$(<span class="string">"#queue"</span>).click()</div><div class="line">		&#125;)</div><div class="line">	&#125;)</div><div class="line"></div><div class="line">$(<span class="string">"#updateQueue"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//将默认的队列fx替换为自定义的fa</span></div><div class="line">	<span class="keyword">var</span> fa=$(<span class="string">"img"</span>).queue(<span class="string">"fa"</span>)</div><div class="line">	$(<span class="string">"img"</span>).queue(<span class="string">"fx"</span>,fa)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>使用dequeue()方法删除队列的最顶部的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#dequeue"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	$(<span class="string">"img"</span>).dequeue()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/13/jQuery事件处理/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/13/jQuery事件处理/" itemprop="url">
                   jQuery事件处理
                 </a>
               
@@ -295,8 +944,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/14/jQuery事件处理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/14/jQuery事件处理/" itemprop="commentCount"></span>
+                <a href="/2016/12/13/jQuery事件处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/13/jQuery事件处理/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -306,7 +955,7 @@
 
           
           
-             <span id="/2016/12/14/jQuery事件处理/" class="leancloud_visitors" data-flag-title="jQuery事件处理">
+             <span id="/2016/12/13/jQuery事件处理/" class="leancloud_visitors" data-flag-title="jQuery事件处理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -389,7 +1038,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/13/JQuery之DOM操作/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/12/JQuery之DOM操作/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -414,7 +1063,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/13/JQuery之DOM操作/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/12/JQuery之DOM操作/" itemprop="url">
                   JQuery之DOM操作
                 </a>
               
@@ -445,8 +1094,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/13/JQuery之DOM操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/13/JQuery之DOM操作/" itemprop="commentCount"></span>
+                <a href="/2016/12/12/JQuery之DOM操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/JQuery之DOM操作/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -456,7 +1105,7 @@
 
           
           
-             <span id="/2016/12/13/JQuery之DOM操作/" class="leancloud_visitors" data-flag-title="JQuery之DOM操作">
+             <span id="/2016/12/12/JQuery之DOM操作/" class="leancloud_visitors" data-flag-title="JQuery之DOM操作">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1126,7 +1775,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/10/JavaScript对象（二）/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/09/JavaScript对象（二）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -1151,7 +1800,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/10/JavaScript对象（二）/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/09/JavaScript对象（二）/" itemprop="url">
                   JavaScript对象（二）
                 </a>
               
@@ -1166,7 +1815,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-09T22:33:49Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-09T22:33:49+00:00">
                 2016-12-09
               </time>
             
@@ -1182,8 +1831,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/10/JavaScript对象（二）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/10/JavaScript对象（二）/" itemprop="commentCount"></span>
+                <a href="/2016/12/09/JavaScript对象（二）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/JavaScript对象（二）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1193,7 +1842,7 @@
 
           
           
-             <span id="/2016/12/10/JavaScript对象（二）/" class="leancloud_visitors" data-flag-title="JavaScript对象（二）">
+             <span id="/2016/12/09/JavaScript对象（二）/" class="leancloud_visitors" data-flag-title="JavaScript对象（二）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1478,7 +2127,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/09/JavaScript对象（一）/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/08/JavaScript对象（一）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -1503,7 +2152,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/09/JavaScript对象（一）/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/08/JavaScript对象（一）/" itemprop="url">
                   JavaScript对象（一）
                 </a>
               
@@ -1534,8 +2183,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/09/JavaScript对象（一）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/JavaScript对象（一）/" itemprop="commentCount"></span>
+                <a href="/2016/12/08/JavaScript对象（一）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/08/JavaScript对象（一）/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1545,7 +2194,7 @@
 
           
           
-             <span id="/2016/12/09/JavaScript对象（一）/" class="leancloud_visitors" data-flag-title="JavaScript对象（一）">
+             <span id="/2016/12/08/JavaScript对象（一）/" class="leancloud_visitors" data-flag-title="JavaScript对象（一）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1991,7 +2640,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/02/vim常用操作/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/01/vim常用操作/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="xujingguo">
@@ -2016,7 +2665,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/02/vim常用操作/" itemprop="url">
+                <a class="post-title-link" href="/2016/12/01/vim常用操作/" itemprop="url">
                   vim常用操作
                 </a>
               
@@ -2047,8 +2696,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/02/vim常用操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/02/vim常用操作/" itemprop="commentCount"></span>
+                <a href="/2016/12/01/vim常用操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/01/vim常用操作/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -2058,7 +2707,7 @@
 
           
           
-             <span id="/2016/12/02/vim常用操作/" class="leancloud_visitors" data-flag-title="vim常用操作">
+             <span id="/2016/12/01/vim常用操作/" class="leancloud_visitors" data-flag-title="vim常用操作">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -2278,682 +2927,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/01/正则表达式/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xujingguo">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="xujingguo's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/01/正则表达式/" itemprop="url">
-                  正则表达式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T22:12:34Z">
-                2016-11-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/01/正则表达式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/01/正则表达式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/01/正则表达式/" class="leancloud_visitors" data-flag-title="正则表达式">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="正则表达式基本语法"><a href="#正则表达式基本语法" class="headerlink" title="正则表达式基本语法"></a>正则表达式基本语法</h2><h3 id="1-1字符集和单词"><a href="#1-1字符集和单词" class="headerlink" title="1.1字符集和单词"></a>1.1字符集和单词</h3><blockquote>
-<p>.用于匹配除换行符之外的任意的一个字符<br>方括号[]用于指定一个字符集，只能匹配其中的一个字符<br>连字符-用于描述一个范围<br>为了严格匹配一个单词，需要加上\&lt;和&gt;\<br><em>ps:正则表达式中对单词的定义，单词指的是两侧由非单词字符分割的字符串。非单词指的是字幕、数字、下划线以为的所有字符</em></p>
-<h3 id="1-2字符类"><a href="#1-2字符类" class="headerlink" title="1.2字符类"></a>1.2字符类</h3><table>
-<thead>
-<tr>
-<th>类</th>
-<th>匹配字符</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[[:alnum:]]</td>
-<td>文字、数字字符</td>
-</tr>
-<tr>
-<td>[[:alpha:]]</td>
-<td>字母字符</td>
-</tr>
-<tr>
-<td>[[:lower:]]</td>
-<td>小写字母</td>
-</tr>
-<tr>
-<td>[[“upper”]]</td>
-<td>大写字母</td>
-</tr>
-<tr>
-<td>[[:digit:]]</td>
-<td>小数</td>
-</tr>
-<tr>
-<td>[[:xdigit:]]</td>
-<td>十六进制数字</td>
-</tr>
-<tr>
-<td>[[:punct:]]</td>
-<td>标点符号</td>
-</tr>
-<tr>
-<td>[[blank]]</td>
-<td>制表符和空格</td>
-</tr>
-<tr>
-<td>[[:space:]]</td>
-<td>空格</td>
-</tr>
-<tr>
-<td>[[:cntrl:]]</td>
-<td>所有控制符</td>
-</tr>
-<tr>
-<td>[[:print:]]</td>
-<td>所有可打印的字符</td>
-</tr>
-<tr>
-<td>[[:graph:]]</td>
-<td>除空格外所有可打印的字符</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1-3位置匹配"><a href="#1-3位置匹配" class="headerlink" title="1.3位置匹配"></a>1.3位置匹配</h3><p>^和$分别用于匹配行首和行尾。</p>
-<h3 id="1-4转义字符"><a href="#1-4转义字符" class="headerlink" title="1.4转义字符"></a>1.4转义字符</h3><p>\表示转义</p>
-<h3 id="1-5重复"><a href="#1-5重复" class="headerlink" title="1.5重复"></a>1.5重复</h3><table>
-<thead>
-<tr>
-<th>元字符</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td>重复0次或更多次</td>
-</tr>
-<tr>
-<td>+</td>
-<td>重复一次或更多次</td>
-</tr>
-<tr>
-<td>？</td>
-<td>重复0次或一次</td>
-</tr>
-<tr>
-<td>{n}</td>
-<td>重复n次</td>
-</tr>
-<tr>
-<td>{n,}</td>
-<td>重复n次或更多次</td>
-</tr>
-<tr>
-<td>{n,m}</td>
-<td>重复不少于n次，不多于m次</td>
-</tr>
-</tbody>
-</table>
-<h3 id="1-6反义"><a href="#1-6反义" class="headerlink" title="1.6反义"></a>1.6反义</h3><p>[^y]表示除了字母y的任何字符<br><em>注意：^放在行首和反义时的区别</em><br>^[^y]    ##匹配所有不以字母y开头的行</p>
-<h3 id="1-7分支"><a href="#1-7分支" class="headerlink" title="1.7分支"></a>1.7分支</h3><p>|表示分支</p>
-<h3 id="1-8逆向引用"><a href="#1-8逆向引用" class="headerlink" title="1.8逆向引用"></a>1.8逆向引用</h3><p>  在子表达式中捕获的内容可以在正则表达式中的其他地方再次使用，用户可以使用反斜杠”\”加上子表达式的编号来指代该分组分配到的内容。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/自动获取可用的ipv6临时地址/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xujingguo">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="xujingguo's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/29/自动获取可用的ipv6临时地址/" itemprop="url">
-                  自动获取可用的ipv6临时地址
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-28T21:23:08Z">
-                2016-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/29/自动获取可用的ipv6临时地址/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/自动获取可用的ipv6临时地址/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/29/自动获取可用的ipv6临时地址/" class="leancloud_visitors" data-flag-title="自动获取可用的ipv6临时地址">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h3><p>​    自从搬到新校区之后，发现校园网对ipv6的支持并不好，丢包率在90%以上，后来偶然发现通过禁用再启用有线网卡可以解决这个问题。</p>
-<p>​    原来每次禁用再启用有线网卡都会发现临时ipv6地址会发生变化，而ipv4和ipv6地址都没有改变，猜测应该是新校区的网络机房没有完善。但是每次手动操作费时费力，于是就有了这个自动禁用启用有线网卡的小程序。</p>
-<h3 id="1-代码"><a href="#1-代码" class="headerlink" title="1.代码"></a>1.代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@echo off</div><div class="line">set ip=bt.neu.edu.cn -n 2</div><div class="line">rem 需要ping的ip</div><div class="line">:Start</div><div class="line">echo.&quot;正在ping&quot;</div><div class="line">netsh interface set interface &quot;以太网&quot; enabled</div><div class="line">ping 127.0.0.1 -n 8 &gt; nul   </div><div class="line">ping %ip%|findstr &quot;时间&lt;1ms&quot;&amp;&amp;exit||goto No</div><div class="line">rem ping 127.0.1如果找到&quot;&lt;1ms&quot;则退出，没有找到则跳转到:No</div><div class="line"></div><div class="line">:No</div><div class="line">echo.error</div><div class="line">netsh interface set interface &quot;以太网&quot; disabled</div><div class="line"></div><div class="line">goto Start</div></pre></td></tr></table></figure>
-<h3 id="2用法"><a href="#2用法" class="headerlink" title="2用法"></a>2用法</h3><p>​    新建文本文件，修改后缀为<code>.bat</code>,右键编辑，粘贴上述代码，保存。</p>
-<p>右键管理员运行，当获取到有效的临时ipv6地址，程序会自动退出。</p>
-<p><em>ps:应该只有浑南校区会用到吧</em></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/Cascading Style Sheets for Web Design/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xujingguo">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="xujingguo's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/28/Cascading Style Sheets for Web Design/" itemprop="url">
-                  Cascading Style Sheets for Web Design
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-27T16:42:18Z">
-                2016-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/28/Cascading Style Sheets for Web Design/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/Cascading Style Sheets for Web Design/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/28/Cascading Style Sheets for Web Design/" class="leancloud_visitors" data-flag-title="Cascading Style Sheets for Web Design">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="类和ID选择器"><a href="#类和ID选择器" class="headerlink" title="类和ID选择器"></a>类和ID选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#main</span>&#123;&#125;</div><div class="line"><span class="selector-class">.main</span>&#123;&#125;</div></pre></td></tr></table></figure>
-<h3 id="通用选择器"><a href="#通用选择器" class="headerlink" title="通用选择器"></a>通用选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123; <span class="attribute">font</span>: red; &#125;</div></pre></td></tr></table></figure>
-<h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#body</span> <span class="selector-tag">p</span></div></pre></td></tr></table></figure>
-<h3 id="直接子选择器"><a href="#直接子选择器" class="headerlink" title="直接子选择器"></a>直接子选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#body</span> &gt; <span class="selector-tag">p</span></div></pre></td></tr></table></figure>
-<h3 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#heading</span>+<span class="selector-tag">div</span><span class="selector-id">#body</span></div></pre></td></tr></table></figure>
-<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">input[type]  //基于属性类型选择</div><div class="line">input[type="submit"]  //基于属性值选择</div><div class="line">a[href^="http://"] //基于以字符串开始的属性值选择</div><div class="line">a[href*=".php"]  //基于以字符串结尾的属性值选择</div></pre></td></tr></table></figure>
-<h3 id="伪元素：first-letter-first-line"><a href="#伪元素：first-letter-first-line" class="headerlink" title="伪元素：first-letter,first-line"></a>伪元素：first-letter,first-line</h3><p>伪元素first-letter和first-line分别代表文本元素的首字母和首行<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p:first-letter  //首字母</div><div class="line">p:first-line    //首行</div></pre></td></tr></table></figure></p>
-<p>###伪类<br>伪类是对目标元素出现某种特殊的状态应用样式</p>
-<ul>
-<li>link: </li>
-<li>visited:</li>
-<li>hover: 表示鼠标指针当前停留在该元素上</li>
-<li>active: 表示用户正在单机该元素</li>
-<li>first-child: 用于一个元素是另一个元素的第一个子元素<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:bover</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="层叠和继承"><a href="#层叠和继承" class="headerlink" title="层叠和继承"></a>层叠和继承</h2><h3 id="选择器的优先性"><a href="#选择器的优先性" class="headerlink" title="选择器的优先性"></a>选择器的优先性</h3><p>针对性越高的选择器起作用<br>可以使用！important获得优先级</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>当一个属性被应用到一个元素后，该元素的后代们也将应用该属性。</p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">letter-spacing   //单词间隔</div><div class="line">word-spacing     //句子中单词间隔</div><div class="line">text-indent      //段落中文本缩进</div><div class="line">text-decoration  //文本下划线上划线删除线</div><div class="line">text-transform   //控制文本大小写及大小写转换</div><div class="line">white-space      //控制文本流及格式</div></pre></td></tr></table></figure>
-<h3 id="列表属性"><a href="#列表属性" class="headerlink" title="列表属性"></a>列表属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">list-style-type    //改变项目列表和编号列表的表现</div><div class="line">list-style-image   //改变列表项的符号 url()</div><div class="line">list-style-position //控制列表项符号是出现在内部还是外不</div><div class="line">list-style          //简写属性 &lt;list-style-type&gt;||&lt;list-style-position&gt;||&lt;list-style-image&gt;</div></pre></td></tr></table></figure>
-<h2 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">background-color     //背景颜色</div><div class="line">backgrounf-image     //参数：url() 选择背景图片</div><div class="line">backgroung-repeat    //重复</div><div class="line">background-position  //控制背景定位</div><div class="line">background-attachment//scroll|fixed图像是否随着页面其他部分滚动</div><div class="line">background 			 //简写属性 &lt;'background-color'&gt;|&lt;'background-image'&gt;|&lt;'background-repeat'&gt;						 //&lt;'background-attchment'&gt;|&lt;'background-position'&gt;</div></pre></td></tr></table></figure>
-<h2 id="定位属性"><a href="#定位属性" class="headerlink" title="定位属性"></a>定位属性</h2><h4 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h4><p>绝对定位可以在文档中将元素放在精确的位置</p>
-<h3 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位 relative"></a>相对定位 relative</h3><p>类似于绝对定位，但应用相对定位的元素不脱离文档流。</p>
-<h3 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 fixed"></a>固定定位 fixed</h3><p>固定定位将元素保持在同一固定位置，即使滚动文档也是如此</p>
-<h3 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h3><p>z轴可以看做是垂直于电脑屏幕的一条轴</p>
-<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">caption-side        //top|bottom 控制表头位置</div><div class="line">col					//控制表格列，比如宽度</div><div class="line">table-layout		//auto|fixed 控制表格宽度 </div><div class="line">border-collapse		//collapse|separate 删除单元格间距</div><div class="line">border-spacing		//单元格间距 如果提供第二个值，则为垂直方向</div></pre></td></tr></table></figure>
-<h3 id="鼠标指针"><a href="#鼠标指针" class="headerlink" title="鼠标指针"></a>鼠标指针</h3><p>cursor</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/27/利用hexo-github-page搭建个人博客/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xujingguo">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="xujingguo's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/27/利用hexo-github-page搭建个人博客/" itemprop="url">
-                  利用hexo+github搭建个人博客踩过的坑
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-26T21:52:19Z">
-                2016-11-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/27/利用hexo-github-page搭建个人博客/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/27/利用hexo-github-page搭建个人博客/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/11/27/利用hexo-github-page搭建个人博客/" class="leancloud_visitors" data-flag-title="利用hexo+github搭建个人博客踩过的坑">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考教程:<a href="http://www.jianshu.com/p/0b33006a48e6" target="_blank" rel="external">Hexo系列教程之一：hexo+github搭建独立博客</a></p>
-<p>在参考了上述教程后顺利的搭建起了自己的博客，但在搭建图中遇到了几个问题，在此记录下来供大家借鉴：</p>
-<h3 id="1-配置文件的修改"><a href="#1-配置文件的修改" class="headerlink" title="1. 配置文件的修改"></a>1. 配置文件的修改</h3><p>​       在通过ssh成功连接到github自己的repository后，要想将提交代码到github，就必须修改自己的配置文件，位置在<code>./hexo/_config.yml</code>，用notepad或 sublime打开后修改文件末尾的 deploy如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repository: https:<span class="comment">//github.com/xujingguo58/xujingguo58.github.io.git</span></div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p>​    <em>注意：所有的配置文件在“：”之后都必须加空格</em></p>
-<h2 id="2-hexo-deployer-git插件的安装"><a href="#2-hexo-deployer-git插件的安装" class="headerlink" title="2. hexo-deployer-git插件的安装"></a>2. hexo-deployer-git插件的安装</h2><p>​    如果未安装该插件，则<code>hexo d</code>不会有任何提示，通过</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>命令安装。</p>
-<h2 id="3-主题的修改"><a href="#3-主题的修改" class="headerlink" title="3.主题的修改"></a>3.主题的修改</h2><p>​    搭建完成后默认主题为landscape，如果不满意可以自行修改为自己喜欢的主题，在<code>./hexo/</code>下右键菜单选择<code>$ git bash here</code>在出现的终端中运行<code>$ git clone https://github.com/iissnan/hexo-theme-next themes/next</code> 克隆 next 主题，next具体配置可以参阅<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">Next使用文档</a></p>
-<p>最后奉上我的博客地址：<a href="https://xujingguo58.github.io/" target="_blank" rel="external">xujingguo’s blog</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2994,7 +2972,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -3004,7 +2982,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

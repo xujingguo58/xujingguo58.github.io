@@ -96,7 +96,7 @@
 你的任务是设计一个 getInstance 方法，对于给定的类，每次调用 getInstance 时，都可得到同一个实例。
 样例：在 Java 中:
 12A a =">
-<meta property="og:updated_time" content="2017-03-12T14:22:08.561Z">
+<meta property="og:updated_time" content="2017-03-12T14:29:44.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式">
 <meta name="twitter:description" content="描述：单例 是最为最常见的设计模式之一。对于任何时刻，如果某个类只存在且最多存在一个具体的实例，那么我们称这种设计模式为单例。例如，对于 class Mouse (不是动物的mouse哦)，我们应将其设计为 singleton 模式。
@@ -284,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-12T22:18:11Z">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-13T06:18:11+08:00">
                 2017-03-12
               </time>
             
@@ -344,6 +344,18 @@
 <h3 id="算法："><a href="#算法：" class="headerlink" title="算法："></a>算法：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Solution &#123;</div><div class="line"></div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="comment">/**</span></div><div class="line">     * @return: The same instance of this class every time</div><div class="line">     */</div><div class="line">    <span class="keyword">static</span> Solution *p;</div><div class="line">    <span class="function"><span class="keyword">static</span> Solution* <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// write your code here</span></div><div class="line">       <span class="keyword">if</span>(p == <span class="literal">NULL</span>)  <span class="comment">//判断是否第一次调用  </span></div><div class="line">            p =  <span class="keyword">new</span> Solution();  </div><div class="line">        <span class="keyword">return</span> p;  </div><div class="line">        </div><div class="line">    &#125;</div><div class="line">  </div><div class="line">&#125;;</div><div class="line"></div><div class="line">Solution* Solution::p=<span class="literal">NULL</span>;</div></pre></td></tr></table></figure>
 <p><em>关于static：对于非静态数据成员,每个类对象都有自己的拷贝.而静态数据成员被当做是类的成员,无论这个类被定义了多少个,静态数据成员都只有一份拷贝，为该类型的所有对象所共享(包括其派生类).所以,静态数据成员的值对每个对象都是一样的,它的值可以更新.</em></p>
 <p><em>因为静态数据成员在全局数据区分配内存,属于本类的所有对象共享,所以它不属于特定的类对象,在没有产生类对象前就可以使用.</em></p>
+<h4 id="线程安全的懒汉实现"><a href="#线程安全的懒汉实现" class="headerlink" title="线程安全的懒汉实现"></a>线程安全的懒汉实现</h4><p>　　线程不安全，怎么办呢？最直观的方法：加锁。</p>
+<ul>
+<li><h4 id="方法1：加锁的经典懒汉实现："><a href="#方法1：加锁的经典懒汉实现：" class="headerlink" title="方法1：加锁的经典懒汉实现："></a>方法1：加锁的经典懒汉实现：</h4></li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> singleton</div><div class="line">&#123;</div><div class="line"><span class="keyword">protected</span>:</div><div class="line">    singleton()</div><div class="line">    &#123;</div><div class="line">        pthread_mutex_init(&amp;mutex);</div><div class="line">    &#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">static</span> singleton* p;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">static</span> <span class="keyword">pthread_mutex_t</span> mutex;</div><div class="line">    <span class="function"><span class="keyword">static</span> singleton* <span class="title">initance</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">pthread_mutex_t</span> singleton::mutex;</div><div class="line">singleton* singleton::p = <span class="literal">NULL</span>;</div><div class="line">singleton* singleton::initance()</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</div><div class="line">    &#123;</div><div class="line">        pthread_mutex_lock(&amp;mutex);</div><div class="line">        <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</div><div class="line">            p = <span class="keyword">new</span> singleton();</div><div class="line">        pthread_mutex_unlock(&amp;mutex);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="方法2：内部静态变量的懒汉实现"><a href="#方法2：内部静态变量的懒汉实现" class="headerlink" title="方法2：内部静态变量的懒汉实现"></a>方法2：内部静态变量的懒汉实现</h4></li>
+</ul>
+<p>　　此方法也很容易实现，在instance函数里定义一个静态的实例，也可以保证拥有唯一实例，在返回时只需要返回其指针就可以了。推荐这种实现方法，真得非常简单。　　　　</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> singleton</div><div class="line">&#123;</div><div class="line"><span class="keyword">protected</span>:</div><div class="line">    singleton()</div><div class="line">    &#123;</div><div class="line">        pthread_mutex_init(&amp;mutex);</div><div class="line">    &#125;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">static</span> <span class="keyword">pthread_mutex_t</span> mutex;</div><div class="line">    <span class="function"><span class="keyword">static</span> singleton* <span class="title">initance</span><span class="params">()</span></span>;</div><div class="line">    <span class="keyword">int</span> a;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">pthread_mutex_t</span> singleton::mutex;</div><div class="line">singleton* singleton::initance()</div><div class="line">&#123;</div><div class="line">    pthread_mutex_lock(&amp;mutex);</div><div class="line">    <span class="keyword">static</span> singleton obj;</div><div class="line">    pthread_mutex_unlock(&amp;mutex);</div><div class="line">    <span class="keyword">return</span> &amp;obj;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-饿汉实现"><a href="#4-饿汉实现" class="headerlink" title="4 饿汉实现"></a>4 饿汉实现</h4><p>　　为什么我不讲“线程安全的饿汉实现”？因为饿汉实现本来就是线程安全的，不用加锁。为啥？自己想！</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> singleton</div><div class="line">&#123;</div><div class="line"><span class="keyword">protected</span>:</div><div class="line">    singleton()</div><div class="line">    &#123;&#125;</div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">static</span> singleton* p;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">static</span> singleton* <span class="title">initance</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div><div class="line">singleton* singleton::p = <span class="keyword">new</span> singleton;</div><div class="line">singleton* singleton::initance()</div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> p;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -385,6 +397,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/15/马尔科夫决策过程/" rel="prev" title="马尔科夫决策过程">
+                马尔科夫决策过程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -456,7 +472,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">24</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -466,7 +482,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -501,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述："><span class="nav-number">1.</span> <span class="nav-text">描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例："><span class="nav-number">2.</span> <span class="nav-text">样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法："><span class="nav-number">3.</span> <span class="nav-text">算法：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#描述："><span class="nav-number">1.</span> <span class="nav-text">描述：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例："><span class="nav-number">2.</span> <span class="nav-text">样例：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法："><span class="nav-number">3.</span> <span class="nav-text">算法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程安全的懒汉实现"><span class="nav-number">3.1.</span> <span class="nav-text">线程安全的懒汉实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法1：加锁的经典懒汉实现："><span class="nav-number">3.2.</span> <span class="nav-text">方法1：加锁的经典懒汉实现：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法2：内部静态变量的懒汉实现"><span class="nav-number">3.3.</span> <span class="nav-text">方法2：内部静态变量的懒汉实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-饿汉实现"><span class="nav-number">3.4.</span> <span class="nav-text">4 饿汉实现</span></a></li></ol></li></ol></div>
             
 
           </div>

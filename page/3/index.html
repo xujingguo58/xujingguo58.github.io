@@ -239,6 +239,438 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/12/JQuery之选择器/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/12/JQuery之选择器/" itemprop="url">
+                  JQuery之选择器
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-12T15:47:20Z">
+                2016-12-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/12/JQuery之选择器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/12/JQuery之选择器/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/12/JQuery之选择器/" class="leancloud_visitors" data-flag-title="JQuery之选择器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="jQuery之选择器"><a href="#jQuery之选择器" class="headerlink" title="jQuery之选择器"></a>jQuery之选择器</h2><h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#id</td>
+<td>id选择器</td>
+<td>单个元素</td>
+</tr>
+<tr>
+<td>element</td>
+<td>元素选择器</td>
+<td>同类型集合元素</td>
+</tr>
+<tr>
+<td>.class</td>
+<td>类选择器</td>
+<td>集合元素</td>
+</tr>
+<tr>
+<td>*</td>
+<td>通配选择器</td>
+<td>所有元素集合</td>
+</tr>
+<tr>
+<td>select1,select2,select3</td>
+<td>组选择器</td>
+<td>集合元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ancestor descendant</td>
+<td>包含选择器</td>
+</tr>
+<tr>
+<td>parent &gt; child</td>
+<td>子选择器</td>
+</tr>
+<tr>
+<td>prev + next</td>
+<td>相邻选择器</td>
+</tr>
+<tr>
+<td>prev ~ siblings</td>
+<td>兄弟选择器</td>
+</tr>
+</tbody>
+</table>
+<h3 id="简单伪类选择器"><a href="#简单伪类选择器" class="headerlink" title="简单伪类选择器"></a>简单伪类选择器</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">选择器</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">:first</td>
+<td style="text-align:left">匹配找到的第一个元素</td>
+</tr>
+<tr>
+<td style="text-align:left">:last</td>
+<td style="text-align:left">匹配找的的最后一个元素</td>
+</tr>
+<tr>
+<td style="text-align:left">:not</td>
+<td style="text-align:left">去除匹配的元素</td>
+</tr>
+<tr>
+<td style="text-align:left">:even</td>
+<td style="text-align:left">匹配索引值为偶数的元素</td>
+</tr>
+<tr>
+<td style="text-align:left">:odd</td>
+<td style="text-align:left">匹配索引值为奇数的元素</td>
+</tr>
+<tr>
+<td style="text-align:left">:eq</td>
+<td style="text-align:left">匹配给定的索引值</td>
+</tr>
+<tr>
+<td style="text-align:left">:gt</td>
+<td style="text-align:left">匹配大于给定的索引值</td>
+</tr>
+<tr>
+<td style="text-align:left">:lt</td>
+<td style="text-align:left">匹配小于给定的索引值</td>
+</tr>
+<tr>
+<td style="text-align:left">:header</td>
+<td style="text-align:left">匹配如h1,h2,h3之类的标题元素</td>
+</tr>
+<tr>
+<td style="text-align:left">:animated</td>
+<td style="text-align:left">匹配所有正在执行动画效果的元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="与内容相关的伪类选择器"><a href="#与内容相关的伪类选择器" class="headerlink" title="与内容相关的伪类选择器"></a>与内容相关的伪类选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:contains</td>
+<td>包含给定文本的元素</td>
+</tr>
+<tr>
+<td>:empty</td>
+<td>匹配所有不包含子子元素或者文本的空元素</td>
+</tr>
+<tr>
+<td>:has</td>
+<td>匹配含有给定元素的元素</td>
+</tr>
+<tr>
+<td>:parent</td>
+<td>匹配含有子元素或者文本的元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="与元素状态相关的伪类选择器"><a href="#与元素状态相关的伪类选择器" class="headerlink" title="与元素状态相关的伪类选择器"></a>与元素状态相关的伪类选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:hidden</td>
+<td>所有不可见元素 或者type为hidden的元素</td>
+</tr>
+<tr>
+<td>:visible</td>
+<td>所有可见的元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="匹配子元素的伪类选择器"><a href="#匹配子元素的伪类选择器" class="headerlink" title="匹配子元素的伪类选择器"></a>匹配子元素的伪类选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:nth-child</td>
+<td>匹配器父元素下的第N个元素</td>
+</tr>
+<tr>
+<td>:first-child</td>
+<td>第一个子元素</td>
+</tr>
+<tr>
+<td>:last-child</td>
+<td>匹配最后一个子元素</td>
+</tr>
+<tr>
+<td>only-child</td>
+<td>匹配只有一个子元素的元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="与表单相关的伪类选择器"><a href="#与表单相关的伪类选择器" class="headerlink" title="与表单相关的伪类选择器"></a>与表单相关的伪类选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>实例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input.asp" target="_blank" rel="external">:input</a></td>
+<td>$(“:input”)</td>
+<td>所有 input 元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_text.asp" target="_blank" rel="external">:text</a></td>
+<td>$(“:text”)</td>
+<td>所有 type=”text” 的 input 元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_password.asp" target="_blank" rel="external">:password</a></td>
+<td>$(“:password”)</td>
+<td>所有 type=”password” 的 input元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_radio.asp" target="_blank" rel="external">:radio</a></td>
+<td>$(“:radio”)</td>
+<td>所有 type=”radio” 的 input 元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_checkbox.asp" target="_blank" rel="external">:checkbox</a></td>
+<td>$(“:checkbox”)</td>
+<td>所有 type=”checkbox” 的input 元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_submit.asp" target="_blank" rel="external">:submit</a></td>
+<td>$(“:submit”)</td>
+<td>所有 type=”submit” 的 input 元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_reset.asp" target="_blank" rel="external">:reset</a></td>
+<td>$(“:reset”)</td>
+<td>所有 type=”reset” 的 input 元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_button.asp" target="_blank" rel="external">:button</a></td>
+<td>$(“:button”)</td>
+<td>所有 type=”button” 的 input 元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_image.asp" target="_blank" rel="external">:image</a></td>
+<td>$(“:image”)</td>
+<td>所有 type=”image” 的 input 元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_input_file.asp" target="_blank" rel="external">:file</a></td>
+<td>$(“:file”)</td>
+<td>所有 type=”file” 的 input 元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="与表单属性相关的伪类选择器"><a href="#与表单属性相关的伪类选择器" class="headerlink" title="与表单属性相关的伪类选择器"></a>与表单属性相关的伪类选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:enabled</td>
+<td>所有可用元素</td>
+</tr>
+<tr>
+<td>:disabled</td>
+<td>不可用元素</td>
+</tr>
+<tr>
+<td>:checked</td>
+<td>匹配被选中的元素（单选框、复选框）</td>
+</tr>
+<tr>
+<td>:selected</td>
+<td>所有被选中的option元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>实例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_attribute.asp" target="_blank" rel="external">[<em>attribute</em>]</a></td>
+<td>$(“[href]”)</td>
+<td>所有带有 href 属性的元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_attribute_equal_value.asp" target="_blank" rel="external">[<em>attribute</em>=<em>value</em>]</a></td>
+<td>$(“[href=’#’]”)</td>
+<td>所有 href 属性的值等于 “#” 的元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_attribute_notequal_value.asp" target="_blank" rel="external">[<em>attribute</em>!=<em>value</em>]</a></td>
+<td>$(“[href!=’#’]”)</td>
+<td>所有 href 属性的值不等于 “#” 的元素</td>
+</tr>
+<tr>
+<td><a href="http://www.w3school.com.cn/jquery/selector_attribute_end_value.asp" target="_blank" rel="external">[<em>attribute</em>$=<em>value</em>]</a></td>
+<td>$(“[href$=’.jpg’]”)</td>
+<td>所有 href 属性的值包含以 “.jpg” 结尾的元素</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/10/JavaScript对象（二）/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1948,7 +2380,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

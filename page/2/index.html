@@ -239,6 +239,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/JQuery框架透析之函数式基础/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/22/JQuery框架透析之函数式基础/" itemprop="url">
+                  JQuery框架透析之函数式基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-21T19:42:09Z">
+                2016-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/22/JQuery框架透析之函数式基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/22/JQuery框架透析之函数式基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/22/JQuery框架透析之函数式基础/" class="leancloud_visitors" data-flag-title="JQuery框架透析之函数式基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-定义函数"><a href="#1-定义函数" class="headerlink" title="1.定义函数"></a>1.定义函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用function语句</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用Function构造函数</span></div><div class="line"><span class="keyword">var</span> fun = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"value"</span>,<span class="keyword">return</span> value)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//函数直接量</span></div><div class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> x</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-使用函数"><a href="#2-使用函数" class="headerlink" title="2.使用函数"></a>2.使用函数</h3><h4 id="2-1调用函数"><a href="#2-1调用函数" class="headerlink" title="2.1调用函数"></a>2.1调用函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> x+y;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(fun(<span class="number">2</span>,<span class="number">4</span>)())</div><div class="line"><span class="comment">//result : 6</span></div></pre></td></tr></table></figure>
+<h4 id="2-2-生命周期"><a href="#2-2-生命周期" class="headerlink" title="2.2 生命周期"></a>2.2 生命周期</h4><p>​    在代码段中，使用function语句声明的函数被预先定义，此时如果存在相同的函数名，就会被覆盖，而函数直接量和构造函数定义的函数都属于表达式函数，因此在代码执行时，才被激活声明周期</p>
+<h4 id="2-3-参数对象arguments"><a href="#2-3-参数对象arguments" class="headerlink" title="2.3 参数对象arguments"></a>2.3 参数对象arguments</h4><p>​    使用Arguments对象来管理实参，即便函数没有形参，也可以通过其来获取每个实参。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> m = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>;i&lt;<span class="built_in">arguments</span>.length;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(m&lt;<span class="built_in">arguments</span>[i])</div><div class="line">			m= <span class="built_in">arguments</span>[i]</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> m</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(max(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>))  <span class="comment">//result:6</span></div><div class="line"><span class="built_in">console</span>.log(max(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)) <span class="comment">//result : 5</span></div></pre></td></tr></table></figure>
+<p>​    如果函数的实参对于函数的形参，则会自动省略多余的实参，而如果使用arguments则没有这种问题</p>
+<h4 id="2-4-回调函数callee"><a href="#2-4-回调函数callee" class="headerlink" title="2.4 回调函数callee"></a>2.4 回调函数callee</h4><p>arguments对象的一个属性，返回当前arguments对象所属函数的引用。比如使用<code>var funLength = arguments.callee.length</code>得到函数形参的个数。如果函数不是匿名函数，则arguments.callee等价于函数名</p>
+<h3 id="3-动态指针"><a href="#3-动态指针" class="headerlink" title="3.动态指针"></a>3.动态指针</h3><p>​    this是一个非常灵活的动态指针，始终指向当前函数的调用对象，this使用权限仅限于函数内或者调用范围内。</p>
+<h3 id="4-闭包"><a href="#4-闭包" class="headerlink" title="4.闭包"></a>4.闭包</h3><p>​    闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的方式，就是在一个函数内部创建另一个函数。</p>
+<p>使用with来实现闭包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span>(o=&#123;&#125;)&#123;</div><div class="line">	<span class="keyword">var</span> a=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"a"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a())</div><div class="line">      <span class="comment">//result: a</span></div></pre></td></tr></table></figure>
+<p>使用函数来实现闭包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">			<span class="keyword">var</span> a=x;</div><div class="line">			<span class="keyword">var</span> b=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="keyword">return</span> x;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> b;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">console</span>.log(f(<span class="number">1</span>)())</div><div class="line">		<span class="comment">//result : 1</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/19/canvas/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2365,519 +2512,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/09/JavaScript对象（一）/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xujingguo">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="xujingguo's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/09/JavaScript对象（一）/" itemprop="url">
-                  JavaScript对象（一）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-08T22:01:39Z">
-                2016-12-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/09/JavaScript对象（一）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/09/JavaScript对象（一）/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/09/JavaScript对象（一）/" class="leancloud_visitors" data-flag-title="JavaScript对象（一）">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Object对象"><a href="#Object对象" class="headerlink" title="Object对象"></a>Object对象</h2><h4 id="object是JavaScript所有对象的基类"><a href="#object是JavaScript所有对象的基类" class="headerlink" title="object是JavaScript所有对象的基类"></a>object是JavaScript所有对象的基类</h4><h4 id="1-创建object对象"><a href="#1-创建object对象" class="headerlink" title="1.创建object对象"></a>1.创建object对象</h4><p><code>obj = new Object([value])</code></p>
-<h4 id="2-Object对象的属性"><a href="#2-Object对象的属性" class="headerlink" title="2.Object对象的属性"></a>2.Object对象的属性</h4><h5 id="1-prototype属性"><a href="#1-prototype属性" class="headerlink" title="(1) prototype属性"></a>(1) prototype属性</h5><p>该属性返回对象类型原型的引用</p>
-<p><code>objectName.prototype</code></p>
-<p>用prototype属性可以提供对象的类的一组基本功能。</p>
-<p>为Array对象添加一个返回求最大值方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">array_max</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="comment">//var i;</span></div><div class="line">			<span class="keyword">var</span> max=<span class="keyword">this</span>[<span class="number">0</span>]</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">this</span>.length; i++) &#123;</div><div class="line">				<span class="keyword">if</span> (<span class="keyword">this</span>[i]&gt;max) &#123;</div><div class="line">					max=<span class="keyword">this</span>[i];</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> max;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">Array</span>.prototype.max=array_max;</div><div class="line">		<span class="keyword">var</span> x=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">10</span>);</div><div class="line">		<span class="keyword">var</span> y=x.max();</div><div class="line">		alert(y);</div></pre></td></tr></table></figure>
-<h5 id="2-constructor属性"><a href="#2-constructor属性" class="headerlink" title="(2)constructor属性"></a>(2)constructor属性</h5><p>该属性表示创建该对象的函数</p>
-<p><code>objectName.constructor</code></p>
-<p>eg：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i=<span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="number">1</span>);</div><div class="line">alert(i.constructor)</div></pre></td></tr></table></figure>
-<p>result:</p>
-<p><code>function Boolean(){ [native code] }</code></p>
-<h4 id="3-object对象的方法"><a href="#3-object对象的方法" class="headerlink" title="3.object对象的方法"></a>3.object对象的方法</h4><h5 id="1-toString方法"><a href="#1-toString方法" class="headerlink" title="(1)toString方法"></a>(1)toString方法</h5><p>返回对象的字符串表示</p>
-<p><code>objName.toString()</code></p>
-<h5 id="2-valueOf方法"><a href="#2-valueOf方法" class="headerlink" title="(2)valueOf方法"></a>(2)valueOf方法</h5><p>返回对象的初始值</p>
-<h2 id="String对象"><a href="#String对象" class="headerlink" title="String对象"></a>String对象</h2><p>String对象是动态对象，需要创建对象实例后才能引用该对象的属性和方法，该对象主要用于处理或格式化文本字符串已经确定和定位字符串中的子字符串。</p>
-<h4 id="1-创建String对象"><a href="#1-创建String对象" class="headerlink" title="1.创建String对象"></a>1.创建String对象</h4><p><code>var str= new String([String Text])</code></p>
-<h4 id="2-String对象的属性"><a href="#2-String对象的属性" class="headerlink" title="2.String对象的属性"></a>2.String对象的属性</h4><p>String对象有三个属性 length属性， constructor属性，prototype属性</p>
-<p><code>length</code>属性返回数组长度。</p>
-<p><code>constructor</code>属性表示创建对象的函数</p>
-<p><code>protype</code>返回对象原型的引用</p>
-<h4 id="3-String对象的方法"><a href="#3-String对象的方法" class="headerlink" title="3.String对象的方法"></a>3.String对象的方法</h4><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_anchor.asp" target="_blank" rel="external">anchor()</a></td>
-<td>创建 HTML 锚。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_big.asp" target="_blank" rel="external">big()</a></td>
-<td>用大号字体显示字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_blink.asp" target="_blank" rel="external">blink()</a></td>
-<td>显示闪动字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_bold.asp" target="_blank" rel="external">bold()</a></td>
-<td>使用粗体显示字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_charAt.asp" target="_blank" rel="external">charAt()</a></td>
-<td>返回在指定位置的字符。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_charCodeAt.asp" target="_blank" rel="external">charCodeAt()</a></td>
-<td>返回在指定的位置的字符的 Unicode 编码。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_concat_string.asp" target="_blank" rel="external">concat()</a></td>
-<td>连接字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_fixed.asp" target="_blank" rel="external">fixed()</a></td>
-<td>以打字机文本显示字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_fontcolor.asp" target="_blank" rel="external">fontcolor()</a></td>
-<td>使用指定的颜色来显示字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_fontsize.asp" target="_blank" rel="external">fontsize()</a></td>
-<td>使用指定的尺寸来显示字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_fromCharCode.asp" target="_blank" rel="external">fromCharCode()</a></td>
-<td>从字符编码创建一个字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_indexOf.asp" target="_blank" rel="external">indexOf()</a></td>
-<td>检索字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_italics.asp" target="_blank" rel="external">italics()</a></td>
-<td>使用斜体显示字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_lastIndexOf.asp" target="_blank" rel="external">lastIndexOf()</a></td>
-<td>从后向前搜索字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_link.asp" target="_blank" rel="external">link()</a></td>
-<td>将字符串显示为链接。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_localeCompare.asp" target="_blank" rel="external">localeCompare()</a></td>
-<td>用本地特定的顺序来比较两个字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_match.asp" target="_blank" rel="external">match()</a></td>
-<td>找到一个或多个正则表达式的匹配。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_replace.asp" target="_blank" rel="external">replace()</a></td>
-<td>替换与正则表达式匹配的子串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_search.asp" target="_blank" rel="external">search()</a></td>
-<td>检索与正则表达式相匹配的值。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_slice_string.asp" target="_blank" rel="external">slice()</a></td>
-<td>提取字符串的片断，并在新的字符串中返回被提取的部分。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_small.asp" target="_blank" rel="external">small()</a></td>
-<td>使用小字号来显示字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_split.asp" target="_blank" rel="external">split()</a></td>
-<td>把字符串分割为字符串数组。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_strike.asp" target="_blank" rel="external">strike()</a></td>
-<td>使用删除线来显示字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_sub.asp" target="_blank" rel="external">sub()</a></td>
-<td>把字符串显示为下标。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_substr.asp" target="_blank" rel="external">substr()</a></td>
-<td>从起始索引号提取字符串中指定数目的字符。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_substring.asp" target="_blank" rel="external">substring()</a></td>
-<td>提取字符串中两个指定的索引号之间的字符。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_sup.asp" target="_blank" rel="external">sup()</a></td>
-<td>把字符串显示为上标。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleLowerCase.asp" target="_blank" rel="external">toLocaleLowerCase()</a></td>
-<td>把字符串转换为小写。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleUpperCase.asp" target="_blank" rel="external">toLocaleUpperCase()</a></td>
-<td>把字符串转换为大写。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toLowerCase.asp" target="_blank" rel="external">toLowerCase()</a></td>
-<td>把字符串转换为小写。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toUpperCase.asp" target="_blank" rel="external">toUpperCase()</a></td>
-<td>把字符串转换为大写。</td>
-</tr>
-<tr>
-<td>toSource()</td>
-<td>代表对象的源代码。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toString_string.asp" target="_blank" rel="external">toString()</a></td>
-<td>返回字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_valueOf_string.asp" target="_blank" rel="external">valueOf()</a></td>
-<td>返回某个字符串对象的原始值。</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>表格来自w3school，可点击函数名在线体验各个方法的功能</p>
-</blockquote>
-<p>​     在上述函数中，比较常用的是split函数：</p>
-<p><code>split()     //将字符串分割为数组</code> </p>
-<p>例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">document</span>.write(<span class="string">"hello world!"</span>.split(<span class="string">""</span>));</div><div class="line"><span class="comment">//result:h,e,l,l,o, ,w,o,r,l,d,!</span></div><div class="line"><span class="built_in">document</span>.write(<span class="string">"2:5:4:6:1"</span>.split(<span class="string">":"</span>))	</div><div class="line"><span class="comment">//result:2,5,4,6,1</span></div><div class="line"><span class="built_in">document</span>.write(<span class="string">"hello world!"</span>.split(<span class="string">" "</span>))</div><div class="line"><span class="comment">//result:hello,world!</span></div><div class="line"><span class="built_in">document</span>.write(<span class="string">"hello world!"</span>.split(<span class="string">""</span>, <span class="number">7</span>))</div><div class="line"><span class="comment">//result:h,e,l,l,o, ,w</span></div></pre></td></tr></table></figure>
-<h2 id="Date对象"><a href="#Date对象" class="headerlink" title="Date对象"></a>Date对象</h2><p>Date对象实现日期和时间的操作</p>
-<h4 id="1-Date对象的创建"><a href="#1-Date对象的创建" class="headerlink" title="1.Date对象的创建"></a>1.Date对象的创建</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dateObj = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">dateObj = <span class="keyword">new</span> <span class="built_in">Date</span>(dateval);</div><div class="line">dateObj = <span class="keyword">new</span> <span class="built_in">Date</span>(year,month,date[,hours[,minutes[,seconds[,ms]]]])</div></pre></td></tr></table></figure>
-<h4 id="2-Date对象的属性"><a href="#2-Date对象的属性" class="headerlink" title="2.Date对象的属性"></a>2.Date对象的属性</h4><p>Date对象有两个属性，<code>prototype</code>属性和<code>constructor</code>属性,使用方法同以上对象。</p>
-<h4 id="3-Date对象的方法"><a href="#3-Date对象的方法" class="headerlink" title="3.Date对象的方法"></a>3.Date对象的方法</h4><table>
-<thead>
-<tr>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_Date.asp" target="_blank" rel="external">Date()</a></td>
-<td>返回当日的日期和时间。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getDate.asp" target="_blank" rel="external">getDate()</a></td>
-<td>从 Date 对象返回一个月中的某一天 (1 ~ 31)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getDay.asp" target="_blank" rel="external">getDay()</a></td>
-<td>从 Date 对象返回一周中的某一天 (0 ~ 6)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getMonth.asp" target="_blank" rel="external">getMonth()</a></td>
-<td>从 Date 对象返回月份 (0 ~ 11)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getFullYear.asp" target="_blank" rel="external">getFullYear()</a></td>
-<td>从 Date 对象以四位数字返回年份。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getYear.asp" target="_blank" rel="external">getYear()</a></td>
-<td>请使用 getFullYear() 方法代替。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getHours.asp" target="_blank" rel="external">getHours()</a></td>
-<td>返回 Date 对象的小时 (0 ~ 23)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getMinutes.asp" target="_blank" rel="external">getMinutes()</a></td>
-<td>返回 Date 对象的分钟 (0 ~ 59)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getSeconds.asp" target="_blank" rel="external">getSeconds()</a></td>
-<td>返回 Date 对象的秒数 (0 ~ 59)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getMilliseconds.asp" target="_blank" rel="external">getMilliseconds()</a></td>
-<td>返回 Date 对象的毫秒(0 ~ 999)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getTime.asp" target="_blank" rel="external">getTime()</a></td>
-<td>返回 1970 年 1 月 1 日至今的毫秒数。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getTimezoneOffset.asp" target="_blank" rel="external">getTimezoneOffset()</a></td>
-<td>返回本地时间与格林威治标准时间 (GMT) 的分钟差。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCDate.asp" target="_blank" rel="external">getUTCDate()</a></td>
-<td>根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCDay.asp" target="_blank" rel="external">getUTCDay()</a></td>
-<td>根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCMonth.asp" target="_blank" rel="external">getUTCMonth()</a></td>
-<td>根据世界时从 Date 对象返回月份 (0 ~ 11)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCFullYear.asp" target="_blank" rel="external">getUTCFullYear()</a></td>
-<td>根据世界时从 Date 对象返回四位数的年份。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCHours.asp" target="_blank" rel="external">getUTCHours()</a></td>
-<td>根据世界时返回 Date 对象的小时 (0 ~ 23)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCMinutes.asp" target="_blank" rel="external">getUTCMinutes()</a></td>
-<td>根据世界时返回 Date 对象的分钟 (0 ~ 59)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCSeconds.asp" target="_blank" rel="external">getUTCSeconds()</a></td>
-<td>根据世界时返回 Date 对象的秒钟 (0 ~ 59)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_getUTCMilliseconds.asp" target="_blank" rel="external">getUTCMilliseconds()</a></td>
-<td>根据世界时返回 Date 对象的毫秒(0 ~ 999)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_parse.asp" target="_blank" rel="external">parse()</a></td>
-<td>返回1970年1月1日午夜到指定日期（字符串）的毫秒数。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setDate.asp" target="_blank" rel="external">setDate()</a></td>
-<td>设置 Date 对象中月的某一天 (1 ~ 31)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setMonth.asp" target="_blank" rel="external">setMonth()</a></td>
-<td>设置 Date 对象中月份 (0 ~ 11)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setFullYear.asp" target="_blank" rel="external">setFullYear()</a></td>
-<td>设置 Date 对象中的年份（四位数字）。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setYear.asp" target="_blank" rel="external">setYear()</a></td>
-<td>请使用 setFullYear() 方法代替。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setHours.asp" target="_blank" rel="external">setHours()</a></td>
-<td>设置 Date 对象中的小时 (0 ~ 23)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setMinutes.asp" target="_blank" rel="external">setMinutes()</a></td>
-<td>设置 Date 对象中的分钟 (0 ~ 59)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setSeconds.asp" target="_blank" rel="external">setSeconds()</a></td>
-<td>设置 Date 对象中的秒钟 (0 ~ 59)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setMilliseconds.asp" target="_blank" rel="external">setMilliseconds()</a></td>
-<td>设置 Date 对象中的毫秒 (0 ~ 999)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setTime.asp" target="_blank" rel="external">setTime()</a></td>
-<td>以毫秒设置 Date 对象。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCDate.asp" target="_blank" rel="external">setUTCDate()</a></td>
-<td>根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCMonth.asp" target="_blank" rel="external">setUTCMonth()</a></td>
-<td>根据世界时设置 Date 对象中的月份 (0 ~ 11)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCFullYear.asp" target="_blank" rel="external">setUTCFullYear()</a></td>
-<td>根据世界时设置 Date 对象中的年份（四位数字）。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setutchours.asp" target="_blank" rel="external">setUTCHours()</a></td>
-<td>根据世界时设置 Date 对象中的小时 (0 ~ 23)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCMinutes.asp" target="_blank" rel="external">setUTCMinutes()</a></td>
-<td>根据世界时设置 Date 对象中的分钟 (0 ~ 59)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCSeconds.asp" target="_blank" rel="external">setUTCSeconds()</a></td>
-<td>根据世界时设置 Date 对象中的秒钟 (0 ~ 59)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_setUTCMilliseconds.asp" target="_blank" rel="external">setUTCMilliseconds()</a></td>
-<td>根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_tosource_boolean.asp" target="_blank" rel="external">toSource()</a></td>
-<td>返回该对象的源代码。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toString_date.asp" target="_blank" rel="external">toString()</a></td>
-<td>把 Date 对象转换为字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toTimeString.asp" target="_blank" rel="external">toTimeString()</a></td>
-<td>把 Date 对象的时间部分转换为字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toDateString.asp" target="_blank" rel="external">toDateString()</a></td>
-<td>把 Date 对象的日期部分转换为字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toGMTString.asp" target="_blank" rel="external">toGMTString()</a></td>
-<td>请使用 toUTCString() 方法代替。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toUTCString.asp" target="_blank" rel="external">toUTCString()</a></td>
-<td>根据世界时，把 Date 对象转换为字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleString.asp" target="_blank" rel="external">toLocaleString()</a></td>
-<td>根据本地时间格式，把 Date 对象转换为字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleTimeString.asp" target="_blank" rel="external">toLocaleTimeString()</a></td>
-<td>根据本地时间格式，把 Date 对象的时间部分转换为字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_toLocaleDateString.asp" target="_blank" rel="external">toLocaleDateString()</a></td>
-<td>根据本地时间格式，把 Date 对象的日期部分转换为字符串。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_utc.asp" target="_blank" rel="external">UTC()</a></td>
-<td>根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。</td>
-</tr>
-<tr>
-<td><a href="http://www.w3school.com.cn/jsref/jsref_valueOf_date.asp" target="_blank" rel="external">valueOf()</a></td>
-<td>返回 Date 对象的原始值。</td>
-</tr>
-</tbody>
-</table>
-<p>方法举例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line"><span class="built_in">document</span>.write(<span class="built_in">Date</span>());</div><div class="line"><span class="built_in">document</span>.write(<span class="built_in">Date</span>.UTC(<span class="number">2016</span>,<span class="number">12</span>,<span class="number">9</span>,<span class="number">22</span>,<span class="number">2</span>,<span class="number">10</span>)+<span class="string">"&lt;br&gt;"</span>)</div><div class="line"><span class="comment">//result:1483999330000</span></div><div class="line"><span class="built_in">document</span>.write(date.getDay());</div><div class="line"><span class="comment">//result:5</span></div><div class="line"><span class="built_in">document</span>.write(date.toString())</div><div class="line"><span class="comment">//result:Fri Dec 09 2016 22:07:53 GMT+0800 (中国标准时间)</span></div><div class="line">date.setFullYear(<span class="number">1999</span>);</div><div class="line"><span class="built_in">document</span>.write(date);</div><div class="line"><span class="comment">//result:Thu Dec 09 1999 22:10:34 GMT+0800 (中国标准时间)</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2923,7 +2557,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

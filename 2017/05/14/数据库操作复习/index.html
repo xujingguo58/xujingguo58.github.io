@@ -1,0 +1,978 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据库," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="SQL数据库基本定义功能
+
+
+
+创建
+删除
+修改
+
+
+
+
+模式
+CREATE SCHEMA
+DROP SCHEMA
+
+
+
+关系表
+CREATE  TABLE
+DROP TABLE
+ALTER TABLE
+
+
+视图
+CREATE VIEW
+DROP VIEW
+
+
+
+索引
+CREATE INDEX
+DROP INDEX
+
+
+
+1.模式创建模式基本语句：1CREATE SCHEMA &amp;lt;模式名&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库操作复习">
+<meta property="og:url" content="http://www.xujingguo.top/2017/05/14/数据库操作复习/index.html">
+<meta property="og:site_name" content="xujingguo's blog">
+<meta property="og:description" content="SQL数据库基本定义功能
+
+
+
+创建
+删除
+修改
+
+
+
+
+模式
+CREATE SCHEMA
+DROP SCHEMA
+
+
+
+关系表
+CREATE  TABLE
+DROP TABLE
+ALTER TABLE
+
+
+视图
+CREATE VIEW
+DROP VIEW
+
+
+
+索引
+CREATE INDEX
+DROP INDEX
+
+
+
+1.模式创建模式基本语句：1CREATE SCHEMA &amp;lt;模式名&amp;gt">
+<meta property="og:updated_time" content="2017-05-13T13:25:00.444Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库操作复习">
+<meta name="twitter:description" content="SQL数据库基本定义功能
+
+
+
+创建
+删除
+修改
+
+
+
+
+模式
+CREATE SCHEMA
+DROP SCHEMA
+
+
+
+关系表
+CREATE  TABLE
+DROP TABLE
+ALTER TABLE
+
+
+视图
+CREATE VIEW
+DROP VIEW
+
+
+
+索引
+CREATE INDEX
+DROP INDEX
+
+
+
+1.模式创建模式基本语句：1CREATE SCHEMA &amp;lt;模式名&amp;gt">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.xujingguo.top/2017/05/14/数据库操作复习/"/>
+
+
+
+
+
+  <title> 数据库操作复习 | xujingguo's blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">xujingguo's blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">blog</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.xujingguo.top/2017/05/14/数据库操作复习/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据库操作复习
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T01:08:16+08:00">
+                2017-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/05/14/数据库操作复习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/14/数据库操作复习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/14/数据库操作复习/" class="leancloud_visitors" data-flag-title="数据库操作复习">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="SQL数据库基本定义功能"><a href="#SQL数据库基本定义功能" class="headerlink" title="SQL数据库基本定义功能"></a>SQL数据库基本定义功能</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>创建</th>
+<th>删除</th>
+<th>修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模式</td>
+<td>CREATE SCHEMA</td>
+<td>DROP SCHEMA</td>
+<td></td>
+</tr>
+<tr>
+<td>关系表</td>
+<td>CREATE  TABLE</td>
+<td>DROP TABLE</td>
+<td>ALTER TABLE</td>
+</tr>
+<tr>
+<td>视图</td>
+<td>CREATE VIEW</td>
+<td>DROP VIEW</td>
+<td></td>
+</tr>
+<tr>
+<td>索引</td>
+<td>CREATE INDEX</td>
+<td>DROP INDEX</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-模式"><a href="#1-模式" class="headerlink" title="1.模式"></a>1.模式</h3><h4 id="创建模式基本语句："><a href="#创建模式基本语句：" class="headerlink" title="创建模式基本语句："></a>创建模式基本语句：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">SCHEMA</span> &lt;模式名&gt; AUTHORIZATION &lt;用户名&gt;</div></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Create</span> <span class="keyword">schema</span> “S-T” authorization Wang</div></pre></td></tr></table></figure>
+<h4 id="删除模式基本语句"><a href="#删除模式基本语句" class="headerlink" title="删除模式基本语句"></a>删除模式基本语句</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DROP SCHEMA &lt;模式名&gt; &lt;CASCADE|RESTRICT&gt;</div></pre></td></tr></table></figure>
+<p>例子： </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Drop</span> <span class="keyword">schema</span> Zhang <span class="keyword">cascade</span></div></pre></td></tr></table></figure>
+<h3 id="2-表"><a href="#2-表" class="headerlink" title="2.表"></a>2.表</h3><h4 id="创建表："><a href="#创建表：" class="headerlink" title="创建表："></a>创建表：</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名</div><div class="line">   (&lt;列名<span class="number">1</span>&gt; 数据类型 [列级约束],</div><div class="line">    [&lt;列名<span class="number">2</span>&gt; 数据类型 [列级约束],]</div><div class="line">    ……,</div><div class="line">    [表级约束])。</div></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Create</span> <span class="keyword">table</span> Students</div><div class="line">( sno <span class="built_in">char</span>(<span class="number">11</span>) primary <span class="keyword">key</span>,</div><div class="line">Sname <span class="built_in">char</span>(<span class="number">20</span>),</div><div class="line">Ssex    <span class="built_in">char</span>(<span class="number">2</span>),</div><div class="line">Sage    <span class="built_in">int</span>,</div><div class="line">Sdept   <span class="built_in">char</span>(<span class="number">20</span>))</div></pre></td></tr></table></figure>
+<h4 id="表的修改"><a href="#表的修改" class="headerlink" title="表的修改"></a>表的修改</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">添加列|完整性约束：</div><div class="line">           <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt; <span class="keyword">ADD</span> &lt;列名&gt; &lt;数据类型&gt; [完整性约束]</div><div class="line">删除列|完整性约束：</div><div class="line">	 	   <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt; <span class="keyword">DROP</span> &lt;列名&gt; &lt;数据类型&gt; [完整性约束]     </div><div class="line">修改列：</div><div class="line">		   <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt; <span class="keyword">ALTER</span>  <span class="keyword">COLUMN</span> &lt;列名&gt;  &lt;数据类型&gt;</div></pre></td></tr></table></figure>
+<h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Drop</span> <span class="keyword">table</span> &lt;表名&gt; [restrict|cascsde]</div><div class="line">Restrict: 表删除有限制条件，不能被其他表的约束所引用，不能有视图、触发器、存储过程或函数</div><div class="line"><span class="keyword">Cascade</span>:把一个基本表的定义连同表上的所有记录、索引以及由此基本表导出的所有视图都删除，并释放相应的存储空间</div></pre></td></tr></table></figure>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="1-查询语句基本结构"><a href="#1-查询语句基本结构" class="headerlink" title="1.查询语句基本结构"></a>1.查询语句基本结构</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span>  [<span class="keyword">DISTINCT</span>] &lt;目标列&gt; [,&lt;目标列&gt;]</div><div class="line"><span class="keyword">FROM</span> &lt;基本表 (视图)&gt; [,&lt;基本表 (视图)&gt;]</div><div class="line">[<span class="keyword">WHERE</span> &lt;条件表达式&gt;]</div><div class="line">[<span class="keyword">Group</span> <span class="keyword">by</span> &lt;列名<span class="number">1</span>&gt; [<span class="keyword">having</span> &lt;分组表达式&gt;] ]</div><div class="line">[<span class="keyword">Order</span> <span class="keyword">By</span> &lt;列名<span class="number">2</span>&gt;[ <span class="keyword">asc</span> | <span class="keyword">desc</span> ]];</div></pre></td></tr></table></figure>
+<h3 id="2-单关系查询"><a href="#2-单关系查询" class="headerlink" title="2.单关系查询"></a>2.单关系查询</h3><h4 id="属性列查询"><a href="#属性列查询" class="headerlink" title="属性列查询"></a>属性列查询</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*表示关系的全部属性</div><div class="line">包含运算符的查询结果属性 eg:  select Sname,  2014-Sage from  Students;</div><div class="line">常量查询和函数 eg: select  Sname, ‘Year of birth: ’, 2014-Sage,islower(Sdept) from Students;</div><div class="line">指定别名来改变查询结果的列标题 eg: select Sname NAME, ‘Year of birth’ BIRTH from   Students;</div></pre></td></tr></table></figure>
+<h4 id="元组查询"><a href="#元组查询" class="headerlink" title="元组查询"></a>元组查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">消除取值重复的行 <span class="keyword">select</span>  <span class="keyword">distinct</span> Sno <span class="keyword">from</span> SC;</div></pre></td></tr></table></figure>
+<p>查询满足条件的元祖： WHERE字句</p>
+<table>
+<thead>
+<tr>
+<th>查询条件</th>
+<th>谓词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>比较</td>
+<td>=, &gt;, &lt;, &gt;=, &lt;=. !=, &lt;&gt;, !&gt;, !&lt;, not+上述比较运算符</td>
+</tr>
+<tr>
+<td>确定范围</td>
+<td>between and, not between and</td>
+</tr>
+<tr>
+<td>确定集合</td>
+<td>in, not in</td>
+</tr>
+<tr>
+<td>字符匹配</td>
+<td>like, not like</td>
+</tr>
+<tr>
+<td>空值</td>
+<td>is null, is not null</td>
+</tr>
+<tr>
+<td>多重条件</td>
+<td>and, or</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-多关系查询"><a href="#3-多关系查询" class="headerlink" title="3.多关系查询"></a>3.多关系查询</h3><h4 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h4><p>多个 SQL的查询结果可以进行集合操作</p>
+<p>主要有： union(并集), intersect(交集), except(差集)</p>
+<p><em>关于消除重复元组的讨论：select默认保留重复，而集合操作是默认消除重复元组的，在后加上all，保留重复元组</em></p>
+<h4 id="连接操作"><a href="#连接操作" class="headerlink" title="连接操作"></a>连接操作</h4><p>1等值连接与非等值连接</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Students.*, SC.*</div><div class="line">  <span class="keyword">from</span> Students, SC</div><div class="line">  <span class="keyword">where</span> Students.Sno = SC.Sno;</div></pre></td></tr></table></figure>
+<p>自然连接</p>
+<p>在等值连接中把目标列中的重复属性列去掉</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Students.*, Cno, Grade</div><div class="line"></div><div class="line">  <span class="keyword">from</span> Students, SC    </div><div class="line"></div><div class="line">  <span class="keyword">where</span> Students.Sno = SC.Sno;</div></pre></td></tr></table></figure>
+<p>外连接</p>
+<p>在一般连接中,只有满足条件的元组才可以作为结果输出, 外连接则不同(左、右外连接)，把舍弃的元组保留在结果关系中，而在其他属性上填空值。左外连接列出左边关系中所有的元组，右外连接列出右边关系中所有的元组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">左外连接： LEFT OUTER JOIN</div><div class="line">全外连接： FULL OUTER JOIN</div></pre></td></tr></table></figure>
+<p>复合条件连接</p>
+<p>eg: </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">查询每个学生的学号、姓名、选修的课程名和成绩 </div><div class="line"><span class="keyword">select</span> Students.Sno, Sname, Cname, Grade</div><div class="line"><span class="keyword">from</span> Students, Courses, SC</div><div class="line"><span class="keyword">where</span> Students.Sno=SC.Sno <span class="keyword">and</span></div><div class="line">           SC.Cno=Courses.Cno;</div></pre></td></tr></table></figure>
+<h3 id="4-SQL嵌套查询"><a href="#4-SQL嵌套查询" class="headerlink" title="4.SQL嵌套查询"></a>4.SQL嵌套查询</h3><p>不相关子查询和相关子查询：</p>
+<p>不相关子查询求解方法由里向外，相关子查询求解方法由外向里</p>
+<h4 id="不相关子查询"><a href="#不相关子查询" class="headerlink" title="不相关子查询"></a>不相关子查询</h4><p>eg: 查询与刘晨在一个系学习的学生</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Students <span class="keyword">where</span> Sdept <span class="keyword">in</span> (<span class="keyword">select</span> Sdept <span class="keyword">from</span> Students <span class="keyword">where</span> Sname=‘刘晨’)；</div></pre></td></tr></table></figure>
+<h4 id="相关子查询"><a href="#相关子查询" class="headerlink" title="相关子查询"></a>相关子查询</h4><p>eg: 查询所有选修了1号课程的学生姓名</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Sname</div><div class="line">    <span class="keyword">from</span> Students</div><div class="line">    <span class="keyword">where</span> <span class="keyword">exists</span>  </div><div class="line">    (<span class="keyword">select</span> *</div><div class="line">     <span class="keyword">from</span> SC</div><div class="line">     <span class="keyword">where</span> Sno=Students.Sno </div><div class="line">     <span class="keyword">and</span> Cno=‘<span class="number">1</span>’</div><div class="line">     );</div></pre></td></tr></table></figure>
+<h3 id="5-SQL分组聚集查询"><a href="#5-SQL分组聚集查询" class="headerlink" title="5.SQL分组聚集查询"></a>5.SQL分组聚集查询</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">SQL提供的主要聚集函数</div><div class="line">    count( [distinct|all]  *)</div><div class="line">    count( [distinct|all] &lt;列名&gt;)</div><div class="line">    sum( [distinct|all] &lt;列名&gt;)</div><div class="line">    avg( [distinct|all] &lt;列名&gt;)</div><div class="line">    max ( [distinct|all] &lt;列名&gt;)</div><div class="line">    min ( [distinct|all] &lt;列名&gt;)</div></pre></td></tr></table></figure>
+<h2 id="SQL数据操纵功能"><a href="#SQL数据操纵功能" class="headerlink" title="SQL数据操纵功能"></a>SQL数据操纵功能</h2><h4 id="1-数据插入"><a href="#1-数据插入" class="headerlink" title="1.数据插入"></a>1.数据插入</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span>  Students <span class="keyword">values</span>(‘<span class="number">2011020</span>’, ‘陈东’, ‘男’, <span class="number">18</span>,‘<span class="keyword">IS</span>’);</div></pre></td></tr></table></figure>
+<h4 id="2-数据删除"><a href="#2-数据删除" class="headerlink" title="2.数据删除"></a>2.数据删除</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span>  <span class="keyword">from</span> Students <span class="keyword">where</span>   Sno = ‘<span class="number">2011019</span>’;</div></pre></td></tr></table></figure>
+<h4 id="3-数据修改"><a href="#3-数据修改" class="headerlink" title="3.数据修改"></a>3.数据修改</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span>   Students  <span class="keyword">set</span>  Sage = <span class="number">22</span> <span class="keyword">where</span>    Sno= ‘<span class="number">2011001</span>’;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/06/学院网站前后端交互流程/" rel="next" title="学院网站前后端交互流程">
+                <i class="fa fa-chevron-left"></i> 学院网站前后端交互流程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/14/数据库操作复习/"
+           data-title="数据库操作复习" data-url="http://www.xujingguo.top/2017/05/14/数据库操作复习/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="xujingguo" />
+          <p class="site-author-name" itemprop="name">xujingguo</p>
+          <p class="site-description motion-element" itemprop="description">xujingguo的个人博客，分享自己的经历，见证自己的成长，喜欢编程，目标前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL数据库基本定义功能"><span class="nav-number">1.</span> <span class="nav-text">SQL数据库基本定义功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-模式"><span class="nav-number">1.1.</span> <span class="nav-text">1.模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建模式基本语句："><span class="nav-number">1.1.1.</span> <span class="nav-text">创建模式基本语句：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除模式基本语句"><span class="nav-number">1.1.2.</span> <span class="nav-text">删除模式基本语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-表"><span class="nav-number">1.2.</span> <span class="nav-text">2.表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建表："><span class="nav-number">1.2.1.</span> <span class="nav-text">创建表：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#表的修改"><span class="nav-number">1.2.2.</span> <span class="nav-text">表的修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除表"><span class="nav-number">1.2.3.</span> <span class="nav-text">删除表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-number">2.</span> <span class="nav-text">查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查询语句基本结构"><span class="nav-number">2.1.</span> <span class="nav-text">1.查询语句基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-单关系查询"><span class="nav-number">2.2.</span> <span class="nav-text">2.单关系查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性列查询"><span class="nav-number">2.2.1.</span> <span class="nav-text">属性列查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#元组查询"><span class="nav-number">2.2.2.</span> <span class="nav-text">元组查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-多关系查询"><span class="nav-number">2.3.</span> <span class="nav-text">3.多关系查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#集合操作"><span class="nav-number">2.3.1.</span> <span class="nav-text">集合操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接操作"><span class="nav-number">2.3.2.</span> <span class="nav-text">连接操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-SQL嵌套查询"><span class="nav-number">2.4.</span> <span class="nav-text">4.SQL嵌套查询</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不相关子查询"><span class="nav-number">2.4.1.</span> <span class="nav-text">不相关子查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关子查询"><span class="nav-number">2.4.2.</span> <span class="nav-text">相关子查询</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-SQL分组聚集查询"><span class="nav-number">2.5.</span> <span class="nav-text">5.SQL分组聚集查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL数据操纵功能"><span class="nav-number">3.</span> <span class="nav-text">SQL数据操纵功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-数据插入"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.数据插入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数据删除"><span class="nav-number">3.0.2.</span> <span class="nav-text">2.数据删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-数据修改"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.数据修改</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xujingguo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xujingguo58"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("aUk6k1vdr9PzABi2oUp9dRCj-gzGzoHsz", "bQkSDK44XTdUEf139hebJH6t");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

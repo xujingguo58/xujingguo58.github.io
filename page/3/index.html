@@ -239,6 +239,153 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://www.xujingguo.top/2016/12/22/JQuery框架透析之函数式基础/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="xujingguo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="xujingguo's blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/22/JQuery框架透析之函数式基础/" itemprop="url">
+                  JQuery框架透析之函数式基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-21T19:42:09Z">
+                2016-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/22/JQuery框架透析之函数式基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/22/JQuery框架透析之函数式基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/22/JQuery框架透析之函数式基础/" class="leancloud_visitors" data-flag-title="JQuery框架透析之函数式基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-定义函数"><a href="#1-定义函数" class="headerlink" title="1.定义函数"></a>1.定义函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用function语句</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用Function构造函数</span></div><div class="line"><span class="keyword">var</span> fun = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"value"</span>,<span class="keyword">return</span> value)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//函数直接量</span></div><div class="line"><span class="keyword">var</span> fun = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> x</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-使用函数"><a href="#2-使用函数" class="headerlink" title="2.使用函数"></a>2.使用函数</h3><h4 id="2-1调用函数"><a href="#2-1调用函数" class="headerlink" title="2.1调用函数"></a>2.1调用函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">x,y</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> x+y;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(fun(<span class="number">2</span>,<span class="number">4</span>)())</div><div class="line"><span class="comment">//result : 6</span></div></pre></td></tr></table></figure>
+<h4 id="2-2-生命周期"><a href="#2-2-生命周期" class="headerlink" title="2.2 生命周期"></a>2.2 生命周期</h4><p>​    在代码段中，使用function语句声明的函数被预先定义，此时如果存在相同的函数名，就会被覆盖，而函数直接量和构造函数定义的函数都属于表达式函数，因此在代码执行时，才被激活声明周期</p>
+<h4 id="2-3-参数对象arguments"><a href="#2-3-参数对象arguments" class="headerlink" title="2.3 参数对象arguments"></a>2.3 参数对象arguments</h4><p>​    使用Arguments对象来管理实参，即便函数没有形参，也可以通过其来获取每个实参。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> m = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>;i&lt;<span class="built_in">arguments</span>.length;i++)&#123;</div><div class="line">		<span class="keyword">if</span>(m&lt;<span class="built_in">arguments</span>[i])</div><div class="line">			m= <span class="built_in">arguments</span>[i]</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> m</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(max(<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">4</span>))  <span class="comment">//result:6</span></div><div class="line"><span class="built_in">console</span>.log(max(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)) <span class="comment">//result : 5</span></div></pre></td></tr></table></figure>
+<p>​    如果函数的实参对于函数的形参，则会自动省略多余的实参，而如果使用arguments则没有这种问题</p>
+<h4 id="2-4-回调函数callee"><a href="#2-4-回调函数callee" class="headerlink" title="2.4 回调函数callee"></a>2.4 回调函数callee</h4><p>arguments对象的一个属性，返回当前arguments对象所属函数的引用。比如使用<code>var funLength = arguments.callee.length</code>得到函数形参的个数。如果函数不是匿名函数，则arguments.callee等价于函数名</p>
+<h3 id="3-动态指针"><a href="#3-动态指针" class="headerlink" title="3.动态指针"></a>3.动态指针</h3><p>​    this是一个非常灵活的动态指针，始终指向当前函数的调用对象，this使用权限仅限于函数内或者调用范围内。</p>
+<h3 id="4-闭包"><a href="#4-闭包" class="headerlink" title="4.闭包"></a>4.闭包</h3><p>​    闭包是指有权访问另一个函数作用域中的变量的函数。创建闭包的方式，就是在一个函数内部创建另一个函数。</p>
+<p>使用with来实现闭包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span>(o=&#123;&#125;)&#123;</div><div class="line">	<span class="keyword">var</span> a=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"a"</span></div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a())</div><div class="line">      <span class="comment">//result: a</span></div></pre></td></tr></table></figure>
+<p>使用函数来实现闭包</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>)</span>&#123;</div><div class="line">			<span class="keyword">var</span> a=x;</div><div class="line">			<span class="keyword">var</span> b=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="keyword">return</span> x;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">return</span> b;</div><div class="line">		&#125;</div><div class="line">		<span class="built_in">console</span>.log(f(<span class="number">1</span>)())</div><div class="line">		<span class="comment">//result : 1</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://www.xujingguo.top/2016/12/19/canvas/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2719,166 +2866,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.xujingguo.top/2016/12/04/Casading-Style-Sheets-for-Web-Design/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="xujingguo">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="xujingguo's blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="xujingguo's blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/12/04/Casading-Style-Sheets-for-Web-Design/" itemprop="url">
-                  Casading Style Sheets for Web Design
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T12:19:59Z">
-                2016-12-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/12/04/Casading-Style-Sheets-for-Web-Design/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/Casading-Style-Sheets-for-Web-Design/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/12/04/Casading-Style-Sheets-for-Web-Design/" class="leancloud_visitors" data-flag-title="Casading Style Sheets for Web Design">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><h3 id="类和ID选择器"><a href="#类和ID选择器" class="headerlink" title="类和ID选择器"></a>类和ID选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#main</span>&#123;&#125;</div><div class="line"><span class="selector-class">.main</span>&#123;&#125;</div></pre></td></tr></table></figure>
-<h3 id="通用选择器"><a href="#通用选择器" class="headerlink" title="通用选择器"></a>通用选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*&#123; <span class="attribute">font</span>: red; &#125;</div></pre></td></tr></table></figure>
-<h3 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#body</span> <span class="selector-tag">p</span></div></pre></td></tr></table></figure>
-<h3 id="直接子选择器"><a href="#直接子选择器" class="headerlink" title="直接子选择器"></a>直接子选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#body</span> &gt; <span class="selector-tag">p</span></div></pre></td></tr></table></figure>
-<h3 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-id">#heading</span>+<span class="selector-tag">div</span><span class="selector-id">#body</span></div></pre></td></tr></table></figure>
-<h3 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">input[type]  //基于属性类型选择</div><div class="line">input[type="submit"]  //基于属性值选择</div><div class="line">a[href^="http://"] //基于以字符串开始的属性值选择</div><div class="line">a[href*=".php"]  //基于以字符串结尾的属性值选择</div></pre></td></tr></table></figure>
-<h3 id="伪元素：first-letter-first-line"><a href="#伪元素：first-letter-first-line" class="headerlink" title="伪元素：first-letter,first-line"></a>伪元素：first-letter,first-line</h3><p>伪元素first-letter和first-line分别代表文本元素的首字母和首行</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p:first-letter  //首字母</div><div class="line">p:first-line    //首行</div></pre></td></tr></table></figure>
-<h3 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h3><p>伪类是对目标元素出现某种特殊的状态应用样式</p>
-<ul>
-<li>link: </li>
-<li>visited:</li>
-<li>hover: 表示鼠标指针当前停留在该元素上</li>
-<li>active: 表示用户正在单机该元素</li>
-<li>first-child: 用于一个元素是另一个元素的第一个子元素</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:bover</span></div><div class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span></div></pre></td></tr></table></figure>
-<h2 id="层叠和继承"><a href="#层叠和继承" class="headerlink" title="层叠和继承"></a>层叠和继承</h2><h3 id="选择器的优先性"><a href="#选择器的优先性" class="headerlink" title="选择器的优先性"></a>选择器的优先性</h3><p>针对性越高的选择器起作用<br>可以使用！important获得优先级</p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>当一个属性被应用到一个元素后，该元素的后代们也将应用该属性。</p>
-<h2 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h2><h3 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">letter-spacing   //单词间隔</div><div class="line">word-spacing     //句子中单词间隔</div><div class="line">text-indent      //段落中文本缩进</div><div class="line">text-decoration  //文本下划线上划线删除线</div><div class="line">text-transform   //控制文本大小写及大小写转换</div><div class="line">white-space      //控制文本流及格式</div></pre></td></tr></table></figure>
-<h3 id="列表属性"><a href="#列表属性" class="headerlink" title="列表属性"></a>列表属性</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">list-style-type    //改变项目列表和编号列表的表现</div><div class="line">list-style-image   //改变列表项的符号 url()</div><div class="line">list-style-position //控制列表项符号是出现在内部还是外不</div><div class="line">list-style          //简写属性 &lt;list-style-type&gt;||&lt;list-style-position&gt;||&lt;list-style-image&gt;</div></pre></td></tr></table></figure>
-<h2 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">background-color     //背景颜色</div><div class="line">backgrounf-image     //参数：url() 选择背景图片</div><div class="line">backgroung-repeat    //重复</div><div class="line">background-position  //控制背景定位</div><div class="line">background-attachment//scroll|fixed图像是否随着页面其他部分滚动</div><div class="line">background 			 //简写属性 &lt;'background-color'&gt;|&lt;'background-image'&gt;|&lt;'background-repeat'&gt;						 //&lt;'background-attchment'&gt;|&lt;'background-position'&gt;</div></pre></td></tr></table></figure>
-<h2 id="定位属性"><a href="#定位属性" class="headerlink" title="定位属性"></a>定位属性</h2><h4 id="绝对定位-absolute"><a href="#绝对定位-absolute" class="headerlink" title="绝对定位 absolute"></a>绝对定位 absolute</h4><p>绝对定位可以在文档中将元素放在精确的位置</p>
-<h3 id="相对定位-relative"><a href="#相对定位-relative" class="headerlink" title="相对定位 relative"></a>相对定位 relative</h3><p>类似于绝对定位，但应用相对定位的元素不脱离文档流。</p>
-<h3 id="固定定位-fixed"><a href="#固定定位-fixed" class="headerlink" title="固定定位 fixed"></a>固定定位 fixed</h3><p>固定定位将元素保持在同一固定位置，即使滚动文档也是如此</p>
-<h3 id="z-index"><a href="#z-index" class="headerlink" title="z-index"></a>z-index</h3><p>z轴可以看做是垂直于电脑屏幕的一条轴</p>
-<h2 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">caption-side        //top|bottom 控制表头位置</div><div class="line">col					//控制表格列，比如宽度</div><div class="line">table-layout		//auto|fixed 控制表格宽度 </div><div class="line">border-collapse		//collapse|separate 删除单元格间距</div><div class="line">border-spacing		//单元格间距 如果提供第二个值，则为垂直方向</div></pre></td></tr></table></figure>
-<h3 id="鼠标指针"><a href="#鼠标指针" class="headerlink" title="鼠标指针"></a>鼠标指针</h3><p>cursor</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2924,7 +2911,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

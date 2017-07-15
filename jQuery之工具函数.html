@@ -1,0 +1,818 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="检测浏览器类型由于jQuery1.9版本取消了对$.browser的支持,采用$.support来判断浏览器类型
+1navigator.userAgent
+对象和集合操作1.处理字符串$.trim(str)清理字符串前后的空白
+1234var str=&quot; hello world! &quot;str = $.trim(str)console.log(str)   //result:hello world!c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery之工具函数">
+<meta property="og:url" content="http://xujingguo.top/jQuery之工具函数.html">
+<meta property="og:site_name" content="许经国的个人博客">
+<meta property="og:description" content="检测浏览器类型由于jQuery1.9版本取消了对$.browser的支持,采用$.support来判断浏览器类型
+1navigator.userAgent
+对象和集合操作1.处理字符串$.trim(str)清理字符串前后的空白
+1234var str=&quot; hello world! &quot;str = $.trim(str)console.log(str)   //result:hello world!c">
+<meta property="og:updated_time" content="2017-04-04T04:10:28.601Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery之工具函数">
+<meta name="twitter:description" content="检测浏览器类型由于jQuery1.9版本取消了对$.browser的支持,采用$.support来判断浏览器类型
+1navigator.userAgent
+对象和集合操作1.处理字符串$.trim(str)清理字符串前后的空白
+1234var str=&quot; hello world! &quot;str = $.trim(str)console.log(str)   //result:hello world!c">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xujingguo.top/jQuery之工具函数.html"/>
+
+
+
+
+
+  <title> jQuery之工具函数 | 许经国的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">许经国的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">xujingguo</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://xujingguo.top/jQuery之工具函数.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="许经国">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="许经国的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="许经国的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery之工具函数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-16T04:53:46+08:00">
+                2016-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/jQuery之工具函数.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="jQuery之工具函数.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/jQuery之工具函数.html" class="leancloud_visitors" data-flag-title="jQuery之工具函数">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="检测浏览器类型"><a href="#检测浏览器类型" class="headerlink" title="检测浏览器类型"></a>检测浏览器类型</h3><p><del>由于jQuery1.9版本取消了对$.browser的支持</del>,采用$.support来判断浏览器类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">navigator.userAgent</div></pre></td></tr></table></figure>
+<h3 id="对象和集合操作"><a href="#对象和集合操作" class="headerlink" title="对象和集合操作"></a>对象和集合操作</h3><h4 id="1-处理字符串"><a href="#1-处理字符串" class="headerlink" title="1.处理字符串"></a>1.处理字符串</h4><p><code>$.trim(str)</code>清理字符串前后的空白</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">" hello world! "</span></div><div class="line">str = $.trim(str)</div><div class="line"><span class="built_in">console</span>.log(str)   <span class="comment">//result:hello world!</span></div><div class="line"><span class="built_in">console</span>.log(str.length)   <span class="comment">//result:12</span></div></pre></td></tr></table></figure>
+<h4 id="2-把对象转换为字符串"><a href="#2-把对象转换为字符串" class="headerlink" title="2.把对象转换为字符串"></a>2.把对象转换为字符串</h4><p><code>$.param</code>将字符串创建为一个序列化的数组或对象。该方法特别适用于一个URL地址查询字符串或ajax请求。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> option=&#123;</div><div class="line">	<span class="attr">user</span>:<span class="string">"demo"</span>,</div><div class="line">	<span class="attr">passwd</span>:<span class="string">"12345678"</span></div><div class="line">&#125;</div><div class="line">optionStr=$.param(option)</div><div class="line"><span class="built_in">console</span>.log(optionStr)  <span class="comment">//result:user=demo&amp;passwd=12345678</span></div><div class="line"><span class="built_in">console</span>.log(optionStr.length)	<span class="comment">//result:25</span></div></pre></td></tr></table></figure>
+<h4 id="3-判断数组类型"><a href="#3-判断数组类型" class="headerlink" title="3.判断数组类型"></a>3.判断数组类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>()</div><div class="line"><span class="built_in">console</span>.log($.isArray(array))</div><div class="line"><span class="comment">//result: true</span></div></pre></td></tr></table></figure>
+<h4 id="4-判断函数类型"><a href="#4-判断函数类型" class="headerlink" title="4.判断函数类型"></a>4.判断函数类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//is function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isFun</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log($.isFunction(isFun))</div><div class="line">         <span class="comment">//result:true</span></div></pre></td></tr></table></figure>
+<h4 id="5-判断特殊对象"><a href="#5-判断特殊对象" class="headerlink" title="5.判断特殊对象"></a>5.判断特殊对象</h4><h5 id="5-1检测空对象"><a href="#5-1检测空对象" class="headerlink" title="5.1检测空对象"></a>5.1检测空对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>()</div><div class="line"><span class="built_in">console</span>.log($.isEmptyObject(array))</div><div class="line"><span class="comment">//result:true</span></div></pre></td></tr></table></figure>
+<h5 id="5-2检测纯对象"><a href="#5-2检测纯对象" class="headerlink" title="5.2检测纯对象"></a>5.2检测纯对象</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> plainObject = <span class="keyword">new</span> <span class="built_in">Object</span>()</div><div class="line"><span class="built_in">console</span>.log($.isPlainObject(plainObject))</div><div class="line"><span class="comment">//result:true</span></div></pre></td></tr></table></figure>
+<h5 id="5-3检测window对象"><a href="#5-3检测window对象" class="headerlink" title="5.3检测window对象"></a>5.3检测window对象</h5><p><code>$.isWindow(obj)</code>检测一个对象是否为Window对象</p>
+<h5 id="5-4检测XML文档"><a href="#5-4检测XML文档" class="headerlink" title="5.4检测XML文档"></a>5.4检测XML文档</h5><p><code>$.isXMLDoc(node)</code>检测一个DOM节点是否在XML文档中</p>
+<h4 id="6-对数组和集合进行迭代"><a href="#6-对数组和集合进行迭代" class="headerlink" title="6.对数组和集合进行迭代"></a>6.对数组和集合进行迭代</h4><p><code>$.each(collection,callback(indexArray,valueOfElement))</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arrayEach = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"h"</span>,<span class="string">"e"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>,<span class="string">"l"</span>)</div><div class="line">$.each(arrayEach,<span class="function"><span class="keyword">function</span>(<span class="params">name,value</span>)</span>&#123;</div><div class="line">	alert(name+<span class="string">"="</span>+value)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h4 id="7-生成数组"><a href="#7-生成数组" class="headerlink" title="7.生成数组"></a>7.生成数组</h4><p><code>$.makeArray(obj)</code>将类数组结构装换为真正的数组结构</p>
+<p>如，通过<code>$(&quot;li&quot;)</code>or<code>getEmementByTagName(&quot;li&quot;)</code>获得的是一个类数组结构，但是通过makeArray函数转换后就是数组对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">objLi = $(&quot;li&quot;)</div><div class="line">			console.log($.isArray(objLi))</div><div class="line">			arrLi = $.makeArray(objLi)</div><div class="line">			console.log($.isArray(arrLi))</div></pre></td></tr></table></figure>
+<h4 id="8-对数组进行筛选"><a href="#8-对数组进行筛选" class="headerlink" title="8.对数组进行筛选"></a>8.对数组进行筛选</h4><p><code>$.grep(array,function(elementOfArray,IndexInArray),[invert])</code></p>
+<ul>
+<li>function用来处理每个项目的对比，与each不同，第一个参数是元素，第二个参数时索引</li>
+<li>invert为true，对callback返回true，如果为false，对callback返回false</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>)</div><div class="line">arrayGt=$.grep(array,<span class="function"><span class="keyword">function</span>(<span class="params">value,index</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> value&gt;=<span class="number">5</span></div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(arrayGt)  <span class="comment">//result:5,6,7,8</span></div><div class="line">arrayLt=$.grep(array,<span class="function"><span class="keyword">function</span>(<span class="params">value,index</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> value&gt;=<span class="number">5</span></div><div class="line">&#125;,<span class="literal">true</span>)</div><div class="line"><span class="built_in">console</span>.log(arrayLt)  <span class="comment">//result:1,2,3,4</span></div></pre></td></tr></table></figure>
+<h4 id="9-对数组进行转换"><a href="#9-对数组进行转换" class="headerlink" title="9.对数组进行转换"></a>9.对数组进行转换</h4><p><code>$.map(array,[callback(element,vale)])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>)</div><div class="line"><span class="built_in">console</span>.log($.map(array,<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> value*<span class="number">2</span></div><div class="line">&#125;))</div><div class="line">         <span class="comment">//result:2, 4, 6, 8, 10, 12, 14, 16</span></div></pre></td></tr></table></figure>
+<h4 id="10-把多个数组结合在一起"><a href="#10-把多个数组结合在一起" class="headerlink" title="10.把多个数组结合在一起"></a>10.把多个数组结合在一起</h4><p><code>$.merge(first,second)</code></p>
+<h4 id="11-删除数组中重复元素"><a href="#11-删除数组中重复元素" class="headerlink" title="11.删除数组中重复元素"></a>11.删除数组中重复元素</h4><p><code>$.unique(array)</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>,<span class="string">"8"</span>)</div><div class="line"><span class="built_in">console</span>.log($.unique(array))</div><div class="line"><span class="comment">//result: 2, 4, 6, 8, 10, 12, 14, 16</span></div></pre></td></tr></table></figure>
+<h4 id="12-在数组中查找指定值"><a href="#12-在数组中查找指定值" class="headerlink" title="12.在数组中查找指定值"></a>12.在数组中查找指定值</h4><p><code>$.inArray(value,array)</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>,<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>,<span class="string">"7"</span>,<span class="string">"8"</span>)</div><div class="line">alert($.inArray(<span class="string">"8"</span>,array))</div><div class="line"><span class="comment">//result:7</span></div></pre></td></tr></table></figure>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>数据缓存的作用就是在一个元素上存取元素而避免循环引用的风险，jQuery通过data函数实现数据缓存的机制</p>
+<p><code>$.data(element,key,value)</code></p>
+<ul>
+<li>element表示要关联数据的DOM对象</li>
+<li>key表示存储的数据名</li>
+<li>value表示新数据值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> liObj = $(<span class="string">"li"</span>)</div><div class="line">$.each(liObj,<span class="function"><span class="keyword">function</span>(<span class="params">name,index</span>)</span>&#123;</div><div class="line">	liObj.eq(name).data(<span class="string">"indexLi"</span>,name) <span class="comment">//给每一个li创建数据名indexLi,并用索													//引给其赋值</span></div><div class="line">&#125;)</div><div class="line">$.each(liObj,<span class="function"><span class="keyword">function</span>(<span class="params">name,index</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(liObj.eq(name).data(<span class="string">"indexLi"</span>))   <span class="comment">//读取indexLi的内容</span></div><div class="line">&#125;)</div><div class="line">         <span class="comment">//result: 0,1,2,3</span></div></pre></td></tr></table></figure>
+<p><code>$.removeData(element,[name])</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> liObj = $(<span class="string">"li"</span>)</div><div class="line">$.each(liObj,<span class="function"><span class="keyword">function</span>(<span class="params">name,index</span>)</span>&#123;</div><div class="line"></div><div class="line">	liObj.eq(name).data(<span class="string">"indexLi"</span>,name)</div><div class="line">&#125;)</div><div class="line">$(<span class="string">"li"</span>).removeData(<span class="string">"indexLi"</span>)  <span class="comment">//删除名称为indexLi的缓存</span></div><div class="line">$.each(liObj,<span class="function"><span class="keyword">function</span>(<span class="params">name,index</span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(liObj.eq(name).data(<span class="string">"indexLi"</span>))</div><div class="line">&#125;)</div><div class="line"><span class="comment">//result:undefined</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/jQuery之动画操作.html" rel="next" title="jQuery之动画操作">
+                <i class="fa fa-chevron-left"></i> jQuery之动画操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jQuery功能扩展.html" rel="prev" title="jQuery功能扩展">
+                jQuery功能扩展 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="jQuery之工具函数.html"
+           data-title="jQuery之工具函数" data-url="http://xujingguo.top/jQuery之工具函数.html">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="许经国" />
+          <p class="site-author-name" itemprop="name">许经国</p>
+          <p class="site-description motion-element" itemprop="description">xujingguo的个人博客，分享自己的经历，见证自己的成长，喜欢编程，目标前端</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#检测浏览器类型"><span class="nav-number">1.</span> <span class="nav-text">检测浏览器类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象和集合操作"><span class="nav-number">2.</span> <span class="nav-text">对象和集合操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-处理字符串"><span class="nav-number">2.1.</span> <span class="nav-text">1.处理字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-把对象转换为字符串"><span class="nav-number">2.2.</span> <span class="nav-text">2.把对象转换为字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-判断数组类型"><span class="nav-number">2.3.</span> <span class="nav-text">3.判断数组类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-判断函数类型"><span class="nav-number">2.4.</span> <span class="nav-text">4.判断函数类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-判断特殊对象"><span class="nav-number">2.5.</span> <span class="nav-text">5.判断特殊对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1检测空对象"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1检测空对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-2检测纯对象"><span class="nav-number">2.5.2.</span> <span class="nav-text">5.2检测纯对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-3检测window对象"><span class="nav-number">2.5.3.</span> <span class="nav-text">5.3检测window对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-4检测XML文档"><span class="nav-number">2.5.4.</span> <span class="nav-text">5.4检测XML文档</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-对数组和集合进行迭代"><span class="nav-number">2.6.</span> <span class="nav-text">6.对数组和集合进行迭代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-生成数组"><span class="nav-number">2.7.</span> <span class="nav-text">7.生成数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-对数组进行筛选"><span class="nav-number">2.8.</span> <span class="nav-text">8.对数组进行筛选</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-对数组进行转换"><span class="nav-number">2.9.</span> <span class="nav-text">9.对数组进行转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-把多个数组结合在一起"><span class="nav-number">2.10.</span> <span class="nav-text">10.把多个数组结合在一起</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-删除数组中重复元素"><span class="nav-number">2.11.</span> <span class="nav-text">11.删除数组中重复元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-在数组中查找指定值"><span class="nav-number">2.12.</span> <span class="nav-text">12.在数组中查找指定值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">3.</span> <span class="nav-text">缓存</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">许经国</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xujingguo58"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("aUk6k1vdr9PzABi2oUp9dRCj-gzGzoHsz", "bQkSDK44XTdUEf139hebJH6t");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

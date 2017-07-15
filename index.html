@@ -332,8 +332,7 @@
 
       
         
-          
-            <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p> ​    本项目是东北大学计算机学院网站的一个非官方版本.</p>
+          <h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p> ​    本项目是东北大学计算机学院网站的一个非官方版本.</p>
 <h2 id="Build-Setup"><a href="#Build-Setup" class="headerlink" title="Build Setup"></a>Build Setup</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># install dependencies</span></div><div class="line">npm install</div><div class="line"></div><div class="line"><span class="comment"># serve with hot reload at localhost:8080</span></div><div class="line">npm run dev</div><div class="line"></div><div class="line"><span class="comment"># build for production with minification</span></div><div class="line">npm run build</div><div class="line"></div><div class="line"><span class="comment"># build for production and view the bundle analyzer report</span></div><div class="line">npm run build --report</div><div class="line"></div><div class="line"><span class="comment"># run unit tests</span></div><div class="line">npm run unit</div><div class="line"></div><div class="line"><span class="comment"># run e2e tests</span></div><div class="line">npm run e2e</div><div class="line"></div><div class="line"><span class="comment"># run all tests</span></div><div class="line">npm <span class="built_in">test</span></div></pre></td></tr></table></figure>
 <h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><p><code>vue.js</code></p>
 <p><code>vue-router</code></p>
@@ -349,32 +348,13 @@
 <p>返回结果:</p>
 <p>前端渲染:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"centerList"</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list"</span> <span class="attr">v-for</span>=<span class="string">"item in centerNews"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>&#123;&#123;item.Title&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>得益于<code>vue-router</code>的强大,我们可以通过它实现强大的路由功能.</p>
-<h4 id="lazy-load"><a href="#lazy-load" class="headerlink" title="lazy-load"></a>lazy-load</h4><p>由于项目含有较多组件,如果在页面首次打开时就需要加载所有组件,无疑无大大减缓加载速度,为此,引入<code>vue-router</code>的<code>lazy-load</code>功能, 由于在首页加载完成后不需要加载校友组件,所以下面以校友页面为例,说明该过程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export default new Router(&#123;</div><div class="line">  routes: [</div><div class="line">  &#123;</div><div class="line">      path: &apos;/Alumnus&apos;,</div><div class="line">      component: resolve =&gt; require([&apos;@/components/Identity/Alumnus.vue&apos;], resolve)</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="嵌套路由"><a href="#嵌套路由" class="headerlink" title="嵌套路由"></a>嵌套路由</h4><p>父路由下还有子路由,路由之间存在嵌套,定义子路由如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	path: &apos;/&apos;,</div><div class="line">      name: &apos;Index&apos;,</div><div class="line">      component: Index,</div><div class="line">      redirect: &apos;/AcademyProfile/index&apos;,</div><div class="line">      children: [&#123;</div><div class="line">        path: &apos;/AcademyProfile/:page&apos;,</div><div class="line">        name: AcademyProfile,</div><div class="line">        component: AcademyProfile</div><div class="line">      &#125;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="默认路由"><a href="#默认路由" class="headerlink" title="默认路由"></a>默认路由</h4><p>更改网站打开的默认路由</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">redirect: &apos;/AcademyProfile/index&apos;,</div></pre></td></tr></table></figure>
-<h4 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">        path: &apos;/News/:page&apos;,</div><div class="line">        component: resolve =&gt; require([&apos;@/components/Tree/News.vue&apos;], resolve)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过<code>$route.params</code>传递参数,来匹配不同的路由,然后通过watch来检测变化.</p>
-<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>这里我使用的UI组件库是有饿了么出品的<code>element-ui</code>,需要在<code>main.js</code>引入组件和样式表</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> elementUI <span class="keyword">from</span> <span class="string">'element-ui'</span></div><div class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-default/index.css'</span></div><div class="line">Vue.use(elementUI)</div></pre></td></tr></table></figure>
-<p>应用主要是左侧的树型结构和新闻页的轮播效果.</p>
-<h3 id="https"><a href="#https" class="headerlink" title="https"></a>https</h3><p>由于存在登录,为了更加安全,引入了https,在Apache2中引入开启https的代码如下:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> &lt;VirtualHost *:443&gt;</div><div class="line">    ServerName www.neucse.cn</div><div class="line">	SSLCertificateFile /etc/apache2/ssl/2_www.neucse.cn.crt   //ssl为存放证书的路径</div><div class="line">	SSLCertificateKeyFile /etc/apache2/ssl/3_www.neucse.cn.key</div><div class="line">	SSLCertificateChainFile /etc/apache2/ssl/1_root_bundle.crt</div><div class="line">&gt;</div></pre></td></tr></table></figure>
-<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>数据库选用的是<code>MySQL</code>,用express操纵数据库.</p>
-<h3 id="备案"><a href="#备案" class="headerlink" title="备案"></a>备案</h3><p>截止到今天,备案仍然没有通过,不得不吐槽办事效率,从腾讯云开始提交信息再到提交管局,从5月20号到7月5号依旧显示备案中.</p>
-<h2 id="项目截图"><a href="#项目截图" class="headerlink" title="项目截图"></a>项目截图</h2><h3 id="首页"><a href="#首页" class="headerlink" title="首页"></a>首页</h3><p><img src="http://oq34prjoz.bkt.clouddn.com/Fn958WIrulhJ0iwSJSkxpL9qckKl" alt="首页"></p>
-<h3 id="新闻页"><a href="#新闻页" class="headerlink" title="新闻页"></a>新闻页</h3><p><img src="http://oq34prjoz.bkt.clouddn.com/Fvlfz6Uq0u3AslHoXb_o0TjIdEYp" alt="新闻页"></p>
-<h3 id="通知页"><a href="#通知页" class="headerlink" title="通知页"></a>通知页</h3><p><img src="http://oq34prjoz.bkt.clouddn.com/FvBhyyg_3sUkHP4mJ5Au_b3CCgq6" alt="通知页"></p>
-<h3 id="校友"><a href="#校友" class="headerlink" title="校友"></a>校友</h3><p><img src="http://oq34prjoz.bkt.clouddn.com/FhLyojuIAkh--zppQRlvWbvk2zvf" alt="校友"></p>
-<h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><p><a href="https://github.com/xujingguo58/neucse" target="_blank" rel="external">github地址</a></p>
-<p><a href="http://xujingguo.top/">本人博客</a></p>
-<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── Footer.vue       //底部栏</div><div class="line">├── Identity		 //身份</div><div class="line">│   ├── Alumnus.vue  //校友模块</div><div class="line">│   └── Student.vue  //学生模块</div><div class="line">├── Index.vue		 //首页</div><div class="line">├── mobile			 //移动端 </div><div class="line">│   ├── bottomFooter.vue   </div><div class="line">│   ├── latestNews.vue</div><div class="line">│   ├── majorChoice.vue</div><div class="line">│   ├── mobileIndex.vue</div><div class="line">│   ├── notice.vue</div><div class="line">│   └── topStories.vue    </div><div class="line">├── Nav.vue	          //导航栏</div><div class="line">├── Tree              //树型结构对应的显示界面</div><div class="line">│   ├── AcademyProfile.vue		//学院介绍</div><div class="line">│   ├── News.vue			    //学院新闻</div><div class="line">│   └── Notice.vue				//通知</div><div class="line">└── Tree.vue                    //左侧树型结构</div><div class="line"></div><div class="line">3 directories, 16 files</div></pre></td></tr></table></figure>
-<p>For detailed explanation on how things work, checkout the <a href="http://vuejs-templates.github.io/webpack/" target="_blank" rel="external">guide</a> and <a href="http://vuejs.github.io/vue-loader" target="_blank" rel="external">docs for vue-loader</a>.?</p>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/东北大学计算机学院网站首页-非官方.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -641,8 +621,7 @@
 
       
         
-          
-            <h2 id="一-使用Kotlin-Android-Extensions"><a href="#一-使用Kotlin-Android-Extensions" class="headerlink" title="一.使用Kotlin Android Extensions"></a>一.使用Kotlin Android Extensions</h2><ul>
+          <h2 id="一-使用Kotlin-Android-Extensions"><a href="#一-使用Kotlin-Android-Extensions" class="headerlink" title="一.使用Kotlin Android Extensions"></a>一.使用Kotlin Android Extensions</h2><ul>
 <li><p>项目的 build.gradle 添加依赖<br><code>classpath &quot;org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version&quot;</code></p>
 </li>
 <li><p>app 的 build.gradle 使用插件<br><code>apply plugin: &#39;kotlin-android-extensions&#39;</code></p>
@@ -658,36 +637,20 @@
 <li><p>在res下新建一个menu文件夹，在文件夹下新建一个menu resource file命名为main。</p>
 </li>
 <li><p>编辑menu文件，代码如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/add"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Add"</span>/&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">item</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/remove"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Remove"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/add"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Add"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/remove"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Remove"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>重写<code>onCreateOptionsMenu</code>和<code>onOptionsItemSelected</code>，可以使用<code>Ctrl+O</code>快捷键。</p>
 <p>代码如下：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreateOptionsMenu</span><span class="params">(menu: <span class="type">Menu</span>?)</span></span>: <span class="built_in">Boolean</span> &#123;</div><div class="line"></div><div class="line">        menuInflater.inflate(R.menu.main, menu)</div><div class="line">        <span class="comment">//getMenuInflater().inflate(R.menu.main,menu)   java</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onCreateOptionsMenu(menu)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onOptionsItemSelected</span><span class="params">(item: <span class="type">MenuItem</span>?)</span></span>: <span class="built_in">Boolean</span> &#123;</div><div class="line">        <span class="keyword">if</span>(item!=<span class="literal">null</span>)&#123;   <span class="comment">//确保非null</span></div><div class="line">            <span class="keyword">when</span>(item.itemId)&#123;</div><div class="line">                 R.id.add -&gt; Toast.makeText(<span class="keyword">this</span>,<span class="string">"add"</span>, LENGTH_SHORT).show()</div><div class="line">                 R.id.remove -&gt; Toast.makeText(<span class="keyword">this</span>,<span class="string">"remove"</span>, LENGTH_SHORT).show()</div><div class="line">                <span class="keyword">else</span> -&gt; &#123;</div><div class="line">                    Toast.makeText(<span class="keyword">this</span>,item.itemId, LENGTH_SHORT).show()</div><div class="line"></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onOptionsItemSelected(item)</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="四-实现Activity之间的跳转"><a href="#四-实现Activity之间的跳转" class="headerlink" title="四.实现Activity之间的跳转"></a>四.实现Activity之间的跳转</h2><h4 id="显式intent"><a href="#显式intent" class="headerlink" title="显式intent"></a>显式intent</h4><ul>
-<li><p>新建一个empty Activity，命名为SecondActivity</p>
-</li>
-<li><p>在原先的Activity中的按钮触发事件中添加如下代码：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> intent = Intent()</div><div class="line">intent.setClass(<span class="keyword">this</span>,SecondActivity::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure>
-<h4 id="隐式intent"><a href="#隐式intent" class="headerlink" title="隐式intent"></a>隐式intent</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> intent = Intent(Intent.ACTION_VIEW)</div><div class="line">intent.<span class="keyword">data</span> = Uri.parse(<span class="string">"https://www.baidu.com"</span>)</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="五-向下一个活动传递数据"><a href="#五-向下一个活动传递数据" class="headerlink" title="五.向下一个活动传递数据"></a>五.向下一个活动传递数据</h2><h4 id="1-从当前活动向下一个活动传递数据"><a href="#1-从当前活动向下一个活动传递数据" class="headerlink" title="1.从当前活动向下一个活动传递数据"></a>1.从当前活动向下一个活动传递数据</h4><p>首先在当前活动中写：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> intent = Intent()</div><div class="line">intent.setClass(<span class="keyword">this</span>,SecondActivity::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></div><div class="line">intent.putExtra(<span class="string">"data"</span>,<span class="string">"hello world"</span>)</div><div class="line">startActivity(intent)</div></pre></td></tr></table></figure>
-<p>利用<code>putExtra</code>方法传递字符串，该函数接受两个参数，第一个参数是键，第二个参数是要传递的数据。</p>
-<p>在下一个活动中，</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> intent = intent</div><div class="line"><span class="keyword">val</span> <span class="keyword">data</span> = intent.getStringExtra(<span class="string">"data"</span>)</div><div class="line">Log.d(<span class="string">"data from last activity"</span>,<span class="keyword">data</span>)</div></pre></td></tr></table></figure>
-<p>结果：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">from last activity: hello world</div></pre></td></tr></table></figure>
-<h4 id="2-返回数据给上一个活动"><a href="#2-返回数据给上一个活动" class="headerlink" title="2.返回数据给上一个活动"></a>2.返回数据给上一个活动</h4><p>在当期活动中用<code>startActivityForResult</code>启动活动并且指定返回码（这里为1）：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> intent = Intent()</div><div class="line">intent.setClass(<span class="keyword">this</span>,SecondActivity::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></div><div class="line">intent.putExtra(<span class="string">"data"</span>,<span class="string">"hello world"</span>)</div><div class="line">startActivityForResult(intent,<span class="number">1</span>)</div></pre></td></tr></table></figure>
-<p>在下一个进程返回数据：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">val</span> intent = Intent()</div><div class="line">intent.putExtra(<span class="string">"data_return"</span>,<span class="string">"world is not well"</span>)</div><div class="line">setResult(RESULT_OK,intent)</div><div class="line">finish()</div></pre></td></tr></table></figure>
-<p>在下一个进程返回数据后，要在当前活动中重写<code>onActivityResult</code>函数：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onActivityResult</span><span class="params">(requestCode: <span class="type">Int</span>, resultCode: <span class="type">Int</span>, <span class="keyword">data</span>: <span class="type">Intent</span>?)</span></span> &#123;</div><div class="line">        <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, <span class="keyword">data</span>)</div><div class="line">        <span class="keyword">if</span>(<span class="keyword">data</span>!=<span class="literal">null</span>&amp;&amp;requestCode==<span class="number">1</span>) &#123;   <span class="comment">//首先应确保data不能为空，并且请求码要匹配</span></div><div class="line">            <span class="keyword">when</span> (resultCode) &#123;</div><div class="line">                RESULT_OK -&gt; &#123;</div><div class="line">                    Log.d(<span class="string">"return data is:"</span>, <span class="keyword">data</span>.getStringExtra(<span class="string">"data_return"</span>))</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/在Android-Studio3-0中使用kotlin的一些笔记.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -817,8 +780,7 @@
 
       
         
-          
-            <pre><code>最进在做网站的后台管理功能，需要能够对数据库的文章进行“增，删，改，查”，但是遇到了图片保存的问题，如果采用前端上传图片至后端，然后后端保存，数据库存储图片的相对路径，这种方式感觉有点麻烦，于是就在寻求更简单的解决方案，那么有没有一种前端上传图片存储，直接返回图片外链的解决方案呢？
+          <pre><code>最进在做网站的后台管理功能，需要能够对数据库的文章进行“增，删，改，查”，但是遇到了图片保存的问题，如果采用前端上传图片至后端，然后后端保存，数据库存储图片的相对路径，这种方式感觉有点麻烦，于是就在寻求更简单的解决方案，那么有没有一种前端上传图片存储，直接返回图片外链的解决方案呢？
 </code></pre><p>  ​ 最终，我选择了element UI +七牛云对象存储来快速搭建图片服务器的解决方案。</p>
 <h2 id="element-UI"><a href="#element-UI" class="headerlink" title="element UI"></a>element UI</h2><p>  element UI是饿了么出品的一套基于vue的开元UI组件库，提供了非常强大的文件上传功能，只要指定上传url就可以使用ajax实现图片的上传，并且支持拖拽功能。</p>
 <p>  <img src="http://oq34prjoz.bkt.clouddn.com/FjkeXZOcQZi_hP4Cfpo0uYc7A7fS" alt=""></p>
@@ -826,27 +788,17 @@
 <h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><h3 id="1-注册七牛云"><a href="#1-注册七牛云" class="headerlink" title="1.注册七牛云"></a>1.注册七牛云</h3><p>  首先，注册七牛云，并且完成实名认证（七牛云的实名认证可以通过支付宝来授权验证，很方便），完成后会在<code>个人中心-&gt;秘钥管理</code>中看到两个秘钥<code>AccessKey/SecretKey</code>，然后创建自定义名字的对象存储空间，</p>
 <p>  在创建存储空间的时候，可以选择私人空间，但是图片的外链访问都需要秘钥，公共空间则不需要。</p>
 <p>  <img src="http://oq34prjoz.bkt.clouddn.com/FpE8PKzSSFbtjcyw4dc9vAAvs3Iy" alt=""></p>
-<p>  为了实现上传，我们还需要生成上传凭证，关于凭证，可以参看<a href="https://developer.qiniu.com/kodo/manual/1208/upload-token" target="_blank" rel="external">文档</a>，并且在文档结束后还有<a href="http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/uptoken?ref=developer.qiniu.com" target="_blank" rel="external">demo</a>，因为是个人项目，为了简单，我直接从demo中生成了deadline为1000多小时的秘钥，确保不会过期,</p>
+<p>  为了实现上传，我们还需要生成上传凭证，关于凭证，可以参看<a href="https://developer.qiniu.com/kodo/manual/1208/upload-token">文档</a>，并且在文档结束后还有<a href="http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/uptoken?ref=developer.qiniu.com">demo</a>，因为是个人项目，为了简单，我直接从demo中生成了deadline为1000多小时的秘钥，确保不会过期,</p>
 <p>  填入ak,sk,以及bucketName(就是开始创建的对象存储空间的名字)，deadline修改demo的源代码再重新运行即可。</p>
 <p>  <img src="http://oq34prjoz.bkt.clouddn.com/FgoBcnC7vuuDytTwdLg9l8t777XE" alt=""></p>
 <p>  生成token后，就可以实现上传了。</p>
-<h3 id="2-引入element-UI"><a href="#2-引入element-UI" class="headerlink" title="2.引入element  UI"></a>2.引入element  UI</h3><p>  关于element  UI的安装和引入可以参见官网的文档，引入完成后就可以在vue文件中的template中使用文件上传组件，注意，上传组件默认是自动上传的，即选择完图片就可以直接上传，不需要额外的事件来触发。</p>
-<h4 id="代码如下："><a href="#代码如下：" class="headerlink" title="代码如下："></a>代码如下：</h4>  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">el-upload</span></span></div><div class="line">    <span class="attr">action</span>=<span class="string">"http://upload-z1.qiniu.com"</span>  </div><div class="line">    <span class="attr">:drag</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">:on-success</span>=<span class="string">"handleAvatarSuccess"</span></div><div class="line">    <span class="attr">:on-error</span>=<span class="string">"handleError"</span></div><div class="line">    <span class="attr">:before-upload</span>=<span class="string">"beforeAvatarUpload"</span></div><div class="line">    <span class="attr">:data</span>=<span class="string">"postData"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">v-if</span>=<span class="string">"imageUrl"</span> <span class="attr">:src</span>=<span class="string">"imageUrl"</span> <span class="attr">class</span>=<span class="string">"avatar"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"el-icon-upload"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"el-upload__text"</span>&gt;</span>将文件拖到此处，或<span class="tag">&lt;<span class="name">em</span>&gt;</span>点击上传<span class="tag">&lt;/<span class="name">em</span>&gt;</span>		 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"el-upload__tip"</span> <span class="attr">slot</span>=<span class="string">"tip"</span>&gt;</span>只能上传jpg/png文件，且不		 超过500kb<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">el-upload</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="渲染效果："><a href="#渲染效果：" class="headerlink" title="渲染效果："></a>渲染效果：</h4><p>  <img src="http://oq34prjoz.bkt.clouddn.com/FjkeXZOcQZi_hP4Cfpo0uYc7A7fS" alt=""></p>
-<h4 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h4>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">action是上传的URL，为必选项，</div><div class="line">drag表示是否支持拖拽</div><div class="line">on-success钩子，上传成功</div><div class="line">on-error上传失败</div><div class="line">before-upload上传之前，可以用来判断上传类型是否符合要求，不符合停止上传</div><div class="line">data是一个对象，用来表示上传时附带的额外参数</div></pre></td></tr></table></figure>
-<p>  这个URL是由七牛云提供，在创建存储空间的时候会选择地区，不同的地区有不同的URL，而且http和https也是不同的URL，具体可以参见官方文档。</p>
-<p>  由于七牛云的上传需要秘钥，所以需要定义额外的data来上传附带的额外参数。</p>
-<p>  在<code>script</code>标签中，定义一个对象保存token</p>
-  <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">postData: &#123;</div><div class="line">    token: 'your token'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="js代码："><a href="#js代码：" class="headerlink" title="js代码："></a>js代码：</h4>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">methods: &#123;</div><div class="line">      handleAvatarSuccess(res, file) &#123;   <span class="comment">//上传成功后在图片框显示图片</span></div><div class="line">        <span class="keyword">this</span>.imageUrl =<span class="string">'http://oq34prjoz.bkt.clouddn.com/'</span>+ res.key</div><div class="line">        <span class="built_in">console</span>.log(res)</div><div class="line">      &#125;,</div><div class="line">      handleError(res) &#123;   <span class="comment">//显示错误</span></div><div class="line">        <span class="built_in">console</span>.log(res)</div><div class="line">      &#125;,</div><div class="line">      beforeAvatarUpload(file) &#123;    <span class="comment">//在图片提交前进行验证</span></div><div class="line">        <span class="keyword">const</span> isJPG = file.type === <span class="string">'image/jpeg'</span></div><div class="line">        <span class="keyword">const</span> isPNG = file.type === <span class="string">'image/png'</span></div><div class="line">        <span class="keyword">const</span> isLt2M = file.size / <span class="number">1024</span> / <span class="number">1024</span> &lt; <span class="number">2</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> (!isJPG&amp;&amp;!isPNG) &#123;</div><div class="line">          <span class="keyword">this</span>.$message.error(<span class="string">'上传头像图片只能是 JPG/PNG 格式!'</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (!isLt2M) &#123;</div><div class="line">          <span class="keyword">this</span>.$message.error(<span class="string">'上传头像图片大小不能超过 2MB!'</span>)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> isJPG &amp;&amp; isPNG &amp;&amp; isLt2m</div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p>  上传成功后会返回一个对象，包含一个hash和一个key，然后前边加上七牛云为你随机分配的域名就是图片的外链,</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://oq34prjoz.bkt.clouddn.com/&apos;+ res.key</div></pre></td></tr></table></figure>
-<p>  最终结果如下：</p>
-<p>  <img src="http://oq34prjoz.bkt.clouddn.com/Fg07felvLfhvfzrhcVymEui42E3d" alt=""></p>
-<p>  在七牛云的管理平台中，就可以看到我们上传的图片了</p>
-<p>  <img src="http://oq34prjoz.bkt.clouddn.com/FjIwXilMoB3cwXMwMpcd5ZkjIjdW" alt=""></p>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/element-UI-七牛云快速搭建图片服务器.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -976,8 +928,7 @@
 
       
         
-          
-            <h2 id="SQL数据库基本定义功能"><a href="#SQL数据库基本定义功能" class="headerlink" title="SQL数据库基本定义功能"></a>SQL数据库基本定义功能</h2><table>
+          <h2 id="SQL数据库基本定义功能"><a href="#SQL数据库基本定义功能" class="headerlink" title="SQL数据库基本定义功能"></a>SQL数据库基本定义功能</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -1023,70 +974,13 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Create</span> <span class="keyword">table</span> Students</div><div class="line">( sno <span class="built_in">char</span>(<span class="number">11</span>) primary <span class="keyword">key</span>,</div><div class="line">Sname <span class="built_in">char</span>(<span class="number">20</span>),</div><div class="line">Ssex    <span class="built_in">char</span>(<span class="number">2</span>),</div><div class="line">Sage    <span class="built_in">int</span>,</div><div class="line">Sdept   <span class="built_in">char</span>(<span class="number">20</span>))</div></pre></td></tr></table></figure>
 <h4 id="表的修改"><a href="#表的修改" class="headerlink" title="表的修改"></a>表的修改</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">添加列|完整性约束：</div><div class="line">           <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt; <span class="keyword">ADD</span> &lt;列名&gt; &lt;数据类型&gt; [完整性约束]</div><div class="line">删除列|完整性约束：</div><div class="line">	 	   <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt; <span class="keyword">DROP</span> &lt;列名&gt; &lt;数据类型&gt; [完整性约束]     </div><div class="line">修改列：</div><div class="line">		   <span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;表名&gt; <span class="keyword">ALTER</span>  <span class="keyword">COLUMN</span> &lt;列名&gt;  &lt;数据类型&gt;</div></pre></td></tr></table></figure>
 <h4 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Drop</span> <span class="keyword">table</span> &lt;表名&gt; [restrict|cascsde]</div><div class="line">Restrict: 表删除有限制条件，不能被其他表的约束所引用，不能有视图、触发器、存储过程或函数</div><div class="line"><span class="keyword">Cascade</span>:把一个基本表的定义连同表上的所有记录、索引以及由此基本表导出的所有视图都删除，并释放相应的存储空间</div></pre></td></tr></table></figure>
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="1-查询语句基本结构"><a href="#1-查询语句基本结构" class="headerlink" title="1.查询语句基本结构"></a>1.查询语句基本结构</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span>  [<span class="keyword">DISTINCT</span>] &lt;目标列&gt; [,&lt;目标列&gt;]</div><div class="line"><span class="keyword">FROM</span> &lt;基本表 (视图)&gt; [,&lt;基本表 (视图)&gt;]</div><div class="line">[<span class="keyword">WHERE</span> &lt;条件表达式&gt;]</div><div class="line">[<span class="keyword">Group</span> <span class="keyword">by</span> &lt;列名<span class="number">1</span>&gt; [<span class="keyword">having</span> &lt;分组表达式&gt;] ]</div><div class="line">[<span class="keyword">Order</span> <span class="keyword">By</span> &lt;列名<span class="number">2</span>&gt;[ <span class="keyword">asc</span> | <span class="keyword">desc</span> ]];</div></pre></td></tr></table></figure>
-<h3 id="2-单关系查询"><a href="#2-单关系查询" class="headerlink" title="2.单关系查询"></a>2.单关系查询</h3><h4 id="属性列查询"><a href="#属性列查询" class="headerlink" title="属性列查询"></a>属性列查询</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*表示关系的全部属性</div><div class="line">包含运算符的查询结果属性 eg:  select Sname,  2014-Sage from  Students;</div><div class="line">常量查询和函数 eg: select  Sname, ‘Year of birth: ’, 2014-Sage,islower(Sdept) from Students;</div><div class="line">指定别名来改变查询结果的列标题 eg: select Sname NAME, ‘Year of birth’ BIRTH from   Students;</div></pre></td></tr></table></figure>
-<h4 id="元组查询"><a href="#元组查询" class="headerlink" title="元组查询"></a>元组查询</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">消除取值重复的行 <span class="keyword">select</span>  <span class="keyword">distinct</span> Sno <span class="keyword">from</span> SC;</div></pre></td></tr></table></figure>
-<p>查询满足条件的元祖： WHERE字句</p>
-<table>
-<thead>
-<tr>
-<th>查询条件</th>
-<th>谓词</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>比较</td>
-<td>=, &gt;, &lt;, &gt;=, &lt;=. !=, &lt;&gt;, !&gt;, !&lt;, not+上述比较运算符</td>
-</tr>
-<tr>
-<td>确定范围</td>
-<td>between and, not between and</td>
-</tr>
-<tr>
-<td>确定集合</td>
-<td>in, not in</td>
-</tr>
-<tr>
-<td>字符匹配</td>
-<td>like, not like</td>
-</tr>
-<tr>
-<td>空值</td>
-<td>is null, is not null</td>
-</tr>
-<tr>
-<td>多重条件</td>
-<td>and, or</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-多关系查询"><a href="#3-多关系查询" class="headerlink" title="3.多关系查询"></a>3.多关系查询</h3><h4 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h4><p>多个 SQL的查询结果可以进行集合操作</p>
-<p>主要有： union(并集), intersect(交集), except(差集)</p>
-<p><em>关于消除重复元组的讨论：select默认保留重复，而集合操作是默认消除重复元组的，在后加上all，保留重复元组</em></p>
-<h4 id="连接操作"><a href="#连接操作" class="headerlink" title="连接操作"></a>连接操作</h4><p>1等值连接与非等值连接</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Students.*, SC.*</div><div class="line">  <span class="keyword">from</span> Students, SC</div><div class="line">  <span class="keyword">where</span> Students.Sno = SC.Sno;</div></pre></td></tr></table></figure>
-<p>自然连接</p>
-<p>在等值连接中把目标列中的重复属性列去掉</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Students.*, Cno, Grade</div><div class="line"></div><div class="line">  <span class="keyword">from</span> Students, SC    </div><div class="line"></div><div class="line">  <span class="keyword">where</span> Students.Sno = SC.Sno;</div></pre></td></tr></table></figure>
-<p>外连接</p>
-<p>在一般连接中,只有满足条件的元组才可以作为结果输出, 外连接则不同(左、右外连接)，把舍弃的元组保留在结果关系中，而在其他属性上填空值。左外连接列出左边关系中所有的元组，右外连接列出右边关系中所有的元组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">左外连接： LEFT OUTER JOIN</div><div class="line">全外连接： FULL OUTER JOIN</div></pre></td></tr></table></figure>
-<p>复合条件连接</p>
-<p>eg: </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">查询每个学生的学号、姓名、选修的课程名和成绩 </div><div class="line"><span class="keyword">select</span> Students.Sno, Sname, Cname, Grade</div><div class="line"><span class="keyword">from</span> Students, Courses, SC</div><div class="line"><span class="keyword">where</span> Students.Sno=SC.Sno <span class="keyword">and</span></div><div class="line">           SC.Cno=Courses.Cno;</div></pre></td></tr></table></figure>
-<h3 id="4-SQL嵌套查询"><a href="#4-SQL嵌套查询" class="headerlink" title="4.SQL嵌套查询"></a>4.SQL嵌套查询</h3><p>不相关子查询和相关子查询：</p>
-<p>不相关子查询求解方法由里向外，相关子查询求解方法由外向里</p>
-<h4 id="不相关子查询"><a href="#不相关子查询" class="headerlink" title="不相关子查询"></a>不相关子查询</h4><p>eg: 查询与刘晨在一个系学习的学生</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> Students <span class="keyword">where</span> Sdept <span class="keyword">in</span> (<span class="keyword">select</span> Sdept <span class="keyword">from</span> Students <span class="keyword">where</span> Sname=‘刘晨’)；</div></pre></td></tr></table></figure>
-<h4 id="相关子查询"><a href="#相关子查询" class="headerlink" title="相关子查询"></a>相关子查询</h4><p>eg: 查询所有选修了1号课程的学生姓名</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> Sname</div><div class="line">    <span class="keyword">from</span> Students</div><div class="line">    <span class="keyword">where</span> <span class="keyword">exists</span>  </div><div class="line">    (<span class="keyword">select</span> *</div><div class="line">     <span class="keyword">from</span> SC</div><div class="line">     <span class="keyword">where</span> Sno=Students.Sno </div><div class="line">     <span class="keyword">and</span> Cno=‘<span class="number">1</span>’</div><div class="line">     );</div></pre></td></tr></table></figure>
-<h3 id="5-SQL分组聚集查询"><a href="#5-SQL分组聚集查询" class="headerlink" title="5.SQL分组聚集查询"></a>5.SQL分组聚集查询</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">SQL提供的主要聚集函数</div><div class="line">    count( [distinct|all]  *)</div><div class="line">    count( [distinct|all] &lt;列名&gt;)</div><div class="line">    sum( [distinct|all] &lt;列名&gt;)</div><div class="line">    avg( [distinct|all] &lt;列名&gt;)</div><div class="line">    max ( [distinct|all] &lt;列名&gt;)</div><div class="line">    min ( [distinct|all] &lt;列名&gt;)</div></pre></td></tr></table></figure>
-<h2 id="SQL数据操纵功能"><a href="#SQL数据操纵功能" class="headerlink" title="SQL数据操纵功能"></a>SQL数据操纵功能</h2><h4 id="1-数据插入"><a href="#1-数据插入" class="headerlink" title="1.数据插入"></a>1.数据插入</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span>  Students <span class="keyword">values</span>(‘<span class="number">2011020</span>’, ‘陈东’, ‘男’, <span class="number">18</span>,‘<span class="keyword">IS</span>’);</div></pre></td></tr></table></figure>
-<h4 id="2-数据删除"><a href="#2-数据删除" class="headerlink" title="2.数据删除"></a>2.数据删除</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span>  <span class="keyword">from</span> Students <span class="keyword">where</span>   Sno = ‘<span class="number">2011019</span>’;</div></pre></td></tr></table></figure>
-<h4 id="3-数据修改"><a href="#3-数据修改" class="headerlink" title="3.数据修改"></a>3.数据修改</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span>   Students  <span class="keyword">set</span>  Sage = <span class="number">22</span> <span class="keyword">where</span>    Sno= ‘<span class="number">2011001</span>’;</div></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/数据库操作复习.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

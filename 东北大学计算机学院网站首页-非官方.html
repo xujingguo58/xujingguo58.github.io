@@ -96,7 +96,7 @@ Build Setup1234567891011121314151617181920# install dependenciesnpm install# ser
 <meta property="og:image" content="http://oq34prjoz.bkt.clouddn.com/Fvlfz6Uq0u3AslHoXb_o0TjIdEYp">
 <meta property="og:image" content="http://oq34prjoz.bkt.clouddn.com/FvBhyyg_3sUkHP4mJ5Au_b3CCgq6">
 <meta property="og:image" content="http://oq34prjoz.bkt.clouddn.com/FhLyojuIAkh--zppQRlvWbvk2zvf">
-<meta property="og:updated_time" content="2017-07-05T09:48:34.676Z">
+<meta property="og:updated_time" content="2017-07-15T16:26:39.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="东北大学计算机学院网站首页(非官方)">
 <meta name="twitter:description" content="项目介绍 ​    本项目是东北大学计算机学院网站的一个非官方版本.
@@ -351,6 +351,7 @@ Build Setup1234567891011121314151617181920# install dependenciesnpm install# ser
 <p>返回结果:</p>
 <p>前端渲染:</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"centerList"</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"list"</span> <span class="attr">v-for</span>=<span class="string">"item in centerNews"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>&#123;&#123;item.Title&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><p>得益于<code>vue-router</code>的强大,我们可以通过它实现强大的路由功能.</p>
 <h4 id="lazy-load"><a href="#lazy-load" class="headerlink" title="lazy-load"></a>lazy-load</h4><p>由于项目含有较多组件,如果在页面首次打开时就需要加载所有组件,无疑无大大减缓加载速度,为此,引入<code>vue-router</code>的<code>lazy-load</code>功能, 由于在首页加载完成后不需要加载校友组件,所以下面以校友页面为例,说明该过程</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">export default new Router(&#123;</div><div class="line">  routes: [</div><div class="line">  &#123;</div><div class="line">      path: &apos;/Alumnus&apos;,</div><div class="line">      component: resolve =&gt; require([&apos;@/components/Identity/Alumnus.vue&apos;], resolve)</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>

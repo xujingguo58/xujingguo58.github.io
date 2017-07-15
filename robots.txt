@@ -10,4 +10,4 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 Sitemap: http://xujingguo.top/sitemap.xml
-Sitemap: http://www.hunao.info/baidusitemap.xml
+Sitemap: http://xujingguo.top/baidusitemap.xml

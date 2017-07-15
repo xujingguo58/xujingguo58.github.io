@@ -346,7 +346,7 @@
 <p><a href="https://github.com/vuejs/vue-router/tree/next" target="_blank" rel="external">vue-router</a></p>
 <p><a href="https://github.com/mzabriskie/axios" target="_blank" rel="external">axios</a></p>
 <p><a href="https://github.com/ElemeFE/mint-ui/" target="_blank" rel="external">mint-ui</a></p>
-<h3 id="在线演示"><a href="#在线演示" class="headerlink" title="在线演示"></a>在线演示</h3><p><a href="http://xujingguo.top/zhihu/index.html" target="_blank" rel="external">demo</a></p>
+<h3 id="在线演示"><a href="#在线演示" class="headerlink" title="在线演示"></a>在线演示</h3><p><a href="http://xujingguo.top/zhihu/index.html">demo</a></p>
 <p><a href="https://github.com/xujingguo58/vue-" target="_blank" rel="external">github地址</a></p>
 <h3 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h3><h4 id="API"><a href="#API" class="headerlink" title="API:"></a>API:</h4><p>感谢<a href="https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90" target="_blank" rel="external">Xiao Liang</a>提供的API,所有 API 均由 <strong>知乎（Zhihu.Inc）</strong>提供。</p>
 <h4 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h4><p>由于浏览器的同源策略，不允许进行跨域请求，所以首先解决的就是跨域问题，以前采用的是开发时配置<code>/config/index.js</code>下的<code>proxyTable</code>选项，实际部署时采用nodejs转发，这次为了方便，采用了第三方API<a href="https://bird.ioliu.cn" target="_blank" rel="external">JsonBird</a>进行转发,可以避免跨域的问题，返回的是json对象。</p>
@@ -796,6 +796,21 @@
 
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
 

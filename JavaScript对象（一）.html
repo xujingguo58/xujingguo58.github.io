@@ -148,6 +148,24 @@ objectName.prototype
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -755,8 +773,8 @@ objectName.prototype
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Casading-Style-Sheets-for-Web-Design.html" rel="next" title="Casading Style Sheets for Web Design">
-                <i class="fa fa-chevron-left"></i> Casading Style Sheets for Web Design
+              <a href="/JavaScript基本概念.html" rel="next" title="JavaScript基本概念">
+                <i class="fa fa-chevron-left"></i> JavaScript基本概念
               </a>
             
           </div>
@@ -839,7 +857,7 @@ objectName.prototype
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

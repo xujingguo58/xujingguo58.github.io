@@ -132,6 +132,24 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -637,7 +655,7 @@
 <li><p>在res下新建一个menu文件夹，在文件夹下新建一个menu resource file命名为main。</p>
 </li>
 <li><p>编辑menu文件，代码如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/add"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Add"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/remove"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Remove"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/add"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Add"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/remove"</span></div><div class="line">        <span class="attr">android:title</span>=<span class="string">"Remove"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></div></pre></td></tr></table></figure>
 </li>
 <li><p>重写<code>onCreateOptionsMenu</code>和<code>onOptionsItemSelected</code>，可以使用<code>Ctrl+O</code>快捷键。</p>
 <p>代码如下：</p>
@@ -1936,7 +1954,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

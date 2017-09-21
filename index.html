@@ -262,6 +262,148 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://xujingguo.top/二叉树相关.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="许经国">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="许经国的个人博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="许经国的个人博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/二叉树相关.html" itemprop="url">
+                  二叉树相关
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-21T21:17:18Z">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/二叉树相关.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="二叉树相关.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/二叉树相关.html" class="leancloud_visitors" data-flag-title="二叉树相关">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-二叉树序列化-反序列化"><a href="#1-二叉树序列化-反序列化" class="headerlink" title="1.二叉树序列化/反序列化"></a>1.二叉树序列化/反序列化</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>设计一个算法能够实现序列化和反序列化一棵二叉树（注意，不是二叉搜索树BST）。这里的序列化指的是将一棵二叉树保存到文件中，反序列化就是从文件中读取二叉树结点值重构原来的二叉树。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>前一篇文章<a href="http://blog.csdn.net/ssjhust123/article/details/7774347" target="_blank" rel="external">保存二叉搜索树到文件中 </a> 解决了保存一棵<strong>二叉搜索树</strong>到文件中的问题，但是由于本题目的意思是要把一棵<strong>二叉树</strong>保存到文件中并从文件中读出重构二叉树。因为二叉树不一定是二叉搜索树，所以前面文章中的方法不能凑效。</p>
+<h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>因为二叉树与二叉搜索树的性质不同，所以不能简单的采用前面文章中的方法。不过，我们可以采用先序遍历的思想，只是在这里需要改动。为了能够在重构二叉树时结点能够插入到正确的位置，在使用先序遍历保存二叉树到文件中的时候需要把NULL结点也保存起来（可以使用特殊符号如“#”来标识NULL结点）。</p>
+<p>假定二叉树如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    _30_</div><div class="line">   /    \   </div><div class="line">  10    20</div><div class="line"> /     /  \</div><div class="line">50    45  35</div></pre></td></tr></table></figure>
+<p>则使用先序遍历，保存到文件中的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">30 10 50 # # # 20 45 # # 35 # #</div></pre></td></tr></table></figure>
+<h3 id="序列化二叉树"><a href="#序列化二叉树" class="headerlink" title="序列化二叉树"></a>序列化二叉树</h3><p>先序遍历的代码可以完成序列化二叉树的工作，不管你信不信，反正我是信了。代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">writeBinaryTree</span><span class="params">(BinaryTree *p, ostream &amp;out)</span>  <span class="comment">//BinaryTree是二叉树结构体，typedef struct node BinaryTree.  </span></span></div><div class="line">&#123;  </div><div class="line">  <span class="keyword">if</span> (!p) &#123;  </div><div class="line">    out &lt;&lt; <span class="string">"# "</span>;  </div><div class="line">  &#125; <span class="keyword">else</span> &#123;  </div><div class="line">    out &lt;&lt; p-&gt;data &lt;&lt; <span class="string">" "</span>;  </div><div class="line">    writeBinaryTree(p-&gt;left, out);  </div><div class="line">    writeBinaryTree(p-&gt;right, out);  </div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<h3 id="反序列化二叉树"><a href="#反序列化二叉树" class="headerlink" title="反序列化二叉树"></a>反序列化二叉树</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">readBinaryTree</span><span class="params">(BinaryTree *&amp;p, ifstream &amp;fin)</span>   </span></div><div class="line">&#123;  </div><div class="line">  <span class="keyword">int</span> token;  </div><div class="line">  <span class="keyword">bool</span> isNumber;  </div><div class="line">  <span class="keyword">if</span> (!readNextToken(token, fin, isNumber)) <span class="comment">//readNextToken读取文件下一个值，如果是数字返回true，否则返回false  </span></div><div class="line">    <span class="keyword">return</span>;  </div><div class="line">  <span class="keyword">if</span> (isNumber) &#123;  </div><div class="line">    p = newNode(token);         <span class="comment">//newNode函数创建新结点，设定data为token，left和right初始化为NULL  </span></div><div class="line">    readBinaryTree(p-&gt;left, fin);  </div><div class="line">    readBinaryTree(p-&gt;right, fin);  </div><div class="line">  &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-二叉树最长距离"><a href="#2-二叉树最长距离" class="headerlink" title="2.二叉树最长距离"></a>2.二叉树最长距离</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//改进的版本  </span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">HeightOfBinaryTree</span><span class="params">(BinaryTreeNode*pNode, <span class="keyword">int</span>&amp;nMaxDistance)</span></span>&#123;  </div><div class="line">    <span class="keyword">if</span> (pNode == <span class="literal">NULL</span>)  </div><div class="line">        <span class="keyword">return</span> <span class="number">-1</span>;   <span class="comment">//空节点的高度为-1  </span></div><div class="line">    <span class="comment">//递归  </span></div><div class="line">    <span class="keyword">int</span> nHeightOfLeftTree = HeightOfBinaryTree(pNode-&gt;m_pLeft, nMaxDistance) + <span class="number">1</span>;   <span class="comment">//左子树的的高度加1  </span></div><div class="line">    <span class="keyword">int</span> nHeightOfRightTree = HeightOfBinaryTree(pNode-&gt;m_pRight, nMaxDistance) + <span class="number">1</span>;   <span class="comment">//右子树的高度加1  </span></div><div class="line">    <span class="keyword">int</span> nDistance = nHeightOfLeftTree + nHeightOfRightTree;    <span class="comment">//距离等于左子树的高度加上右子树的高度+2  </span></div><div class="line">    nMaxDistance = nMaxDistance &gt; nDistance ? nMaxDistance : nDistance;            <span class="comment">//得到距离的最大值  </span></div><div class="line">    <span class="keyword">return</span> nHeightOfLeftTree &gt; nHeightOfRightTree ? nHeightOfLeftTree : nHeightOfRightTree;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://xujingguo.top/东北大学计算机学院网站首页-非官方.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1699,221 +1841,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://xujingguo.top/vue组件.html">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="许经国">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.png">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="许经国的个人博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="许经国的个人博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/vue组件.html" itemprop="url">
-                  vue组件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-02T18:42:45Z">
-                2017-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/vue组件.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="vue组件.html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/vue组件.html" class="leancloud_visitors" data-flag-title="vue组件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="使用组件"><a href="#使用组件" class="headerlink" title="使用组件"></a>使用组件</h3><h4 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h4><p>注册全局组件，可以使用<code>Vue.component(tagName,options)</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"example"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 注册</span></div><div class="line">Vue.component(<span class="string">'my-component'</span>, &#123;</div><div class="line">  <span class="attr">template</span>: <span class="string">'&lt;div&gt;A custom component!&lt;/div&gt;'</span></div><div class="line">&#125;)</div><div class="line"><span class="comment">// 创建根实例</span></div><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  <span class="attr">el</span>: <span class="string">'#example'</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<h4 id="局部注册"><a href="#局部注册" class="headerlink" title="局部注册"></a>局部注册</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">new-components</span>&gt;</span><span class="tag">&lt;/<span class="name">new-components</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> newComp=&#123;</div><div class="line"> 			<span class="attr">template</span>: <span class="string">'&lt;li&gt;hello world!&lt;/li&gt;'</span></div><div class="line"> 		&#125;</div><div class="line">		<span class="keyword">new</span> Vue(&#123;</div><div class="line">			<span class="attr">el</span>: <span class="string">'#app'</span>,</div><div class="line">			<span class="attr">components</span>: &#123; </div><div class="line">			<span class="string">'new-components'</span>: newComp</div><div class="line">			&#125;</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
-<h4 id="DOM模板解析说明"><a href="#DOM模板解析说明" class="headerlink" title="DOM模板解析说明"></a>DOM模板解析说明</h4><p>当使用 DOM 作为模版时（例如，将 <code>el</code> 选项挂载到一个已存在的元素上）, 你会受到 HTML 的一些限制，因为 Vue 只有在浏览器解析和标准化 HTML 后才能获取模版内容。尤其像这些元素<code>&lt;ul&gt;</code>,<code>&lt;ol&gt;</code>,<code>&lt;table&gt;</code>,<code>&lt;select&gt;</code>限制了能被它包裹的元素， <code>&lt;option&gt;</code> 只能出现在其它元素内部。</p>
-<p>可以使用<code>is</code>属性</p>
-<h4 id="data必须是函数"><a href="#data必须是函数" class="headerlink" title="data必须是函数"></a>data必须是函数</h4><p>通过Vue构造器传入的各种选项大多数都可以在组件里用。 <code>data</code> 是一个例外，它必须是函数。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Vue.component(<span class="string">'my-conponent'</span>,&#123;</div><div class="line">		<span class="attr">template</span>:</div><div class="line">		<span class="string">'&lt;button v-on:click="counter+=1"&gt;&#123;&#123; counter &#125;&#125;&lt;/button&gt; '</span>,</div><div class="line">		<span class="attr">data</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="keyword">return</span> &#123;</div><div class="line">				<span class="attr">counter</span>: <span class="number">0</span></div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)</div></pre></td></tr></table></figure>
-<p>这样返回counter可以为每一个组件提供不同的counter，这样组件的counter不会共享。</p>
-<h4 id="构成组件"><a href="#构成组件" class="headerlink" title="构成组件"></a>构成组件</h4><p>父子组件：组件A在它的模板中使用了组件B。</p>
-<p>通信： 父组件要给子组件传递数据，子组件需要将它内部发生的事情告知给子组件。</p>
-<p>在vue中，父子组件的关系可以总结为props down ,evnet up.父组件通过props向下传递数据给子组件，子组件通过evrnts给父组件发送消息。</p>
-<h3 id="Prop"><a href="#Prop" class="headerlink" title="Prop"></a>Prop</h3><h4 id="使用Prop-传递数据"><a href="#使用Prop-传递数据" class="headerlink" title="使用Prop 传递数据"></a>使用Prop 传递数据</h4><p>组件实例的作用域使孤立的。要让子组件使用父组件的数据，需要通过子组件的props选项。</p>
-<p>子组件：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  &lt;div class="hello"&gt;</div><div class="line">    &lt;h1&gt;&#123;&#123; msg &#125;&#125;&lt;/h1&gt;</div><div class="line">   &lt;h3&gt;&#123;&#123; ParentToChild &#125;&#125;&lt;/h3&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">export default &#123;</div><div class="line">  props: ['ParentToChild'],  //必须用单引号，否则报错</div><div class="line">  data () &#123;</div><div class="line">    return &#123;</div><div class="line">      msg: 'Welcome to Your Vue.js App'</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">&lt;style&gt;</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
-<p>父组件:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">template&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./assets/logo.png"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">child</span> <span class="attr">ParentToChild</span>=<span class="string">"this is the message to child components"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div><div class="line">    //在template加入child标签，传值</div><div class="line">    &#123;&#123; message &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"><span class="keyword">import</span> child <span class="keyword">from</span> <span class="string">'./components/Hello'</span>  <span class="comment">//引入子组件</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'app'</span>,</div><div class="line">  <span class="attr">components</span>: &#123;    <span class="comment">//注册</span></div><div class="line">    child</div><div class="line">  &#125;,</div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">message</span>: <span class="string">'hello world'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="动态prop"><a href="#动态prop" class="headerlink" title="动态prop"></a>动态prop</h4><p>通过v-bind进行动态绑定。</p>
-<h4 id="字面量语法vs动态语法"><a href="#字面量语法vs动态语法" class="headerlink" title="字面量语法vs动态语法"></a>字面量语法vs动态语法</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 传递了一个字符串“1” --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">some-comp</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>因为它是一个字面prop，它的值使字符串”1“而不是number。如果想传递一个实际number，需要用<code>v-bind</code>,从而让它的值被当做javascript表达式计算：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 传递实际的number --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">comp</span> <span class="attr">v-bind:some-comp</span>=<span class="string">"1"</span>&gt;</span><span class="tag">&lt;/<span class="name">comp</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h4><p>prop是单向绑定的，当父组件的属性变化时，将传导给子组件，但是不会反过来。</p>
-<p>每当父组件更新时，子组件的所有prop都会更新为最新值。这意味<strong>不应该</strong>在子组件内部改变prop。</p>
-<p> 1.prop作为初始值传入时，子组件想把它作为局部数据来用：</p>
-<p>解决方案：定义一个局部变量，并用prop的值初始化它：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">props: [<span class="string">'initiaCounter'</span>],</div><div class="line">data () &#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">counter</span>: <span class="keyword">this</span>.initiaCounter</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2.prop作为初始值传入，由子组件处理成其它数据输出：</p>
-<p>解决方案：定义一个计算属性，处理prop的值病返回。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">props: [<span class="string">'size'</span>],</div><div class="line"><span class="attr">computed</span>: &#123;</div><div class="line">  <span class="attr">normalizedSize</span>: funtion()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.size.trim().toLowerCase</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="Prop验证"><a href="#Prop验证" class="headerlink" title="Prop验证"></a>Prop验证</h4><p>我们可以为组件的 props 指定验证规格。如果传入的数据不符合规格，Vue 会发出警告。</p>
-<h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3><p>子组件把数据传递给父组件，使用<strong>自定义事件</strong></p>
-<h4 id="使用v-on绑定自定义事件"><a href="#使用v-on绑定自定义事件" class="headerlink" title="使用v-on绑定自定义事件"></a>使用v-on绑定自定义事件</h4><ul>
-<li><p>使用<code>$on(eventName)</code>监听事件</p>
-</li>
-<li><p>使用<code>$emit(eventName)</code>触发事件</p>
-<p>​</p>
-</li>
-</ul>
-<p>子组件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hello"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; ParentToChild &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">v-on:click</span>=<span class="string">"countAddOne"</span>&gt;</span>&#123;&#123; counter&#125;&#125;<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></div><div class="line">   </div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">props</span>: [<span class="string">'ParentToChild'</span>],</div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">msg</span>: <span class="string">'Welcome to Your Vue.js App'</span>,</div><div class="line">      <span class="attr">counter</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">countAddOne</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.counter++</div><div class="line">      <span class="keyword">this</span>.$emit(<span class="string">'increment'</span>, <span class="string">'this is the message from child '</span>)</div><div class="line">    &#125;  <span class="comment">//将要传递的值作为emit的第二个参数</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<p>父组件:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;template&gt;</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./assets/logo.png"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">child</span> <span class="attr">v-bind:ParentToChild</span>=<span class="string">"1"</span> <span class="attr">v-on:increment</span>=<span class="string">"parentAddOne"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">child</span> <span class="attr">v-bind:ParentToChild</span>=<span class="string">"1"</span> <span class="attr">v-on:increment</span>=<span class="string">"parentAddOne"</span>&gt;</span><span class="tag">&lt;/<span class="name">child</span>&gt;</span></div><div class="line">    &#123;&#123; message &#125;&#125;</div><div class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>&#123;&#123; total &#125;&#125;<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line"><span class="keyword">import</span> child <span class="keyword">from</span> <span class="string">'./components/Hello'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'app'</span>,</div><div class="line">  <span class="attr">components</span>: &#123;</div><div class="line">    child</div><div class="line">  &#125;,</div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      <span class="attr">message</span>: <span class="string">'hello world'</span>,</div><div class="line">      <span class="attr">total</span>: <span class="number">0</span></div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="attr">methods</span>: &#123;</div><div class="line">    <span class="attr">parentAddOne</span>: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</div><div class="line">      <span class="keyword">this</span>.total++</div><div class="line">      <span class="built_in">console</span>.log(data)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
-<p>总结：</p>
-<ul>
-<li>子组件触发一个自定义事件</li>
-<li>该事件使用emit（）传递</li>
-<li>在父组件中监听子组件 传递来的事件</li>
-</ul>
-<h4 id="使用自定义的表单输入事件"><a href="#使用自定义的表单输入事件" class="headerlink" title="使用自定义的表单输入事件"></a>使用自定义的表单输入事件</h4><p>自定义事件可以用来创建自定义的表单输入组件，使用 <code>v-model</code> 来进行数据双向绑定。看看这个：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-model</span>=<span class="string">"something"</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>这不过是以下示例的语法糖：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-bind:value</span>=<span class="string">"something"</span> <span class="attr">v-on:input</span>=<span class="string">"something = $event.target.value"</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>非父子组件通信</p>
-<p>有时候两个组件也需要通信(非父子关系)。在简单的场景下，可以使用一个空的 Vue 实例作为中央事件总线</p>
-<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><ul>
-<li>创建一个事件总线，例如demo中的Bus，用它作为通信桥梁</li>
-<li>在需要传值的组件中用bus.$emit触发一个自定义事件，并传递参数</li>
-<li>在需要接收数据的组件中用bus.$on监听自定义事件，并在回调函数中处理传递过来的参数</li>
-</ul>
-<h3 id="使用Solt来分发内容"><a href="#使用Solt来分发内容" class="headerlink" title="使用Solt来分发内容"></a>使用Solt来分发内容</h3><h4 id="编译作用域"><a href="#编译作用域" class="headerlink" title="编译作用域"></a>编译作用域</h4><p><strong>父组件模板的内容在父组件作用域内编译；子组件模板的内容在子组件作用域内编译。</strong></p>
-<h4 id="单个Slot"><a href="#单个Slot" class="headerlink" title="单个Slot"></a>单个Slot</h4><p>除非子组件模板包含至少一个 <code>&lt;slot&gt;</code> 插口，否则父组件的内容将会被<strong>丢弃</strong>。当子组件模板只有一个没有属性的 slot 时，父组件整个内容片段将插入到 slot 所在的 DOM 位置，并替换掉 slot 标签本身。</p>
-<p>最初在 `` 标签中的任何内容都被视为<strong>备用内容</strong>。备用内容在子组件的作用域内编译，并且只有在宿主元素为空，且没有要插入的内容时才显示备用内容。</p>
-<h4 id="具名Slot"><a href="#具名Slot" class="headerlink" title="具名Slot"></a>具名Slot</h4><p>Slot元素可以使用属性name来配置如何分发内容。</p>
-<h4 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h4><p>作用域插槽是一种特殊类型的插槽，用作使用一个（能够传递数据到）可重用模板替换已渲染元素。</p>
-<p>在子组件中，只需将数据传递到插槽，就像你将 prop 传递给组件一样：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">slot</span> <span class="attr">text</span>=<span class="string">"hello from child"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>在父级中，具有特殊属性 <code>scope</code> 的<code>&lt;template&gt;</code> 元素，表示它是作用域插槽的模板。<code>scope</code> 的值对应一个临时变量名，此变量接收从子组件中传递的 prop 对象：</p>
-<p>如果我们渲染以上结果，得到的输出会是：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"child"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello from parent<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>hello from child<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h3><p>通过使用保留的component元素，动态的绑定到它的is属性，让多个组件可以使用一个挂载点。</p>
-<h4 id="keep-alive"><a href="#keep-alive" class="headerlink" title="keep-alive"></a>keep-alive</h4><p>如果把切换出去的组件保存在内存中，可以保留它的状态或避免重新渲染。</p>
-<h3 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h3><h4 id="编写可复用的组件"><a href="#编写可复用的组件" class="headerlink" title="编写可复用的组件"></a>编写可复用的组件</h4><p>使用<code>v-bind</code>和<code>v-on</code>的简写语法，模板的缩进清楚且简介：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">my-component</span></span></div><div class="line">  <span class="attr">:foo</span>=<span class="string">"baz"</span></div><div class="line">  <span class="attr">:bar</span>=<span class="string">"qux"</span></div><div class="line">  @<span class="attr">event-a</span>=<span class="string">"doThis"</span></div><div class="line">  @<span class="attr">event-b</span>=<span class="string">"doThis"</span></div><div class="line">&gt;</div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">solt</span>=<span class="string">"icon"</span> <span class="attr">src</span>=<span class="string">""</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></div></pre></td></tr></table></figure>
-<h4 id="子组件索引"><a href="#子组件索引" class="headerlink" title="子组件索引"></a>子组件索引</h4><p>尽管有props和events，但是有时仍有需要在JavaScript中直接访问子组件，可以使用<code>ref</code>为子组件指定一个索引ID。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'app'</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">child-component</span> <span class="attr">ref</span>=<span class="string">"child1"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> parent=<span class="keyword">new</span> Vue(&#123;<span class="attr">el</span>: <span class="string">'#app'</span>&#125;)</div><div class="line"><span class="keyword">var</span> child = parent.$refs.child1</div></pre></td></tr></table></figure>
-<p>当ref和v-for一起用时，ref使一个数组或对象</p>
-<p><code>$refs</code> 只在组件渲染完成后才填充，并且它是非响应式的。</p>
-<h4 id="异步组件"><a href="#异步组件" class="headerlink" title="异步组件"></a>异步组件</h4><h4 id="组件命名约定"><a href="#组件命名约定" class="headerlink" title="组件命名约定"></a>组件命名约定</h4><p>当注册组件（或者 props）时，可以使用 kebab-case ，camelCase ，或 TitleCase 。Vue 不关心这个。</p>
-<h4 id="递归组件"><a href="#递归组件" class="headerlink" title="递归组件"></a>递归组件</h4><p>组件在它的模板内可以递归的调用自己，只有有name选项使才可以。</p>
-<p>使用时必须设置终止条件。</p>
-<h4 id="对低开销的静态组件使用v-once"><a href="#对低开销的静态组件使用v-once" class="headerlink" title="对低开销的静态组件使用v-once"></a>对低开销的静态组件使用v-once</h4>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1959,7 +1886,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
